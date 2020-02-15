@@ -23,11 +23,13 @@ Buffer::Buffer(const char* p)
     file.close();
 }
 
-void Buffer::print(WINDOW* const win, short height, short width)
+size_t Buffer::size()
 {
-    width = width/4 - 4;
+    return bytes.size();
+}
 
-    const short cols = width;
+void Buffer::print(WINDOW* const win, short height, const short cols)
+{
     std::string str = "";
     int x = 0;
     int y = 0;

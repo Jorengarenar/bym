@@ -10,6 +10,7 @@ class Buffer {
   public:
     Buffer();
     Buffer(const char*);
+    size_t size();
 
   private:
     std::string path;

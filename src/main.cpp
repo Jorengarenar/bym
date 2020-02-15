@@ -5,18 +5,51 @@
 #include "editor.hpp"
 #include "window.hpp"
 
+bool handleInput(Window& w)
+{
+    wchar_t c = getch();
+
+    switch (c) {
+        case KEY_RESIZE:
+            refresh();
+            w.redraw();
+            break;
+        case 'q':
+            return false;
+            break;
+        case 'j':
+            w.moveDown();
+            break;
+        case 'k':
+            w.moveUp();
+            break;
+        case 'l':
+            w.moveRight();
+            break;
+        case 'h':
+            w.moveLeft();
+            break;
+        case 'n':
+            break;
+    }
+    return true;
+}
+
 void init_curses()
 {
     initscr();
 
-    curs_set(0);
+    //curs_set(0);
     keypad(stdscr, TRUE);
     noecho();
     raw();
+
+    refresh();
 }
 
 int main(int argc, char* argv[])
 {
+
     std::vector<Buffer> buf;
     if (argc > 1) {
         for (int i = 1; i < argc; i++) {
@@ -27,28 +60,16 @@ int main(int argc, char* argv[])
         buf.push_back(Buffer());
     }
 
-    wchar_t c;
-
     init_curses();
 
+    WINDOW* cmd = newwin(1, COLS, LINES-1, 0);
+    wprintw(cmd, "basdjnf");
+    wrefresh(cmd);
     refresh();
+
     Window w(LINES-1, COLS, buf[0]);
 
-    do {
-        c = getch();
-        while (c == KEY_RESIZE) {
-            refresh();
-            w.resize();
-            c = getch();
-        }
+    while (handleInput(w));
 
-        if (c == 't') {
-            w.buf(buf[1]);
-        }
-
-        if (c == 'r') {
-            refresh();
-        }
-    } while (c != 'q');
     endwin();
 }
