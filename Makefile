@@ -1,11 +1,12 @@
 CC = g++
 
-CFLAGS = -std=gnu++11 -g
+CXXFLAGS = -std=gnu++11 -g -Wall
 LIBS = -l ncurses
+INCLUDES = -I include
 
 SRC = src
 
-MAIN = bvim
+PROGNAME = bvim
 
-$(MAIN): $(SRC)/$(MAIN).cpp $(SRC)/buffer.cpp
-	$(CC) $(CFLAGS) $(LIBS) -o $(MAIN) $(SRC)/$(MAIN).cpp $(SRC)/buffer.cpp
+$(PROGNAME): $(SRC)/main.cpp $(SRC)/buffer.cpp $(SRC)/window.cpp
+	$(CC) $(CXXFLAGS) $(LIBS) $(INCLUDES) -o $(PROGNAME) $(SRC)/main.cpp $(SRC)/buffer.cpp $(SRC)/window.cpp
