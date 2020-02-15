@@ -39,6 +39,7 @@ int main(int argc, char* argv[])
     do {
         c = getch();
         while (c == KEY_RESIZE) {
+            refresh();
             w.fill();
             c = getch();
         }

@@ -5,7 +5,7 @@ Window::Window(short h, short w, Buffer& buf)
     height = h;
     width  = w;
     buffer = &buf;
-    win    = newwin(height, width, 0, 0);
+    win    = newwin(h, w, 0, 0);
 }
 
 Window::~Window()
@@ -21,6 +21,7 @@ void Window::buf(Buffer& b)
 
 void Window::fill()
 {
+    wresize(win, LINES, COLS);
     buffer->print(win);
     wrefresh(win);
 }
