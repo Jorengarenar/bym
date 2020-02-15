@@ -23,10 +23,8 @@ Buffer::Buffer(const char* p)
     file.close();
 }
 
-void Buffer::print(WINDOW* win)
+void Buffer::print(WINDOW* const win, short height, short width)
 {
-    short height, width;
-    getmaxyx(win, height, width);
     width = width/4 - 4;
 
     const short cols = width;
@@ -61,11 +59,13 @@ void Buffer::print(WINDOW* win)
         wprintw(win, "%08X: ", 0);
     }
 
-    while (x < cols) {
-        wprintw(win, "   ");
-        x++;
+    if (y < height) {
+        while (x < cols) {
+            wprintw(win, "   ");
+            x++;
+        }
+        wprintw(win, "| %s\n", str.c_str());
     }
-    wprintw(win, "| %s\n", str.c_str());
 }
 
 void Buffer::save()

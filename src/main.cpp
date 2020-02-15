@@ -31,21 +31,23 @@ int main(int argc, char* argv[])
 
     init_curses();
 
-    Window w(LINES, COLS, buf[0]);
     refresh();
-
-    w.fill();
+    Window w(LINES-1, COLS, buf[0]);
 
     do {
         c = getch();
         while (c == KEY_RESIZE) {
             refresh();
-            w.fill();
+            w.resize();
             c = getch();
         }
 
         if (c == 't') {
             w.buf(buf[1]);
+        }
+
+        if (c == 'r') {
+            refresh();
         }
     } while (c != 'q');
     endwin();

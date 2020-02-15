@@ -1,6 +1,6 @@
 CC = g++
 
-CXXFLAGS = -std=gnu++11 -g -Wall
+CXXFLAGS = -std=gnu++11 -g
 LIBS = -l ncurses
 INCLUDES = -I include
 
