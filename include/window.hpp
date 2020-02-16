@@ -4,7 +4,6 @@
 
 #include "buffer.hpp"
 
-
 class Window {
   public:
     Window(short, short, Buffer&);
@@ -27,10 +26,14 @@ class Window {
     short   cols;
     short   y;
     short   x;
-    short   curr_col;
     Buffer* buffer;
-    WINDOW* win;
-    WINDOW* statusline;
+
+    struct {
+        WINDOW* numbers;
+        WINDOW* hexs;
+        WINDOW* text;
+        WINDOW* statusline;
+    } SubWindows;
 
     void fill();
 };

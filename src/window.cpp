@@ -6,22 +6,36 @@ Window::Window(short h, short w, Buffer& buf)
     width      = w;
     cols       = width/4 - 4;
     buffer     = &buf;
-    win        = newwin(h, w, 0, 0);
-    statusline = nullptr;
     current    = 0;
-    curr_col   = 0;
     y          = 0;
-    x          = 11;
+    x          = 0;
+
+    SubWindows = {
+        .numbers = newwin(height, 10, 0, 0),
+        .hexs    = newwin(height, cols*3, 0, 10),
+        .text    = newwin(height, cols+5, 0, cols*3 + 11),
+        .statusline = nullptr
+    };
+    refresh();
+
     fill();
     updateStatusLine();
-    wmove(win, 0, 11);
-    wrefresh(win);
+
+    wattron(SubWindows.text, A_REVERSE | A_BLINK);
+    mvwprintw(SubWindows.text, 0, 0, " ");
+    wattroff(SubWindows.text, A_REVERSE | A_BLINK);
+    wrefresh(SubWindows.text);
+
+    wmove(SubWindows.hexs, y, x);
+    wrefresh(SubWindows.hexs);
 }
 
 Window::~Window()
 {
-    delwin(statusline);
-    delwin(win);
+    delwin(SubWindows.hexs);
+    delwin(SubWindows.text);
+    delwin(SubWindows.numbers);
+    delwin(SubWindows.statusline);
 }
 
 void Window::buf(Buffer& b)
@@ -35,32 +49,56 @@ void Window::redraw()
     height = LINES-1;
     width  = COLS;
     cols   = width/4 - 4;
-    wresize(win, height, width);
+
+    delwin(SubWindows.hexs);
+    delwin(SubWindows.text);
+    delwin(SubWindows.numbers);
+    delwin(SubWindows.statusline);
+    SubWindows = {
+        .numbers = newwin(height, 10, 0, 0),
+        .hexs    = newwin(height, cols*3, 0, 10),
+        .text    = newwin(height, cols+5, 0, cols*3 + 11),
+        .statusline = nullptr
+    };
+
     fill();
     updateStatusLine();
+
+    if (x != current % cols && current % cols) {
+        x = current % cols;
+        y = current / cols;
+        wmove(SubWindows.hexs, y, x*3);
+        wrefresh(SubWindows.hexs);
+    }
 }
 
 void Window::fill()
 {
-    buffer->print(win, getmaxy(win)-1, cols);
-    wrefresh(win);
+    buffer->print(SubWindows.hexs, SubWindows.numbers, SubWindows.text, getmaxy(SubWindows.hexs)-1, cols);
+    wrefresh(SubWindows.hexs);
+    wrefresh(SubWindows.text);
+    wrefresh(SubWindows.numbers);
 }
 
 void Window::updateStatusLine()
 {
-    if (statusline) {
-        delwin(statusline);
+    if (SubWindows.statusline) {
+        delwin(SubWindows.statusline);
     }
-    statusline = newwin(1, width, height-1, 0);
-    wprintw(statusline, "test");
-    wrefresh(statusline);
+    SubWindows.statusline = newwin(1, width, height-1, 0);
+    if (current < buffer->size()) {
+        wprintw(SubWindows.statusline, "%02X", buffer->bytes[current]);
+    }
+    wrefresh(SubWindows.statusline);
 }
 
 void Window::moveDown()
 {
     if (current + cols <= buffer->size()) {
         current += cols;
-        move(++y, x);
+        wmove(SubWindows.hexs, ++y, x*3);
+        updateStatusLine();
+        wrefresh(SubWindows.hexs);
     }
 }
 
@@ -68,27 +106,31 @@ void Window::moveUp()
 {
     if (current - cols <= buffer->size()) {
         current -= cols;
-        move(--y, x);
+        wmove(SubWindows.hexs, --y, x*3);
+        updateStatusLine();
+        wrefresh(SubWindows.hexs);
     }
 }
 
 void Window::moveRight()
 {
-    if (current < buffer->size() && curr_col < cols - 1) {
+    if (current < buffer->size() && x < cols - 1) {
         current++;
-        curr_col++;
-        x += 3;
-        move(y, x);
+        x++;
+        wmove(SubWindows.hexs, y, x*3);
+        updateStatusLine();
+        wrefresh(SubWindows.hexs);
     }
 }
 
 void Window::moveLeft()
 {
-    if (current > 0 && curr_col > 0) {
+    if (current > 0 && x > 0) {
         current--;
-        curr_col--;
-        x -= 3;
-        move(y, x);
+        x--;
+        wmove(SubWindows.hexs, y, x*3);
+        updateStatusLine();
+        wrefresh(SubWindows.hexs);
     }
 }
 

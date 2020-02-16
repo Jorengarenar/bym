@@ -17,7 +17,7 @@ class Buffer {
     std::string text;
     std::vector<unsigned char> bytes;
 
-    void print(WINDOW*, short, short);
+    void print(WINDOW*, WINDOW*, WINDOW*, short, short);
     void save();
     void save(const char*);
 };

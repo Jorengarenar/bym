@@ -7,7 +7,6 @@
 Buffer::Buffer()
 {
     path = "";
-    text = "";
 }
 
 Buffer::Buffer(const char* p)
@@ -15,10 +14,6 @@ Buffer::Buffer(const char* p)
     path = p;
     std::ifstream file(p, std::ios::binary);
     bytes = std::vector<unsigned char> (std::istreambuf_iterator<char>(file), {});
-
-    for (unsigned char b: bytes) {
-        text += b;
-    }
 
     file.close();
 }
@@ -28,19 +23,26 @@ size_t Buffer::size()
     return bytes.size();
 }
 
-void Buffer::print(WINDOW* const win, short height, const short cols)
+void Buffer::print(WINDOW* const hexs, WINDOW* const numbers, WINDOW* const text, short height, const short cols)
 {
     std::string str = "";
     int x = 0;
     int y = 0;
-    wclear(win);
-    wmove(win, 0,0);
+
+    wclear(hexs);
+    wclear(numbers);
+    wclear(text);
+    wmove(hexs, 0, 0);
+    wmove(numbers, 0, 0);
+    wmove(text, 0, 0);
+
     if (bytes.size()) {
         for (int i = 0; i < bytes.size() && y < height; i++) {
             if (x == 0) {
-                wprintw(win, "%08X: ", i);
+                wprintw(numbers, "%08X:\n", i);
             }
-            wprintw(win, "%02X ", bytes[i]);
+
+            wprintw(hexs, "%02X ", bytes[i]);
 
             if (bytes[i] >= 32 && bytes[i] <= 126) {
                 str += bytes[i];
@@ -51,22 +53,22 @@ void Buffer::print(WINDOW* const win, short height, const short cols)
 
             if (++x == cols) {
                 x = 0;
-                wprintw(win, "| %s\n", str.c_str());
+                wprintw(text, "%s\n", str.c_str());
                 str = "";
                 y++;
             }
         }
     }
     else {
-        wprintw(win, "%08X: ", 0);
+        wprintw(numbers, "%08X: ", 0);
     }
 
     if (y < height) {
         while (x < cols) {
-            wprintw(win, "   ");
+            wprintw(hexs, "   ");
             x++;
         }
-        wprintw(win, "| %s\n", str.c_str());
+        wprintw(text, "%s\n", str.c_str());
     }
 }
 

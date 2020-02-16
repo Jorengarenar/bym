@@ -43,8 +43,6 @@ void init_curses()
     keypad(stdscr, TRUE);
     noecho();
     raw();
-
-    refresh();
 }
 
 int main(int argc, char* argv[])
@@ -65,11 +63,12 @@ int main(int argc, char* argv[])
     WINDOW* cmd = newwin(1, COLS, LINES-1, 0);
     wprintw(cmd, "basdjnf");
     wrefresh(cmd);
-    refresh();
 
-    Window w(LINES-1, COLS, buf[0]);
+    Window w(LINES-2, COLS, buf[0]);
 
     while (handleInput(w));
 
     endwin();
 }
+
+// vim: fen
