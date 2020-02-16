@@ -12,27 +12,20 @@ Window::Window(short h, short w, Buffer& buf)
 
     SubWindows = {
         .numbers = newwin(height, 10, 0, 0),
-        .hexs    = newwin(height, cols*3, 0, 10),
-        .text    = newwin(height, cols+5, 0, cols*3 + 11),
+        .hex     = newwin(height, cols*3, 0, 10),
+        .text    = newwin(height, cols+5, 0, cols*3 + 10),
         .statusline = nullptr
     };
     refresh();
 
     fill();
     updateStatusLine();
-
-    wattron(SubWindows.text, A_REVERSE | A_BLINK);
-    mvwprintw(SubWindows.text, 0, 0, " ");
-    wattroff(SubWindows.text, A_REVERSE | A_BLINK);
-    wrefresh(SubWindows.text);
-
-    wmove(SubWindows.hexs, y, x);
-    wrefresh(SubWindows.hexs);
+    placeCursor(x, y, current);
 }
 
 Window::~Window()
 {
-    delwin(SubWindows.hexs);
+    delwin(SubWindows.hex);
     delwin(SubWindows.text);
     delwin(SubWindows.numbers);
     delwin(SubWindows.statusline);
@@ -46,36 +39,38 @@ void Window::buf(Buffer& b)
 
 void Window::redraw()
 {
-    height = LINES-1;
-    width  = COLS;
-    cols   = width/4 - 4;
+    if (COLS > 20) {
+        height = LINES-1;
+        width  = COLS;
+        cols   = width/4 - 4;
 
-    delwin(SubWindows.hexs);
-    delwin(SubWindows.text);
-    delwin(SubWindows.numbers);
-    delwin(SubWindows.statusline);
-    SubWindows = {
-        .numbers = newwin(height, 10, 0, 0),
-        .hexs    = newwin(height, cols*3, 0, 10),
-        .text    = newwin(height, cols+5, 0, cols*3 + 11),
-        .statusline = nullptr
-    };
+        delwin(SubWindows.hex);
+        delwin(SubWindows.text);
+        delwin(SubWindows.numbers);
+        delwin(SubWindows.statusline);
+        SubWindows = {
+            .numbers = newwin(height, 10, 0, 0),
+            .hex     = newwin(height, cols*3, 0, 10),
+            .text    = newwin(height, cols+5, 0, cols*3 + 10),
+            .statusline = nullptr
+        };
+        refresh();
 
-    fill();
-    updateStatusLine();
+        fill();
+        updateStatusLine();
 
-    if (x != current % cols && current % cols) {
-        x = current % cols;
-        y = current / cols;
-        wmove(SubWindows.hexs, y, x*3);
-        wrefresh(SubWindows.hexs);
+        if (x != current % cols && current % cols) {
+            y = current / cols;
+            x = current % cols;
+        }
+        placeCursor(y, x, current);
     }
 }
 
 void Window::fill()
 {
-    buffer->print(SubWindows.hexs, SubWindows.numbers, SubWindows.text, getmaxy(SubWindows.hexs)-1, cols);
-    wrefresh(SubWindows.hexs);
+    buffer->print(SubWindows.hex, SubWindows.numbers, SubWindows.text, getmaxy(SubWindows.hex)-1, cols);
+    wrefresh(SubWindows.hex);
     wrefresh(SubWindows.text);
     wrefresh(SubWindows.numbers);
 }
@@ -92,46 +87,66 @@ void Window::updateStatusLine()
     wrefresh(SubWindows.statusline);
 }
 
-void Window::moveDown()
+void Window::hjkl(Direction direction)
 {
-    if (current + cols <= buffer->size()) {
+    short x_prev = x;
+    short y_prev = y;
+    size_t current_prev = current;
+
+    if (direction == Direction::down && current + cols < buffer->size()) {
         current += cols;
-        wmove(SubWindows.hexs, ++y, x*3);
-        updateStatusLine();
-        wrefresh(SubWindows.hexs);
+        y++;
     }
-}
-
-void Window::moveUp()
-{
-    if (current - cols <= buffer->size()) {
+    else if (direction == Direction::up && current - cols < buffer->size()) {
         current -= cols;
-        wmove(SubWindows.hexs, --y, x*3);
-        updateStatusLine();
-        wrefresh(SubWindows.hexs);
+        y--;
     }
-}
-
-void Window::moveRight()
-{
-    if (current < buffer->size() && x < cols - 1) {
+    else if (direction == Direction::right && current + 1 < buffer->size() && x < cols - 1) {
         current++;
         x++;
-        wmove(SubWindows.hexs, y, x*3);
+    }
+    else if (direction == Direction::left && current > 0 && x > 0) {
+        current--;
+        x--;
+    }
+
+    if (current_prev != current) {
+        moveCursor(y, x, current, y_prev, x_prev, current_prev);
         updateStatusLine();
-        wrefresh(SubWindows.hexs);
     }
 }
 
-void Window::moveLeft()
+void Window::placeCursor(short y, short x, size_t current)
 {
-    if (current > 0 && x > 0) {
-        current--;
-        x--;
-        wmove(SubWindows.hexs, y, x*3);
-        updateStatusLine();
-        wrefresh(SubWindows.hexs);
+    wattron(SubWindows.text, A_REVERSE);
+    if (buffer->bytes[current] >= 32 && buffer->bytes[current] <= 126) {
+        mvwprintw(SubWindows.text, y, x, "%c", buffer->bytes[current]);
     }
+    else {
+        mvwprintw(SubWindows.text, y, x, " ");
+    }
+    wattroff(SubWindows.text, A_REVERSE);
+
+    wrefresh(SubWindows.text);
+
+    wattron(SubWindows.hex, A_REVERSE);
+    mvwprintw(SubWindows.hex, y, x*3, "%02X", buffer->bytes[current]);
+    wattroff(SubWindows.hex, A_REVERSE);
+
+    wrefresh(SubWindows.hex);
+}
+
+void Window::moveCursor(short y, short x, size_t current, short y_prev, short x_prev, size_t current_prev)
+{
+    if (buffer->bytes[current_prev] >= 32 && buffer->bytes[current_prev] <= 126) {
+        mvwprintw(SubWindows.text, y_prev, x_prev, "%c", buffer->bytes[current_prev]);
+    }
+    else {
+        mvwprintw(SubWindows.text, y_prev, x_prev, " ");
+    }
+    mvwprintw(SubWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[current_prev]);
+
+    placeCursor(y, x, current);
 }
 
 // vim: fen

@@ -4,6 +4,8 @@
 
 #include "buffer.hpp"
 
+enum class Direction { down, up, right, left };
+
 class Window {
   public:
     Window(short, short, Buffer&);
@@ -15,10 +17,7 @@ class Window {
     void updateStatusLine();
     void redraw();
 
-    void moveDown();
-    void moveUp();
-    void moveRight();
-    void moveLeft();
+    void hjkl(Direction);
 
   private:
     short   height;
@@ -30,10 +29,13 @@ class Window {
 
     struct {
         WINDOW* numbers;
-        WINDOW* hexs;
+        WINDOW* hex;
         WINDOW* text;
         WINDOW* statusline;
     } SubWindows;
 
     void fill();
+
+    void placeCursor(typeof(y), typeof(x), typeof(current));
+    void moveCursor(typeof(y), typeof(x), typeof(current), typeof(y), typeof(x), typeof(current));
 };

@@ -7,6 +7,7 @@
 Buffer::Buffer()
 {
     path = "";
+    text = "";
 }
 
 Buffer::Buffer(const char* p)
@@ -23,16 +24,16 @@ size_t Buffer::size()
     return bytes.size();
 }
 
-void Buffer::print(WINDOW* const hexs, WINDOW* const numbers, WINDOW* const text, short height, const short cols)
+void Buffer::print(WINDOW* const hex, WINDOW* const numbers, WINDOW* const text, short height, const short cols)
 {
     std::string str = "";
     int x = 0;
     int y = 0;
 
-    wclear(hexs);
+    wclear(hex);
     wclear(numbers);
     wclear(text);
-    wmove(hexs, 0, 0);
+    wmove(hex, 0, 0);
     wmove(numbers, 0, 0);
     wmove(text, 0, 0);
 
@@ -42,7 +43,7 @@ void Buffer::print(WINDOW* const hexs, WINDOW* const numbers, WINDOW* const text
                 wprintw(numbers, "%08X:\n", i);
             }
 
-            wprintw(hexs, "%02X ", bytes[i]);
+            wprintw(hex, "%02X ", bytes[i]);
 
             if (bytes[i] >= 32 && bytes[i] <= 126) {
                 str += bytes[i];
@@ -65,7 +66,7 @@ void Buffer::print(WINDOW* const hexs, WINDOW* const numbers, WINDOW* const text
 
     if (y < height) {
         while (x < cols) {
-            wprintw(hexs, "   ");
+            wprintw(hex, "   ");
             x++;
         }
         wprintw(text, "%s\n", str.c_str());

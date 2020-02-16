@@ -18,16 +18,16 @@ bool handleInput(Window& w)
             return false;
             break;
         case 'j':
-            w.moveDown();
+            w.hjkl(Direction::down);
             break;
         case 'k':
-            w.moveUp();
+            w.hjkl(Direction::up);
             break;
         case 'l':
-            w.moveRight();
+            w.hjkl(Direction::right);
             break;
         case 'h':
-            w.moveLeft();
+            w.hjkl(Direction::left);
             break;
         case 'n':
             break;
@@ -39,7 +39,7 @@ void init_curses()
 {
     initscr();
 
-    //curs_set(0);
+    curs_set(FALSE);
     keypad(stdscr, TRUE);
     noecho();
     raw();
