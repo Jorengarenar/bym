@@ -19,6 +19,13 @@ class Window {
 
     void hjkl(Direction);
 
+    struct {
+        WINDOW* numbers;
+        WINDOW* hex;
+        WINDOW* text;
+        WINDOW* statusline;
+    } subWindows;
+
   private:
     short   height;
     short   width;
@@ -27,15 +34,10 @@ class Window {
     short   x;
     Buffer* buffer;
 
-    struct {
-        WINDOW* numbers;
-        WINDOW* hex;
-        WINDOW* text;
-        WINDOW* statusline;
-    } SubWindows;
-
     void fill();
+    void genSubWindows();
+    void delSubWindows();
 
-    void placeCursor(typeof(y), typeof(x), typeof(current));
-    void moveCursor(typeof(y), typeof(x), typeof(current), typeof(y), typeof(x), typeof(current));
+    template<typename T, typename R> void placeCursor(T, T, R);
+    template<typename T, typename R> void moveCursor(T, T, R, T, T, R);
 };

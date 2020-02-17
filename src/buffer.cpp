@@ -3,6 +3,7 @@
 #include <ncurses.h>
 
 #include "buffer.hpp"
+#include "window.hpp"
 
 Buffer::Buffer()
 {
@@ -24,26 +25,27 @@ size_t Buffer::size()
     return bytes.size();
 }
 
-void Buffer::print(WINDOW* const hex, WINDOW* const numbers, WINDOW* const text, short height, const short cols)
+void Buffer::print(Window& win, short height, const short cols)
 {
     std::string str = "";
     int x = 0;
     int y = 0;
 
-    wclear(hex);
-    wclear(numbers);
-    wclear(text);
-    wmove(hex, 0, 0);
-    wmove(numbers, 0, 0);
-    wmove(text, 0, 0);
+    wclear(win.subWindows.hex);
+    wclear(win.subWindows.numbers);
+    wclear(win.subWindows.text);
+
+    wmove(win.subWindows.hex,     0, 0);
+    wmove(win.subWindows.numbers, 0, 0);
+    wmove(win.subWindows.text,    0, 0);
 
     if (bytes.size()) {
         for (int i = 0; i < bytes.size() && y < height; i++) {
             if (x == 0) {
-                wprintw(numbers, "%08X:\n", i);
+                wprintw(win.subWindows.numbers, "%08X:\n", i);
             }
 
-            wprintw(hex, "%02X ", bytes[i]);
+            wprintw(win.subWindows.hex, "%02X ", bytes[i]);
 
             if (bytes[i] >= 32 && bytes[i] <= 126) {
                 str += bytes[i];
@@ -54,22 +56,22 @@ void Buffer::print(WINDOW* const hex, WINDOW* const numbers, WINDOW* const text,
 
             if (++x == cols) {
                 x = 0;
-                wprintw(text, "%s\n", str.c_str());
+                wprintw(win.subWindows.text, "%s\n", str.c_str());
                 str = "";
                 y++;
             }
         }
     }
     else {
-        wprintw(numbers, "%08X: ", 0);
+        wprintw(win.subWindows.numbers, "%08X: ", 0);
     }
 
     if (y < height) {
         while (x < cols) {
-            wprintw(hex, "   ");
+            wprintw(win.subWindows.hex, "   ");
             x++;
         }
-        wprintw(text, "%s\n", str.c_str());
+        wprintw(win.subWindows.text, "%s\n", str.c_str());
     }
 }
 

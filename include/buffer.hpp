@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+class Window;
+
 class Buffer {
     friend class Window;
 
@@ -17,7 +19,7 @@ class Buffer {
     std::string text;
     std::vector<unsigned char> bytes;
 
-    void print(WINDOW*, WINDOW*, WINDOW*, short, short);
+    void print(Window&, short, short);
     void save();
     void save(const char*);
 };
