@@ -1,12 +1,22 @@
-CC = g++
+CXX = g++
 
 CXXFLAGS = -std=gnu++11 -g
 LIBS = -l ncurses
 INCLUDES = -I include
 
 SRC = src
+OBJ = obj
+
+SOURCES = $(wildcard $(SRC)/*.cpp)
+OBJECTS = $(SOURCES:$(SRC)/%.cpp=$(OBJ)/%.o)
 
 PROGNAME = bvim
 
-$(PROGNAME): $(SRC)/main.cpp $(SRC)/buffer.cpp $(SRC)/window.cpp $(SRC)/editor.cpp
-	$(CC) $(CXXFLAGS) $(LIBS) $(INCLUDES) -o $(PROGNAME) $(SRC)/main.cpp $(SRC)/buffer.cpp $(SRC)/window.cpp $(SRC)/editor.cpp
+$(PROGNAME): $(SRC)/main.cpp $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(LIBS) $(INCLUDES) -o $(PROGNAME) $(OBJECTS)
+
+$(OBJECTS): $(OBJ)/%.o : $(SRC)/%.cpp
+	$(CXX) $(CXXFLAGS) $(LIBS) $(INCLUDES) -c  $< -o $@
+
+clean:
+	rm $(PROGNAME) $(OBJECTS)
