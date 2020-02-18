@@ -1,6 +1,6 @@
 #include "editor.hpp"
 
-bool handleInput(Window& w)
+bool handleInput(Window& w, WINDOW* cmd)
 {
     wchar_t c = getch();
 
@@ -12,6 +12,9 @@ bool handleInput(Window& w)
         case 'q':
             return false;
             break;
+        case 'h':
+            w.hjkl(Direction::left);
+            break;
         case 'j':
             w.hjkl(Direction::down);
             break;
@@ -21,11 +24,21 @@ bool handleInput(Window& w)
         case 'l':
             w.hjkl(Direction::right);
             break;
-        case 'h':
-            w.hjkl(Direction::left);
+        case 'r':
+            w.replaceByte();
             break;
-        case 'n':
-            break;
+        case ':':
+            wclear(cmd);
+            wmove(cmd, 0, 0);
+            wprintw(cmd, ": ");
+            curs_set(TRUE);
+            wrefresh(cmd);
+            echo();
+            if (wgetch(cmd) == 's' && wgetch(cmd) == 10) {
+                w.save();
+            }
+            curs_set(FALSE);
+            noecho();
     }
     return true;
 }

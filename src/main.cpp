@@ -12,31 +12,28 @@ void init_curses()
     curs_set(FALSE);
     keypad(stdscr, TRUE);
     noecho();
-    raw();
+    cbreak();
 }
 
 int main(int argc, char* argv[])
 {
-
-    std::vector<Buffer> buf;
+    std::vector<Buffer> buffers;
     if (argc > 1) {
-        for (int i = 1; i < argc; i++) {
-            buf.push_back(Buffer(argv[i]));
-        }
+        buffers.assign(argv+1, argv+argc);
     }
     else {
-        buf.push_back(Buffer());
+        buffers.push_back(Buffer());
     }
 
     init_curses();
+
+    Window w(LINES-1, COLS, buffers[0]);
 
     WINDOW* cmd = newwin(1, COLS, LINES-1, 0);
     wprintw(cmd, "basdjnf");
     wrefresh(cmd);
 
-    Window w(LINES-2, COLS, buf[0]);
-
-    while (handleInput(w));
+    while (handleInput(w, cmd));
 
     endwin();
 }

@@ -16,6 +16,8 @@ class Window {
     void buf(Buffer&);
     void updateStatusLine();
     void redraw();
+    void replaceByte();
+    void save();
 
     void hjkl(Direction);
 

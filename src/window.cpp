@@ -1,3 +1,4 @@
+#include <string>
 #include "window.hpp"
 
 Window::Window(short height_, short width_, Buffer& buffer_) :
@@ -36,6 +37,18 @@ void Window::delSubWindows()
     delwin(subWindows.statusline);
 }
 
+void Window::updateStatusLine()
+{
+    if (subWindows.statusline) {
+        delwin(subWindows.statusline);
+    }
+    subWindows.statusline = newwin(1, width, height-1, 0);
+    if (current < buffer->size()) {
+        wprintw(subWindows.statusline, "%02X", buffer->bytes[current]);
+    }
+    wrefresh(subWindows.statusline);
+}
+
 void Window::buf(Buffer& b)
 {
     buffer = &b;
@@ -69,18 +82,6 @@ void Window::fill()
     wrefresh(subWindows.hex);
     wrefresh(subWindows.text);
     wrefresh(subWindows.numbers);
-}
-
-void Window::updateStatusLine()
-{
-    if (subWindows.statusline) {
-        delwin(subWindows.statusline);
-    }
-    subWindows.statusline = newwin(1, width, height-1, 0);
-    if (current < buffer->size()) {
-        wprintw(subWindows.statusline, "%02X", buffer->bytes[current]);
-    }
-    wrefresh(subWindows.statusline);
 }
 
 void Window::hjkl(Direction direction)
@@ -137,7 +138,7 @@ void Window::placeCursor(T y, T x, R current)
     wrefresh(subWindows.text);
 
     wattron(subWindows.hex, A_REVERSE);
-    mvwprintw(subWindows.hex, y, x*3, foo ? "%02X" : "   ", c);
+    mvwprintw(subWindows.hex, y, x*3, foo ? "%02X" : "  ", c);
     wattroff(subWindows.hex, A_REVERSE);
 
     wrefresh(subWindows.hex);
@@ -155,6 +156,34 @@ void Window::moveCursor(T y, T x, R current, T y_prev, T x_prev, R current_prev)
     mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[current_prev]);
 
     placeCursor(y, x, current);
+}
+
+void Window::replaceByte()
+{
+    curs_set(TRUE);
+    echo();
+
+    char buf[3] = "00";
+
+    mvwprintw(subWindows.hex, y, x, "  ");
+    wmove(subWindows.hex, y, x+1);
+
+    buf[0] = wgetch(subWindows.hex);
+    mvwprintw(subWindows.hex, y, x+1, "%c", buf[0]);
+
+    wmove(subWindows.hex, y, x+1);
+    buf[1] = wgetch(subWindows.hex);
+
+    buffer->bytes[current] = std::stoi(buf, 0, 16);
+
+    placeCursor(y, x, current);
+    noecho();
+    curs_set(FALSE);
+}
+
+void Window::save()
+{
+    buffer->save();
 }
 
 // vim: fen

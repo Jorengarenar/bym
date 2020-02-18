@@ -2,4 +2,4 @@
 
 #include "window.hpp"
 
-bool handleInput(Window&);
+bool handleInput(Window&, WINDOW*);
