@@ -1,5 +1,6 @@
 #pragma once
 
+#include <functional>
 #include <ncurses.h>
 
 #include "buffer.hpp"
@@ -11,12 +12,16 @@ class Window {
     Window(short, short, Buffer&);
     ~Window();
 
+    short  height;
+    short  width;
+    short  cols;
     size_t current;
 
     void buf(Buffer&);
     void updateStatusLine();
-    void redraw();
+    void redraw(short = LINES-1, short = COLS);
     void replaceByte();
+    void applyToSubWindows(std::function<void (WINDOW*)>);
     void save();
 
     void hjkl(Direction);
@@ -29,9 +34,6 @@ class Window {
     } subWindows;
 
   private:
-    short   height;
-    short   width;
-    short   cols;
     short   y;
     short   x;
     Buffer* buffer;
@@ -40,6 +42,6 @@ class Window {
     void genSubWindows();
     void delSubWindows();
 
-    template<typename T, typename R> void placeCursor(T, T, R);
+    void placeCursor();
     template<typename T, typename R> void moveCursor(T, T, R, T, T, R);
 };

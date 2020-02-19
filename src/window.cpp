@@ -4,18 +4,18 @@
 Window::Window(short height_, short width_, Buffer& buffer_) :
     height(height_), width(width_),
     buffer(&buffer_),
-    cols(width/4 - 4),
+    cols((width-10)/4),
     x(0), y(0), current(0)
 {
     genSubWindows();
     fill();
     updateStatusLine();
-    placeCursor(x, y, current);
+    placeCursor();
 }
 
 Window::~Window()
 {
-    delSubWindows();
+    applyToSubWindows(delwin);
 }
 
 void Window::genSubWindows()
@@ -27,14 +27,6 @@ void Window::genSubWindows()
         .statusline = nullptr
     };
     refresh();
-}
-
-void Window::delSubWindows()
-{
-    delwin(subWindows.hex);
-    delwin(subWindows.text);
-    delwin(subWindows.numbers);
-    delwin(subWindows.statusline);
 }
 
 void Window::updateStatusLine()
@@ -55,33 +47,41 @@ void Window::buf(Buffer& b)
     fill();
 }
 
-void Window::redraw()
+void Window::redraw(short height_, short width_)
 {
-    if (COLS > 20) {
-        height = LINES-1;
-        width  = COLS;
-        cols   = width/4 - 4;
+    applyToSubWindows(wclear);
+    applyToSubWindows(wrefresh);
 
-        delSubWindows();
+    if (COLS > 20) {
+        height = height_;
+        width  = width_;
+        cols   = (width-10)/4;
+
+        applyToSubWindows(delwin);
         genSubWindows();
 
         fill();
         updateStatusLine();
 
-        if (x != current % cols && current % cols) {
-            y = current / cols;
-            x = current % cols;
-        }
-        placeCursor(y, x, current);
+        x = current % cols;
+        y = current / cols;
+
+        placeCursor();
     }
+}
+
+void Window::applyToSubWindows(std::function<void (WINDOW*)> f)
+{
+    f(subWindows.hex);
+    f(subWindows.text);
+    f(subWindows.numbers);
+    f(subWindows.statusline);
 }
 
 void Window::fill()
 {
-    buffer->print(*(this), height, cols);
-    wrefresh(subWindows.hex);
-    wrefresh(subWindows.text);
-    wrefresh(subWindows.numbers);
+    buffer->print(*(this));
+    applyToSubWindows(wrefresh);
 }
 
 void Window::hjkl(Direction direction)
@@ -113,8 +113,7 @@ void Window::hjkl(Direction direction)
     }
 }
 
-template<typename T, typename R>
-void Window::placeCursor(T y, T x, R current)
+void Window::placeCursor()
 {
     bool foo = true;
     unsigned char c;
@@ -155,7 +154,7 @@ void Window::moveCursor(T y, T x, R current, T y_prev, T x_prev, R current_prev)
     }
     mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[current_prev]);
 
-    placeCursor(y, x, current);
+    placeCursor();
 }
 
 void Window::replaceByte()
@@ -165,18 +164,18 @@ void Window::replaceByte()
 
     char buf[3] = "00";
 
-    mvwprintw(subWindows.hex, y, x, "  ");
-    wmove(subWindows.hex, y, x+1);
+    mvwprintw(subWindows.hex, y, x*3, "  ");
+    wmove(subWindows.hex, y, x*3 + 1);
 
     buf[0] = wgetch(subWindows.hex);
-    mvwprintw(subWindows.hex, y, x+1, "%c", buf[0]);
+    mvwprintw(subWindows.hex, y, x*3 + 1, "%c", buf[0]);
 
-    wmove(subWindows.hex, y, x+1);
+    wmove(subWindows.hex, y, x*3 + 1);
     buf[1] = wgetch(subWindows.hex);
 
     buffer->bytes[current] = std::stoi(buf, 0, 16);
 
-    placeCursor(y, x, current);
+    placeCursor();
     noecho();
     curs_set(FALSE);
 }
