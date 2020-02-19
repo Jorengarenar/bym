@@ -25,22 +25,18 @@ size_t Buffer::size()
     return bytes.size();
 }
 
-void Buffer::print(Window& win, short height, const short cols)
+void Buffer::print(Window& win)
 {
     std::string str = "";
     int x = 0;
     int y = 0;
-
-    wclear(win.subWindows.hex);
-    wclear(win.subWindows.numbers);
-    wclear(win.subWindows.text);
 
     wmove(win.subWindows.hex,     0, 0);
     wmove(win.subWindows.numbers, 0, 0);
     wmove(win.subWindows.text,    0, 0);
 
     if (bytes.size()) {
-        for (int i = 0; i < bytes.size() && y < height; i++) {
+        for (int i = 0; i < bytes.size() && y < win.height; i++) {
             if (x == 0) {
                 wprintw(win.subWindows.numbers, "%08X:\n", i);
             }
@@ -54,7 +50,7 @@ void Buffer::print(Window& win, short height, const short cols)
                 str += ' ';
             }
 
-            if (++x == cols) {
+            if (++x == win.cols) {
                 x = 0;
                 wprintw(win.subWindows.text, "%s\n", str.c_str());
                 str = "";
@@ -66,8 +62,8 @@ void Buffer::print(Window& win, short height, const short cols)
         wprintw(win.subWindows.numbers, "%08X: ", 0);
     }
 
-    if (y < height) {
-        while (x < cols) {
+    if (y < win.height) {
+        while (x < win.cols) {
             wprintw(win.subWindows.hex, "   ");
             x++;
         }
