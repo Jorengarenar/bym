@@ -25,35 +25,39 @@ size_t Buffer::size()
     return bytes.size();
 }
 
-void Buffer::print(Window& win)
+void Buffer::print(Window& win, short startLine)
 {
     std::string str = "";
     int x = 0;
     int y = 0;
 
-    wmove(win.subWindows.hex,     0, 0);
-    wmove(win.subWindows.numbers, 0, 0);
-    wmove(win.subWindows.text,    0, 0);
+    win.applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
     if (bytes.size()) {
-        for (int i = 0; i < bytes.size() && y < win.height; i++) {
-            if (x == 0) {
-                wprintw(win.subWindows.numbers, "%08X:\n", i);
-            }
+        for (int i = 0; i < bytes.size() && y < win.height - 1 + startLine; i++) {
+            if (y >= startLine) {
+                if (x == 0) {
+                    wprintw(win.subWindows.numbers, "%08X:\n", i);
+                }
 
-            wprintw(win.subWindows.hex, "%02X ", bytes[i]);
+                wprintw(win.subWindows.hex, "%02X ", bytes[i]);
 
-            if (bytes[i] >= 32 && bytes[i] <= 126) {
-                str += bytes[i];
-            }
-            else {
-                str += ' ';
-            }
+                if (bytes[i] >= 32 && bytes[i] <= 126) {
+                    str += bytes[i];
+                }
+                else {
+                    str += ' ';
+                }
 
-            if (++x == win.cols) {
+                if (++x == win.cols) {
+                    x = 0;
+                    wprintw(win.subWindows.text, "%s\n", str.c_str());
+                    str = "";
+                    y++;
+                }
+            }
+            else if (++x == win.cols) {
                 x = 0;
-                wprintw(win.subWindows.text, "%s\n", str.c_str());
-                str = "";
                 y++;
             }
         }

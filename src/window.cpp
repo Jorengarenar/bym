@@ -115,6 +115,17 @@ void Window::hjkl(Direction direction)
 
 void Window::placeCursor()
 {
+    // Scrolling
+    if (y >= height - 1) { // scrolling down
+        buffer->print(*(this), current/cols - height + 2);
+        applyToSubWindows(wrefresh);
+        y = height - 2;
+    } else if (y < 0) { // scrolling down
+        buffer->print(*(this), current/cols + y + 1);
+        applyToSubWindows(wrefresh);
+        y = 0;
+    }
+
     bool foo = true;
     unsigned char c;
     if (buffer->size()) {
@@ -146,6 +157,7 @@ void Window::placeCursor()
 template<typename T, typename R>
 void Window::moveCursor(T y, T x, R current, T y_prev, T x_prev, R current_prev)
 {
+    // clear cursor background highlight
     if (buffer->bytes[current_prev] >= 32 && buffer->bytes[current_prev] <= 126) {
         mvwprintw(subWindows.text, y_prev, x_prev, "%c", buffer->bytes[current_prev]);
     }
