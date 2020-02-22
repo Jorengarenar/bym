@@ -5,7 +5,7 @@ Window::Window(short height_, short width_, Buffer& buffer_) :
     height(height_), width(width_),
     buffer(&buffer_),
     cols((width-10)/4),
-    x(0), y(0), current(0)
+    y(0), x(0), currentByte(0)
 {
     genSubWindows();
     fill();
@@ -35,14 +35,14 @@ void Window::updateStatusLine()
         delwin(subWindows.statusline);
     }
     subWindows.statusline = newwin(1, width, height-1, 0);
-    if (current < buffer->size()) {
-        wprintw(subWindows.statusline, "%02X", buffer->bytes[current]);
-    }
     wrefresh(subWindows.statusline);
 }
 
 void Window::buf(Buffer& b)
 {
+    y = 0;
+    x = 0;
+    currentByte = 0;
     buffer = &b;
     fill();
 }
@@ -52,7 +52,7 @@ void Window::redraw(short height_, short width_)
     applyToSubWindows(wclear);
     applyToSubWindows(wrefresh);
 
-    if (COLS > 20) {
+    if (COLS > 20) {  // there is no point to draw on less than 20 screen columns
         height = height_;
         width  = width_;
         cols   = (width-10)/4;
@@ -63,8 +63,8 @@ void Window::redraw(short height_, short width_)
         fill();
         updateStatusLine();
 
-        x = current % cols;
-        y = current / cols;
+        y = currentByte / cols;
+        x = currentByte % cols;
 
         placeCursor();
     }
@@ -86,29 +86,30 @@ void Window::fill()
 
 void Window::hjkl(Direction direction)
 {
+    // *_prev are for cleaning cursor background highlight
     short x_prev = x;
     short y_prev = y;
-    size_t current_prev = current;
+    size_t current_prev = currentByte;
 
-    if (direction == Direction::down && current + cols < buffer->size()) {
-        current += cols;
+    if (direction == Direction::down && currentByte + cols < buffer->size()) {
+        currentByte += cols;
         y++;
     }
-    else if (direction == Direction::up && current - cols < buffer->size()) {
-        current -= cols;
+    else if (direction == Direction::up && currentByte - cols < buffer->size()) {
+        currentByte -= cols;
         y--;
     }
-    else if (direction == Direction::right && current + 1 < buffer->size() && x < cols - 1) {
-        current++;
+    else if (direction == Direction::right && currentByte + 1 < buffer->size() && x < cols - 1) {
+        currentByte++;
         x++;
     }
-    else if (direction == Direction::left && current > 0 && x > 0) {
-        current--;
+    else if (direction == Direction::left && currentByte > 0 && x > 0) {
+        currentByte--;
         x--;
     }
 
-    if (current_prev != current) {
-        moveCursor(y, x, current, y_prev, x_prev, current_prev);
+    if (current_prev != currentByte) {
+        moveCursor(y, x, currentByte, y_prev, x_prev, current_prev);
         updateStatusLine();
     }
 }
@@ -117,24 +118,27 @@ void Window::placeCursor()
 {
     // Scrolling
     if (y >= height - 1) { // scrolling down
-        buffer->print(*(this), current/cols - height + 2);
+        buffer->print(*(this), currentByte/cols - height + 2);
         applyToSubWindows(wrefresh);
         y = height - 2;
-    } else if (y < 0) { // scrolling down
-        buffer->print(*(this), current/cols + y + 1);
+    } else if (y < 0) { // scrolling up
+        buffer->print(*(this), currentByte/cols + y + 1);
         applyToSubWindows(wrefresh);
         y = 0;
     }
 
-    bool foo = true;
+    bool bufferEmpty = true;
     unsigned char c;
     if (buffer->size()) {
-        c = buffer->bytes[current];
+        c = buffer->bytes[currentByte];
+        bufferEmpty = false;
+    } else {
+        c = 0; // buffer is empty, so let's set `c` to non-printable character
     }
-    else {
-        c = 0;
-        foo = false;
-    }
+
+    wattron(subWindows.hex, A_REVERSE);
+    mvwprintw(subWindows.hex, y, x*3, bufferEmpty ? "  " : "%02X", c);
+    wattroff(subWindows.hex, A_REVERSE);
 
     wattron(subWindows.text, A_REVERSE);
     if (c >= 32 && c <= 126) {
@@ -145,17 +149,13 @@ void Window::placeCursor()
     }
     wattroff(subWindows.text, A_REVERSE);
 
+    wrefresh(subWindows.hex);
     wrefresh(subWindows.text);
 
-    wattron(subWindows.hex, A_REVERSE);
-    mvwprintw(subWindows.hex, y, x*3, foo ? "%02X" : "  ", c);
-    wattroff(subWindows.hex, A_REVERSE);
-
-    wrefresh(subWindows.hex);
 }
 
 template<typename T, typename R>
-void Window::moveCursor(T y, T x, R current, T y_prev, T x_prev, R current_prev)
+void Window::moveCursor(T y_prev, T x_prev, R current_prev)
 {
     // clear cursor background highlight
     if (buffer->bytes[current_prev] >= 32 && buffer->bytes[current_prev] <= 126) {
@@ -166,7 +166,7 @@ void Window::moveCursor(T y, T x, R current, T y_prev, T x_prev, R current_prev)
     }
     mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[current_prev]);
 
-    placeCursor();
+    placeCursor(); // and place it on new position
 }
 
 void Window::replaceByte()
@@ -185,7 +185,7 @@ void Window::replaceByte()
     wmove(subWindows.hex, y, x*3 + 1);
     buf[1] = wgetch(subWindows.hex);
 
-    buffer->bytes[current] = std::stoi(buf, 0, 16);
+    buffer->bytes[currentByte] = std::stoi(buf, 0, 16);
 
     placeCursor();
     noecho();

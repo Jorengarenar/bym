@@ -19,7 +19,7 @@ class Buffer {
     std::string text;
     std::vector<unsigned char> bytes;
 
-    void print(Window&, short = 0);
+    void print(Window&, short = 0); // called from Window::fill()
     void save();
     void save(const char*);
 };

@@ -14,15 +14,15 @@ class Window {
 
     short  height;
     short  width;
-    short  cols;
-    size_t current;
+    short  cols;   // maximal number of columns of bytes
+    size_t currentByte;
 
-    void buf(Buffer&);
+    void buf(Buffer&); // change buffer in window
     void updateStatusLine();
     void redraw(short = LINES-1, short = COLS);
     void replaceByte();
     void applyToSubWindows(std::function<void (WINDOW*)>);
-    void save();
+    void save(); // save actually loaded buffer
 
     void hjkl(Direction);
 
@@ -34,14 +34,14 @@ class Window {
     } subWindows;
 
   private:
-    short   y;
-    short   x;
+    short   y; // current line
+    short   x; // current column (current byte in column)
     Buffer* buffer;
 
-    void fill();
+    void fill(); // print buffer content in subWindows
     void genSubWindows();
     void delSubWindows();
 
     void placeCursor();
-    template<typename T, typename R> void moveCursor(T, T, R, T, T, R);
+    template<typename T, typename R> void moveCursor(T, T, R);
 };
