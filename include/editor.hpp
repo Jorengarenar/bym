@@ -1,5 +1,6 @@
 #pragma once
 
 #include "window.hpp"
+#include "cmd.hpp"
 
-bool handleInput(Window&, WINDOW*);
+bool handleInput(Window&, Cmd&);

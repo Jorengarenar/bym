@@ -28,10 +28,7 @@ int main(int argc, char* argv[])
     init_curses();
 
     Window w(LINES-1, COLS, buffers[0]);
-
-    WINDOW* cmd = newwin(1, COLS, LINES-1, 0);
-    wprintw(cmd, "basdjnf");
-    wrefresh(cmd);
+    Cmd cmd;
 
     while (handleInput(w, cmd));
 
