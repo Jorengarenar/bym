@@ -3,9 +3,10 @@
 
 Window::Window(short height_, short width_, Buffer& buffer_) :
     height(height_), width(width_),
-    buffer(&buffer_),
     cols((width-10)/4),
-    y(0), x(0), currentByte(0)
+    currentByte(0),
+    y(0), x(0),
+    buffer(&buffer_)
 {
     genSubWindows();
     fill();
@@ -52,7 +53,7 @@ void Window::redraw(short height_, short width_)
     applyToSubWindows(wclear);
     applyToSubWindows(wrefresh);
 
-    if (COLS > 20) {  // there is no point to draw on less than 20 screen columns
+    if (COLS > 13) {  // on less than that, won't fit on screen
         height = height_;
         width  = width_;
         cols   = (width-10)/4;
@@ -109,7 +110,7 @@ void Window::hjkl(Direction direction)
     }
 
     if (current_prev != currentByte) {
-        moveCursor(y, x, currentByte, y_prev, x_prev, current_prev);
+        moveCursor(y_prev, x_prev, current_prev);
         updateStatusLine();
     }
 }
