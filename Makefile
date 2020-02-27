@@ -13,10 +13,10 @@ OBJECTS = $(SOURCES:$(SRC)/%.cpp=$(OBJ)/%.o)
 PROGNAME = bvim
 
 $(PROGNAME): $(SRC)/main.cpp $(OBJECTS)
-	$(CXX) $(CXXFLAGS) $(LIBS) $(INCLUDES) -o $(PROGNAME) $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(PROGNAME) $(OBJECTS) $(LIBS)
 
 $(OBJECTS): $(OBJ)/%.o : $(SRC)/%.cpp
-	$(CXX) $(CXXFLAGS) $(LIBS) $(INCLUDES) -c  $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c  $< -o $@ $(LIBS)
 
 clean:
 	rm $(PROGNAME) $(OBJECTS)
