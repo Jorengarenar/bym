@@ -27,6 +27,7 @@ void Window::genSubWindows()
         .text    = newwin(height, cols+5, 0, cols*3 + 10),
         .statusline = nullptr
     };
+    updateStatusLine();
     refresh();
 }
 

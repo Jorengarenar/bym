@@ -15,11 +15,11 @@ class Buffer {
     size_t size();
 
   private:
-    std::string path;
+    std::string path; // path to opened file
     std::string text;
     std::vector<unsigned char> bytes;
 
     void print(Window&, short = 0); // called from Window::fill()
-    void save();
-    void save(const char*);
+
+    void save(std::string = "");
 };

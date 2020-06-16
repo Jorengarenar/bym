@@ -16,6 +16,7 @@ $(PROGNAME): $(SRC)/main.cpp $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $(PROGNAME) $(OBJECTS) $(LIBS)
 
 $(OBJECTS): $(OBJ)/%.o : $(SRC)/%.cpp
+	@mkdir -p $(OBJ)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c  $< -o $@ $(LIBS)
 
 clean:

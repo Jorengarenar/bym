@@ -5,17 +5,12 @@
 #include "buffer.hpp"
 #include "window.hpp"
 
-Buffer::Buffer()
-{
-    path = "";
-    text = "";
-}
+Buffer::Buffer() : path(""), text("") {}
 
-Buffer::Buffer(const char* p)
+Buffer::Buffer(const char* p) : path(p)
 {
-    path = p;
     std::ifstream file(p, std::ios::binary);
-    bytes = std::vector<unsigned char> (std::istreambuf_iterator<char>(file), {});
+    bytes = std::vector<unsigned char>(std::istreambuf_iterator<char>(file), {});
     file.close();
 }
 
@@ -75,15 +70,11 @@ void Buffer::print(Window& win, short startLine)
     }
 }
 
-void Buffer::save()
+void Buffer::save(std::string p)
 {
-    std::ofstream output(path, std::ios::binary);
-    std::copy(bytes.begin(), bytes.end(), std::ostreambuf_iterator<char>(output));
-    output.close();
-}
-
-void Buffer::save(const char* p)
-{
+    if (p.empty()) {
+        p = path;
+    }
     std::ofstream output(p, std::ios::binary);
     std::copy(bytes.begin(), bytes.end(), std::ostreambuf_iterator<char>(output));
     output.close();
