@@ -22,19 +22,23 @@ size_t Buffer::size()
 void Buffer::print(Window& win, short startLine)
 {
     std::string str = ""; // representation of bytes in line
-    int y = 0; // current line
-    int x = 0; // current column of bytes
+    size_t y = 0; // current line
+    size_t x = 0; // current column of bytes
+
+    size_t maxY = win.height - 1 + startLine;
 
     win.applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
+    auto& subWins = win.subWindows;
+
     if (bytes.size()) {
-        for (int i = 0; i < bytes.size() && y < win.height - 1 + startLine; i++) {
+        for (size_t i = 0; i < bytes.size() && y < maxY; ++i) {
             if (y >= startLine) {
                 if (x == 0) {
-                    wprintw(win.subWindows.numbers, "%08X:\n", i);
+                    wprintw(subWins.numbers, "%08X:\n", i);
                 }
 
-                wprintw(win.subWindows.hex, "%02X ", bytes[i]);
+                wprintw(subWins.hex, "%02X ", bytes[i]);
 
                 if (bytes[i] >= 32 && bytes[i] <= 126) {
                     str += bytes[i];
@@ -45,7 +49,7 @@ void Buffer::print(Window& win, short startLine)
 
                 if (++x == win.cols) {
                     x = 0;
-                    wprintw(win.subWindows.text, "%s\n", str.c_str());
+                    wprintw(subWins.text, "%s\n", str.c_str());
                     str = "";
                     y++;
                 }
@@ -63,10 +67,10 @@ void Buffer::print(Window& win, short startLine)
     // Print any remaining bytes if main loop ended because of end of buffer
     if (y < win.height) {
         while (x < win.cols) {
-            wprintw(win.subWindows.hex, "   ");
-            x++;
+            wprintw(subWins.hex, "   ");
+            ++x;
         }
-        wprintw(win.subWindows.text, "%s\n", str.c_str());
+        wprintw(subWins.text, "%s\n", str.c_str());
     }
 }
 
