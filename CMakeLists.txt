@@ -4,6 +4,7 @@ project(bVim)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/extern/cmake")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+include(PreventInSourceBuilds)
 include(DefineOutputDirs)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -13,3 +14,4 @@ include_directories(include/)
 add_subdirectory(src/)
 
 include(CTest)
+add_subdirectory(tests/)
