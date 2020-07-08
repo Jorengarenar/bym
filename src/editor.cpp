@@ -6,7 +6,6 @@ bool handleInput(Window& w, Cmd& cmd)
 
     switch (c) {
         case KEY_RESIZE:
-            refresh();
             w.redraw();
             cmd.redraw();
             break;
@@ -27,6 +26,9 @@ bool handleInput(Window& w, Cmd& cmd)
             break;
         case 'r':
             w.replaceByte();
+            break;
+        case ':':
+            cmd();
             break;
     }
     return true;

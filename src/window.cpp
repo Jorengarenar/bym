@@ -1,5 +1,8 @@
-#include <string>
 #include "window.hpp"
+
+#include <string>
+
+#include "util.hpp"
 
 Window::Window(short height_, short width_, Buffer& buffer_) :
     height(height_), width(width_),
@@ -21,6 +24,7 @@ Window::~Window()
 
 void Window::genSubWindows()
 {
+    refresh();
     subWindows = {
         .numbers = newwin(height, 10, 0, 0),
         .hex     = newwin(height, cols*3, 0, 10),
@@ -89,8 +93,8 @@ void Window::fill()
 void Window::hjkl(Direction direction)
 {
     // *_prev are for cleaning cursor background highlight
-    short x_prev = x;
-    short y_prev = y;
+    unsigned short x_prev = x;
+    unsigned short y_prev = y;
     size_t current_prev = currentByte;
 
     if (direction == Direction::down && currentByte + cols < buffer->size()) {
@@ -123,7 +127,8 @@ void Window::placeCursor()
         buffer->print(*(this), currentByte/cols - height + 2);
         applyToSubWindows(wrefresh);
         y = height - 2;
-    } else if (y < 0) { // scrolling up
+    }
+    else if (y < 0) {      // scrolling up
         buffer->print(*(this), currentByte/cols + y + 1);
         applyToSubWindows(wrefresh);
         y = 0;
@@ -134,7 +139,8 @@ void Window::placeCursor()
     if (buffer->size()) {
         c = buffer->bytes[currentByte];
         bufferEmpty = false;
-    } else {
+    }
+    else {
         c = 0; // buffer is empty, so let's set `c` to non-printable character
     }
 
@@ -173,9 +179,7 @@ void Window::moveCursor(T y_prev, T x_prev, R current_prev)
 
 void Window::replaceByte()
 {
-    curs_set(TRUE);
-    echo();
-
+    EnableCursor cur;
     char buf[3] = "00";
 
     mvwprintw(subWindows.hex, y, x*3, "  ");
@@ -190,8 +194,6 @@ void Window::replaceByte()
     buffer->bytes[currentByte] = std::stoi(buf, 0, 16);
 
     placeCursor();
-    noecho();
-    curs_set(FALSE);
 }
 
 void Window::save()
