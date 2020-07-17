@@ -2,6 +2,7 @@
 
 #include <ncurses.h>
 
+#include "parser.hpp"
 #include "util.hpp"
 
 Cmd::Cmd()
@@ -24,12 +25,14 @@ void Cmd::redraw()
 
 int Cmd::operator ()()
 {
-    char buf[1000];
+    const int n = 10000;
+    char buf[n];
+    wclear(line);
     mvwprintw(line, 0, 0, ":");
     wrefresh(line);
     {
         EnableCursor x;
-        wgetstr(line, buf);
+        wgetnstr(line, buf, n);
     }
-    return 1;
+    return parse(buf);
 }

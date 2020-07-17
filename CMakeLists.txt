@@ -10,6 +10,7 @@ include(ExportCompileCommands)
 
 set(CMAKE_CXX_STANDARD 17)
 find_package(Curses REQUIRED)
+add_compile_options(-Wall -Wextra -pedantic)
 
 include_directories(include/)
 add_subdirectory(src/)

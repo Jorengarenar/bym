@@ -9,9 +9,6 @@ bool handleInput(Window& w, Cmd& cmd)
             w.redraw();
             cmd.redraw();
             break;
-        case 'q':
-            return false;
-            break;
         case 'h':
             w.hjkl(Direction::left);
             break;
@@ -28,7 +25,7 @@ bool handleInput(Window& w, Cmd& cmd)
             w.replaceByte();
             break;
         case ':':
-            cmd();
+            return cmd();
             break;
     }
     return true;

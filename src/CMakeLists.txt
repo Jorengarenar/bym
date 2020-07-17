@@ -5,10 +5,13 @@ add_library(util   OBJECT util.cpp)
 add_library(cmd    OBJECT cmd.cpp    util)
 add_library(window OBJECT window.cpp util)
 add_library(editor OBJECT editor.cpp)
+add_library(parser OBJECT parser.cpp)
 
 foreach(obj ${objs})
   target_link_libraries(${obj} ${CURSES_LIBRARIES})
 endforeach()
+
+list(APPEND objs parser)
 
 add_executable(bvim main.cpp ${objs})
 
