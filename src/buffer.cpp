@@ -1,8 +1,10 @@
+#include "buffer.hpp"
+
 #include <fstream>
 #include <iterator>
+
 #include <ncurses.h>
 
-#include "buffer.hpp"
 #include "window.hpp"
 
 Buffer::Buffer() : path(""), text("") {}

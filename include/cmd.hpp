@@ -7,6 +7,7 @@ class Cmd {
     Cmd();
     ~Cmd();
     void redraw();
+    int operator ()();
 
   private:
     WINDOW* line;

@@ -6,12 +6,8 @@ bool handleInput(Window& w, Cmd& cmd)
 
     switch (c) {
         case KEY_RESIZE:
-            refresh();
             w.redraw();
             cmd.redraw();
-            break;
-        case 'q':
-            return false;
             break;
         case 'h':
             w.hjkl(Direction::left);
@@ -27,6 +23,9 @@ bool handleInput(Window& w, Cmd& cmd)
             break;
         case 'r':
             w.replaceByte();
+            break;
+        case ':':
+            return cmd();
             break;
     }
     return true;

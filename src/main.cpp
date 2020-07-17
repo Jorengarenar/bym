@@ -1,5 +1,6 @@
-#include <ncurses.h>
 #include <vector>
+
+#include <ncurses.h>
 
 #include "buffer.hpp"
 #include "editor.hpp"
@@ -30,7 +31,7 @@ int main(int argc, char* argv[])
     Window w(LINES-1, COLS, buffers[0]);
     Cmd cmd;
 
-    while (handleInput(w, cmd));
+    while (handleInput(w, cmd)) {}
 
     endwin();
 }

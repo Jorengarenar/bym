@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+
 #include <ncurses.h>
 
 #include "buffer.hpp"
@@ -12,9 +13,9 @@ class Window {
     Window(short, short, Buffer&);
     ~Window();
 
-    short  height;
-    short  width;
-    short  cols;   // maximal number of columns of bytes
+    unsigned short  height;
+    unsigned short  width;
+    unsigned short  cols;   // maximal number of columns of bytes
     size_t currentByte;
 
     void buf(Buffer&); // change buffer in window
@@ -34,8 +35,8 @@ class Window {
     } subWindows;
 
   private:
-    short   y; // current line
-    short   x; // current column (current byte in column)
+    unsigned short y; // current line
+    unsigned short x; // current column (current byte in column)
     Buffer* buffer;
 
     void fill(); // print buffer content in subWindows
