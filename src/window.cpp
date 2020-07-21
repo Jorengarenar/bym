@@ -26,11 +26,11 @@ Window::~Window()
 void Window::genSubWindows()
 {
     refresh();
-    subWindows = {
-        .numbers = newwin(height, 10, 0, 0),
-        .hex     = newwin(height, cols*3, 0, 10),
-        .text    = newwin(height, cols+5, 0, cols*3 + 10),
-        .statusline = nullptr
+    subWindows = { // be wary of order in declaration of Window class!
+        newwin(height, 10, 0, 0),               // numbers
+        newwin(height, cols*3, 0, 10),          // hex
+        newwin(height, cols+5, 0, cols*3 + 10), // text
+        nullptr                                 // statusline
     };
     updateStatusLine();
     refresh();

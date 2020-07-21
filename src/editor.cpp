@@ -30,7 +30,7 @@ bool handleInput(Window& w, Cmd& cmd)
             w.hjkl(Direction::right);
             break;
         case 'r':
-            replaceByte();
+            replaceByte(w, cmd);
             break;
         case ':':
             switch (cmd()) {
