@@ -6,6 +6,7 @@
 #include <ncurses.h>
 
 #include "window.hpp"
+#include "util.hpp"
 
 Buffer::Buffer() : path(""), text("") {}
 
@@ -24,10 +25,10 @@ size_t Buffer::size()
 void Buffer::print(Window& win, short startLine)
 {
     std::string str = ""; // representation of bytes in line
-    size_t y = 0; // current line
-    size_t x = 0; // current column of bytes
+    int y = 0; // current line
+    int x = 0; // current column of bytes
 
-    size_t maxY = win.height - 1 + startLine;
+    int maxY = win.height - 1 + startLine;
 
     win.applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
@@ -42,23 +43,22 @@ void Buffer::print(Window& win, short startLine)
 
                 wprintw(subWins.hex, "%02X ", bytes[i]);
 
-                if (bytes[i] >= 32 && bytes[i] <= 126) {
-                    str += bytes[i];
-                }
-                else {
-                    str += ' ';
-                }
+                str += toPrintable(bytes[i]);
 
-                if (++x == win.cols) {
+                ++x;
+                if (x == win.cols) {
                     x = 0;
                     wprintw(subWins.text, "%s\n", str.c_str());
                     str = "";
-                    y++;
+                    ++y;
                 }
             }
-            else if (++x == win.cols) {
-                x = 0;
-                y++;
+            else {
+                ++x;
+                if (x == win.cols) {
+                    x = 0;
+                    ++y;
+                }
             }
         }
     }

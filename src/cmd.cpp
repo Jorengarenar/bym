@@ -36,3 +36,10 @@ int Cmd::operator ()()
     }
     return parse(buf);
 }
+
+void Cmd::error(const char* msg)
+{
+    wclear(line);
+    mvwprintw(line, 0, 0, msg);
+    wrefresh(line);
+}

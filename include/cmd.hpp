@@ -8,6 +8,7 @@ class Cmd {
     ~Cmd();
     void redraw();
     int operator ()();
+    void error(const char*);
 
   private:
     WINDOW* line;

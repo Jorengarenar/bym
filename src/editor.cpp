@@ -1,5 +1,13 @@
 #include "editor.hpp"
 
+void replaceByte(Window& w, Cmd& cmd)
+{
+    switch (w.replaceByte()) {
+        case 1:
+            cmd.error("Buffer size is 0");
+    }
+}
+
 bool handleInput(Window& w, Cmd& cmd)
 {
     wchar_t c = getch();
@@ -22,10 +30,17 @@ bool handleInput(Window& w, Cmd& cmd)
             w.hjkl(Direction::right);
             break;
         case 'r':
-            w.replaceByte();
+            replaceByte();
             break;
         case ':':
-            return cmd();
+            switch (cmd()) {
+                case 0:
+                    return false;
+                    break;
+                case 1:
+                    w.save();
+                    break;
+            }
             break;
     }
     return true;

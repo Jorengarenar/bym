@@ -1,5 +1,6 @@
 #include "window.hpp"
 
+#include <cctype>
 #include <string>
 
 #include "util.hpp"
@@ -177,23 +178,52 @@ void Window::moveCursor(T y_prev, T x_prev, R current_prev)
     placeCursor(); // and place it on new position
 }
 
-void Window::replaceByte()
+bool Window::inputByte(char* buf)
 {
+    mvwprintw(subWindows.hex, y, x*3, "  ");
+
     EnableCursor cur;
+
+    do {
+        mvwprintw(subWindows.hex, y, x*3, " ");
+        wmove(subWindows.hex, y, x*3);
+        buf[0] = wgetch(subWindows.hex);
+    } while (!isxdigit(buf[0]) && buf[0] != 27);
+
+    if (buf[0] == 27) {
+        return false;
+    }
+
+    do {
+        mvwprintw(subWindows.hex, y, x*3 + 1, " ");
+        wmove(subWindows.hex, y, x*3 + 1);
+        buf[1] = wgetch(subWindows.hex);
+    } while (!isxdigit(buf[1]) && buf[1] != 27);
+
+    if (buf[1] == 27) {
+        return false;
+    }
+
+    return true;
+}
+
+int Window::replaceByte()
+{
+    if (buffer->size() == 0) {
+        return 1;
+    }
+
     char buf[3] = "00";
 
-    mvwprintw(subWindows.hex, y, x*3, "  ");
-    wmove(subWindows.hex, y, x*3 + 1);
-
-    buf[0] = wgetch(subWindows.hex);
-    mvwprintw(subWindows.hex, y, x*3 + 1, "%c", buf[0]);
-
-    wmove(subWindows.hex, y, x*3 + 1);
-    buf[1] = wgetch(subWindows.hex);
-
-    buffer->bytes[currentByte] = std::stoi(buf, 0, 16);
+    if (inputByte(buf)) {
+        unsigned char b = std::stoi(buf, 0, 16);
+        buffer->bytes[currentByte] = b;
+        mvwprintw(subWindows.text, y, x, "%c", toPrintable(b));
+    }
 
     placeCursor();
+
+    return 0;
 }
 
 void Window::save()

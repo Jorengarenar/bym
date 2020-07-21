@@ -7,3 +7,5 @@ public:
     EnableCursor();
     ~EnableCursor();
 };
+
+char toPrintable(int);

@@ -21,7 +21,7 @@ class Window {
     void buf(Buffer&); // change buffer in window
     void updateStatusLine();
     void redraw(short = LINES-1, short = COLS);
-    void replaceByte();
+    int replaceByte();
     void applyToSubWindows(std::function<void (WINDOW*)>);
     void save(); // save actually loaded buffer
 
@@ -35,13 +35,15 @@ class Window {
     } subWindows;
 
   private:
-    unsigned short y; // current line
-    unsigned short x; // current column (current byte in column)
+    int y; // current line
+    int x; // current column (current byte in column)
     Buffer* buffer;
 
     void fill(); // print buffer content in subWindows
     void genSubWindows();
     void delSubWindows();
+
+    bool inputByte(char*);
 
     void placeCursor();
     template<typename T, typename R> void moveCursor(T, T, R);
