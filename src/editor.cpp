@@ -22,7 +22,8 @@ Editor::InitCurses::~InitCurses()
     endwin();
 }
 
-Editor::Editor(int argc, char* argv[], int optind)
+
+Editor::Editor(int argc, char* argv[], int optind) : cmd(*this)
 {
     if (argc > optind) {
         buffers.assign(argv+optind, argv+argc);
@@ -44,7 +45,7 @@ void Editor::replaceByte()
     }
 }
 
-bool Editor::operator ()()
+bool Editor::operator()()
 {
     int c = getc(stdin);
 
@@ -69,15 +70,7 @@ bool Editor::operator ()()
             replaceByte();
             break;
         case ':':
-            switch (cmd()) {
-                case 0:
-                    return false;
-                    break;
-                case 1:
-                    cw->save();
-                    break;
-            }
-            break;
+            return cmd();
     }
     return true;
 }

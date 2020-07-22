@@ -1,9 +1,9 @@
-set(objs "buffer;cmd;editor;window;util")
+set(objs "util;buffer;window;cmd;editor")
 
-add_library(buffer OBJECT buffer.cpp)
 add_library(util   OBJECT util.cpp)
-add_library(cmd    OBJECT cmd.cpp    util)
+add_library(buffer OBJECT buffer.cpp)
 add_library(window OBJECT window.cpp util)
+add_library(cmd    OBJECT cmd.cpp    util)
 add_library(editor OBJECT editor.cpp)
 add_library(parser OBJECT parser.cpp)
 

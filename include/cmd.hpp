@@ -4,15 +4,16 @@
 
 #include <ncurses.h>
 
-class Cmd {
-  public:
-    Cmd();
-    ~Cmd();
-    void redraw();
-    int operator ()();
-    void error(const char*);
+class Editor;
 
-  private:
+class Cmd {
     std::string input();
     WINDOW* line;
+    Editor& editor;
+public:
+    Cmd(Editor&);
+    ~Cmd();
+    void redraw();
+    bool operator()();
+    void error(std::string);
 };

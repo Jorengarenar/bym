@@ -5,7 +5,7 @@
 #include "parser.hpp"
 #include "util.hpp"
 
-Cmd::Cmd()
+Cmd::Cmd(Editor& e) : editor(e)
 {
     line = newwin(1, COLS, LINES-1, 0);
     wrefresh(line);
@@ -58,7 +58,7 @@ std::string Cmd::input()
     return buf;
 }
 
-int Cmd::operator ()()
+bool Cmd::operator()()
 {
     wclear(line);
     mvwprintw(line, 0, 0, ":");
@@ -69,15 +69,15 @@ int Cmd::operator ()()
     if (buf.empty()) {
         wclear(line);
         wrefresh(line);
-        return 2;
+        return true;
     }
 
-    return parse(buf);
+    return parse(editor, buf);
 }
 
-void Cmd::error(const char* msg)
+void Cmd::error(std::string msg)
 {
     wclear(line);
-    mvwprintw(line, 0, 0, msg);
+    mvwprintw(line, 0, 0, msg.c_str());
     wrefresh(line);
 }

@@ -4,6 +4,8 @@
 
 #include "editor.hpp"
 
+const std::string version{"0.0.1"};
+
 void usage()
 {
 }
@@ -15,7 +17,7 @@ int main(int argc, char* argv[])
     while ((opt = getopt(argc, argv, "v")) != -1) {
         switch (opt) {
             case 'v':
-                std::cout << "0.0.1" << std::endl;
+                std::cout << version << std::endl;
                 return 0;
             case 'h':
                 usage();

@@ -22,5 +22,7 @@ public:
     Editor(int argc, char* argv[], int optind); // yes, copy of main() arguments
     ~Editor() = default;
 
-    bool operator ()(); // handle input (for main loop)
+    bool operator()(); // handle input (for main loop)
+
+    friend bool parse(Editor&, std::string);
 };
