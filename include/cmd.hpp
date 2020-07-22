@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include <ncurses.h>
 
 class Cmd {
@@ -11,5 +13,6 @@ class Cmd {
     void error(const char*);
 
   private:
+    std::string input();
     WINDOW* line;
 };

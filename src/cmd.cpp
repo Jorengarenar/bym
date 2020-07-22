@@ -23,17 +23,55 @@ void Cmd::redraw()
     wrefresh(line);
 }
 
+std::string Cmd::input()
+{
+    std::string buf{};
+    int b;
+    int i = 0;
+
+    EnableCursor c(1);
+    do {
+        b = wgetch(line);
+
+        switch (b) {
+            case '\n':
+                break;
+            case ::ESC:
+                return "";
+            case KEY_BACKSPACE:
+            case 127:
+            case '\b':
+                if (i) {
+                    mvwdelch(line, getcury(line), i);
+                    buf.pop_back();
+                    --i;
+                }
+                break;
+            default:
+                wprintw(line, "%c", b);
+                buf += b;
+                ++i;
+        }
+
+    } while (b != '\n');
+
+    return buf;
+}
+
 int Cmd::operator ()()
 {
-    const int n = 10000;
-    char buf[n];
     wclear(line);
     mvwprintw(line, 0, 0, ":");
     wrefresh(line);
-    {
-        EnableCursor x;
-        wgetnstr(line, buf, n);
+
+    std::string buf = input();
+
+    if (buf.empty()) {
+        wclear(line);
+        wrefresh(line);
+        return 2;
     }
+
     return parse(buf);
 }
 
