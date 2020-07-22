@@ -1,5 +1,7 @@
 #pragma once
 
+const char ESC = 27;
+
 struct InitCurses {
     InitCurses();
     ~InitCurses();
@@ -7,6 +9,7 @@ struct InitCurses {
 
 struct EnableCursor {
     EnableCursor();
+    EnableCursor(int);
     ~EnableCursor();
 };
 

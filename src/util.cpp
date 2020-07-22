@@ -11,6 +11,11 @@ EnableCursor::EnableCursor()
     echo();
 }
 
+EnableCursor::EnableCursor(int)
+{
+    curs_set(TRUE);
+}
+
 EnableCursor::~EnableCursor()
 {
     curs_set(FALSE);
