@@ -230,5 +230,3 @@ void Window::save()
 {
     buffer->save();
 }
-
-// vim: fen

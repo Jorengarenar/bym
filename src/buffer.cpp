@@ -85,5 +85,3 @@ void Buffer::save(std::string p)
     std::copy(bytes.begin(), bytes.end(), std::ostreambuf_iterator<char>(output));
     output.close();
 }
-
-// vim: fen

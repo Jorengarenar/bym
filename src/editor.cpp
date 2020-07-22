@@ -81,5 +81,3 @@ bool Editor::operator ()()
     }
     return true;
 }
-
-// vim: fen
