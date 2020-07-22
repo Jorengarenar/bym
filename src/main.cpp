@@ -1,39 +1,37 @@
-#include <vector>
+#include <iostream>
 
-#include <ncurses.h>
+#include <unistd.h>
 
-#include "buffer.hpp"
 #include "editor.hpp"
-#include "window.hpp"
 
-void init_curses()
+void usage()
 {
-    initscr();
-
-    curs_set(FALSE);
-    keypad(stdscr, TRUE);
-    noecho();
-    cbreak();
 }
 
 int main(int argc, char* argv[])
 {
-    std::vector<Buffer> buffers;
-    if (argc > 1) {
-        buffers.assign(argv+1, argv+argc);
+    int opt;
+
+    while ((opt = getopt(argc, argv, "v")) != -1) {
+        switch (opt) {
+            case 'v':
+                std::cout << "0.0.1" << std::endl;
+                return 0;
+            case 'h':
+                usage();
+                return 0;
+            case '?':
+                std::cout << "Unknown option: " << optopt << std::endl;
+                return 1;
+            default:
+                abort();
+        }
     }
-    else {
-        buffers.push_back(Buffer());
-    }
 
-    init_curses();
+    Editor editor{ argc, argv, optind };
+    while (editor()) {}
 
-    Window w(LINES-1, COLS, buffers[0]);
-    Cmd cmd;
-
-    while (handleInput(w, cmd)) {}
-
-    endwin();
+    return 0;
 }
 
 // vim: fen

@@ -5,7 +5,7 @@
 
 #include "util.hpp"
 
-Window::Window(short height_, short width_, Buffer& buffer_) :
+Window::Window(int height_, int width_, Buffer& buffer_) :
     height(height_), width(width_),
     cols((width-10)/4),
     currentByte(0),

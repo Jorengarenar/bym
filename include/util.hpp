@@ -1,9 +1,11 @@
 #pragma once
 
-#include <ncurses.h>
+struct InitCurses {
+    InitCurses();
+    ~InitCurses();
+};
 
-class EnableCursor {
-public:
+struct EnableCursor {
     EnableCursor();
     ~EnableCursor();
 };

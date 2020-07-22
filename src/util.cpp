@@ -1,6 +1,9 @@
 #include "util.hpp"
 
 #include <cctype>
+#include <cstdlib>
+
+#include <ncurses.h>
 
 EnableCursor::EnableCursor()
 {

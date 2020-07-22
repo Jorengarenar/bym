@@ -10,7 +10,7 @@ enum class Direction { down, up, right, left };
 
 class Window {
   public:
-    Window(short, short, Buffer&);
+    Window(int, int, Buffer&);
     ~Window();
 
     unsigned short  height;

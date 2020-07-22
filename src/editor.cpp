@@ -1,36 +1,72 @@
 #include "editor.hpp"
 
-void replaceByte(Window& w, Cmd& cmd)
+#include <ncurses.h>
+
+#include "util.hpp"
+
+
+Editor::InitCurses::InitCurses()
 {
-    switch (w.replaceByte()) {
+    if (!initscr()) {
+        exit(1);
+    }
+
+    curs_set(FALSE);
+    keypad(stdscr, TRUE);
+    noecho();
+    cbreak();
+}
+
+Editor::InitCurses::~InitCurses()
+{
+    endwin();
+}
+
+Editor::Editor(int argc, char* argv[], int optind)
+{
+    if (argc > optind) {
+        buffers.assign(argv+optind, argv+argc);
+    }
+    else {
+        buffers.emplace_back();
+    }
+
+    windows.emplace_back(LINES-1, COLS, buffers[0]);
+    cw = &windows.front();
+}
+
+void Editor::replaceByte()
+{
+    switch (cw->replaceByte()) {
         case 1:
             cmd.error("Buffer size is 0");
+            break;
     }
 }
 
-bool handleInput(Window& w, Cmd& cmd)
+bool Editor::operator ()()
 {
-    wchar_t c = getch();
+    int c = getc(stdin);
 
     switch (c) {
         case KEY_RESIZE:
-            w.redraw();
+            cw->redraw();
             cmd.redraw();
             break;
         case 'h':
-            w.hjkl(Direction::left);
+            cw->hjkl(Direction::left);
             break;
         case 'j':
-            w.hjkl(Direction::down);
+            cw->hjkl(Direction::down);
             break;
         case 'k':
-            w.hjkl(Direction::up);
+            cw->hjkl(Direction::up);
             break;
         case 'l':
-            w.hjkl(Direction::right);
+            cw->hjkl(Direction::right);
             break;
         case 'r':
-            replaceByte(w, cmd);
+            replaceByte();
             break;
         case ':':
             switch (cmd()) {
@@ -38,10 +74,12 @@ bool handleInput(Window& w, Cmd& cmd)
                     return false;
                     break;
                 case 1:
-                    w.save();
+                    cw->save();
                     break;
             }
             break;
     }
     return true;
 }
+
+// vim: fen
