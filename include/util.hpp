@@ -1,5 +1,7 @@
 #pragma once
 
+#define CTRL(x)  ((x) & 0x1f)
+
 const char ESC = 27;
 
 struct InitCurses {
@@ -9,7 +11,6 @@ struct InitCurses {
 
 struct EnableCursor {
     EnableCursor();
-    EnableCursor(int);
     ~EnableCursor();
 };
 

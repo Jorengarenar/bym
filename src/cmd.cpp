@@ -27,22 +27,23 @@ std::string Cmd::input()
 {
     std::string buf{};
     int b;
-    int i = 0;
+    int y = getcury(line);
 
-    EnableCursor c(1);
-    do {
+    EnableCursor c;
+    for (int i = 0; b != '\n'; ) {
         b = wgetch(line);
 
         switch (b) {
             case '\n':
                 break;
             case ::ESC:
+            case CTRL('c'):
                 return "";
             case KEY_BACKSPACE:
             case 127:
             case '\b':
                 if (i) {
-                    mvwdelch(line, getcury(line), i);
+                    mvwdelch(line, y, i);
                     buf.pop_back();
                     --i;
                 }
@@ -53,12 +54,12 @@ std::string Cmd::input()
                 ++i;
         }
 
-    } while (b != '\n');
+    }
 
     return buf;
 }
 
-bool Cmd::operator()()
+bool Cmd::operator ()()
 {
     wclear(line);
     mvwprintw(line, 0, 0, ":");

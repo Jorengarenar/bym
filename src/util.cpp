@@ -8,18 +8,11 @@
 EnableCursor::EnableCursor()
 {
     curs_set(TRUE);
-    echo();
-}
-
-EnableCursor::EnableCursor(int)
-{
-    curs_set(TRUE);
 }
 
 EnableCursor::~EnableCursor()
 {
     curs_set(FALSE);
-    noecho();
 }
 
 char toPrintable(int x)

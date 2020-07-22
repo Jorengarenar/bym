@@ -14,7 +14,8 @@ Editor::InitCurses::InitCurses()
     curs_set(FALSE);
     keypad(stdscr, TRUE);
     noecho();
-    cbreak();
+    nocbreak();
+    raw();
 }
 
 Editor::InitCurses::~InitCurses()

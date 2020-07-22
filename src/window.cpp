@@ -184,24 +184,30 @@ bool Window::inputByte(char* buf)
 
     EnableCursor cur;
 
-    do {
-        mvwprintw(subWindows.hex, y, x*3, " ");
-        wmove(subWindows.hex, y, x*3);
-        buf[0] = wgetch(subWindows.hex);
-    } while (!isxdigit(buf[0]) && buf[0] != 27);
+    int b;
+    for (int i = 0; i < 2; ) { // value 2 is temporary, it will be mutable
+        wmove(subWindows.hex, y, x*3 + i);
+        b = wgetch(subWindows.hex);
 
-    if (buf[0] == 27) {
-        return false;
-    }
+        switch (b) {
+            case ::ESC:
+            case CTRL('c'):
+                return false;
 
-    do {
-        mvwprintw(subWindows.hex, y, x*3 + 1, " ");
-        wmove(subWindows.hex, y, x*3 + 1);
-        buf[1] = wgetch(subWindows.hex);
-    } while (!isxdigit(buf[1]) && buf[1] != 27);
+            case KEY_BACKSPACE:
+            case 127:
+            case '\b':
+                if (i) {
+                    mvwprintw(subWindows.hex, y, x*3, " ");
+                    --i;
+                }
+                break;
 
-    if (buf[1] == 27) {
-        return false;
+            default:
+                wprintw(subWindows.hex, "%c", b);
+                buf[i] = b;
+                ++i;
+        }
     }
 
     return true;
@@ -220,6 +226,8 @@ int Window::replaceByte()
         buffer->bytes[currentByte] = b;
         mvwprintw(subWindows.text, y, x, "%c", toPrintable(b));
     }
+
+    // No `else`, bc `placeCursor()` already handles printing correct byte
 
     placeCursor();
 
