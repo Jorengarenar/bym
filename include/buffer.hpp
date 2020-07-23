@@ -14,6 +14,7 @@ class Buffer {
     Buffer();
     Buffer(const char*);
     size_t size();
+    bool empty();
 
   private:
     std::string path; // path to opened file

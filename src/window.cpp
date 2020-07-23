@@ -135,32 +135,21 @@ void Window::placeCursor()
         y = 0;
     }
 
-    bool bufferEmpty = true;
-    unsigned char c;
-    if (buffer->size()) {
+    unsigned char c = 0;
+    if (!buffer->empty()) {
         c = buffer->bytes[currentByte];
-        bufferEmpty = false;
-    }
-    else {
-        c = 0; // buffer is empty, so let's set `c` to non-printable character
     }
 
-    wattron(subWindows.hex, A_REVERSE);
-    mvwprintw(subWindows.hex, y, x*3, bufferEmpty ? "  " : "%02X", c);
-    wattroff(subWindows.hex, A_REVERSE);
+    auto printCursor = [&](WINDOW* w, int X, const char* fmt, unsigned char C) {
+        wattron(w, A_REVERSE);
+        mvwprintw(w, y, X, fmt, C);
+        wattroff(w, A_REVERSE);
 
-    wattron(subWindows.text, A_REVERSE);
-    if (c >= 32 && c <= 126) {
-        mvwprintw(subWindows.text, y, x, "%c", c);
-    }
-    else {
-        mvwprintw(subWindows.text, y, x, " ");
-    }
-    wattroff(subWindows.text, A_REVERSE);
+        wrefresh(w);
+    };
 
-    wrefresh(subWindows.hex);
-    wrefresh(subWindows.text);
-
+    printCursor(subWindows.hex, x*3, buffer->empty() ? "  " : "%02X", c);
+    printCursor(subWindows.text, x, "%c", toPrintable(c));
 }
 
 template<typename T, typename R>
@@ -204,9 +193,11 @@ bool Window::inputByte(char* buf)
                 break;
 
             default:
-                wprintw(subWindows.hex, "%c", b);
-                buf[i] = b;
-                ++i;
+                if (isxdigit(b)) {
+                    wprintw(subWindows.hex, "%c", b);
+                    buf[i] = b;
+                    ++i;
+                }
         }
     }
 
@@ -215,7 +206,7 @@ bool Window::inputByte(char* buf)
 
 int Window::replaceByte()
 {
-    if (buffer->size() == 0) {
+    if (buffer->empty()) {
         return 1;
     }
 
@@ -225,9 +216,7 @@ int Window::replaceByte()
         unsigned char b = std::stoi(buf, 0, 16);
         buffer->bytes[currentByte] = b;
         mvwprintw(subWindows.text, y, x, "%c", toPrintable(b));
-    }
-
-    // No `else`, bc `placeCursor()` already handles printing correct byte
+    } // No `else`, bc `placeCursor()` already handles printing correct byte
 
     placeCursor();
 

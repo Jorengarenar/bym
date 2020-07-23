@@ -22,6 +22,11 @@ size_t Buffer::size()
     return bytes.size();
 }
 
+bool Buffer::empty()
+{
+    return !bytes.size();
+}
+
 void Buffer::print(Window& win, short startLine)
 {
     std::string str = ""; // representation of bytes in line
