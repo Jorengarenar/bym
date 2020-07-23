@@ -4,26 +4,24 @@
 
 #include "editor.hpp"
 
-const std::string version{"0.0.1"};
-
 void usage()
 {
+    std::cout << PROJECT_NAME << " (" << VERSION << ")" << std::endl;
 }
 
 int main(int argc, char* argv[])
 {
     int opt;
 
-    while ((opt = getopt(argc, argv, "v")) != -1) {
+    while ((opt = getopt(argc, argv, "vh")) != -1) {
         switch (opt) {
             case 'v':
-                std::cout << version << std::endl;
+                std::cout << VERSION << std::endl;
                 return 0;
             case 'h':
                 usage();
                 return 0;
             case '?':
-                std::cout << "Unknown option: " << optopt << std::endl;
                 return 1;
             default:
                 abort();

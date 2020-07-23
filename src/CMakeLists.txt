@@ -13,6 +13,6 @@ endforeach()
 
 list(APPEND objs parser)
 
-add_executable(bvim main.cpp ${objs})
+add_executable("${CMAKE_PROJECT_NAME}" main.cpp ${objs})
 
-target_link_libraries(bvim ${CURSES_LIBRARIES})
+target_link_libraries("${CMAKE_PROJECT_NAME}" ${CURSES_LIBRARIES})
