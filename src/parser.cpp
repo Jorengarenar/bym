@@ -1,7 +1,9 @@
 #include "parser.hpp"
 
-#include <map>
 #include <sstream>
+#include <iterator>
+
+#include "editor.hpp"
 
 const std::map<std::string, Command> commands {
     { "q",    Command::quit },
@@ -10,7 +12,7 @@ const std::map<std::string, Command> commands {
     { "wq",   Command::savequit },
 };
 
-bool parse(Editor& editor, std::string line)
+bool Parser::operator()(std::string line)
 {
     std::stringstream buf{ line };
     std::string a;
@@ -43,4 +45,11 @@ bool parse(Editor& editor, std::string line)
 
     }
     return true;
+}
+
+Parser::Parser(Editor& e) : editor(e)
+{
+    std::transform(::commands.begin(), ::commands.end(),
+                   std::inserter(commandsKeys, commandsKeys.begin()),
+                   [](const auto& p) { return p.first; });
 }

@@ -1,11 +1,21 @@
 #pragma once
 
+#include <algorithm>
+#include <map>
 #include <string>
+#include <set>
 
-#include "editor.hpp"
+class Editor;
 
 enum class Command {
-    nothing, quit, save, savequit
+    quit, save, savequit
 };
 
-bool parse(Editor&, std::string);
+class Parser {
+    Editor& editor;
+public:
+    std::set<std::string> commandsKeys;
+    Parser(Editor&);
+
+    bool operator()(std::string);
+};

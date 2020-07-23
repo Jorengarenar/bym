@@ -24,7 +24,7 @@ Editor::InitCurses::~InitCurses()
 }
 
 
-Editor::Editor(int argc, char* argv[], int optind) : cmd(*this)
+Editor::Editor(int argc, char* argv[], int optind) : cmd(*this), parser(*this)
 {
     if (argc > optind) {
         buffers.assign(argv+optind, argv+argc);

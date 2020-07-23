@@ -5,6 +5,7 @@
 #include "buffer.hpp"
 #include "window.hpp"
 #include "cmd.hpp"
+#include "parser.hpp"
 
 class Editor {
     struct InitCurses {
@@ -14,15 +15,17 @@ class Editor {
 
     std::vector<Buffer> buffers;
     std::vector<Window> windows;
-    Window* cw; // current window
-    Cmd cmd;
+
     void replaceByte(); // wrapper over cw->replaceByte()
 
 public:
+    Window* cw; // current window
+
+    Cmd cmd;
+    Parser parser;
+
     Editor(int argc, char* argv[], int optind); // yes, copy of main() arguments
     ~Editor() = default;
 
     bool operator()(); // handle input (for main loop)
-
-    friend bool parse(Editor&, std::string);
 };

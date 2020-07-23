@@ -1,9 +1,13 @@
 #include "cmd.hpp"
 
+#include <algorithm>
+#include <ranges>
+
 #include <ncurses.h>
 
 #include "parser.hpp"
 #include "util.hpp"
+#include "editor.hpp"
 
 Cmd::Cmd(Editor& e) : editor(e)
 {
@@ -23,22 +27,94 @@ void Cmd::redraw()
     wrefresh(line);
 }
 
+bool Cmd::complete(std::string& buf, const std::string& last, int& b, int& i)
+{
+    int y = getcury(line);
+
+    auto& keys = editor.parser.commandsKeys;
+
+    auto first = keys.lower_bound(last);
+
+    if (first == keys.end()) {
+        return false;
+    }
+
+    auto it = first;
+
+    auto findCompletion = [&](std::string& b) {
+        if (it != keys.end()) {
+            i += it->length();
+            b = *it;
+        }
+        return b;
+    };
+
+    std::string completed{ last };
+
+    auto erase = [&]() {
+        int n = i - completed.length();
+
+        for (; i > n; --i) {
+            mvwdelch(line, y, i);
+        }
+
+        buf.erase(i, i + completed.length());
+    };
+
+    erase();
+    buf += findCompletion(completed);
+    wprintw(line, completed.c_str());
+
+    b = wgetch(line);
+
+    while (b == '\t') {
+        erase();
+
+        ++it;
+
+        if (it == keys.end()) {
+            it = first;
+        }
+        else if (!isPrefix(last, *it)) {
+            it = first;
+        }
+
+        completed = *it;
+        i += completed.length();
+        buf += completed;
+        wprintw(line, completed.c_str());
+
+        b = wgetch(line);
+    }
+
+    return true;
+}
+
 std::string Cmd::input()
 {
     std::string buf{};
-    int b;
+    int b = 0;
     int y = getcury(line);
+    bool skipB = false;
 
     EnableCursor c;
     for (int i = 0; b != '\n'; ) {
-        b = wgetch(line);
+        if (!skipB) {
+            b = wgetch(line);
+        }
+
+        skipB = false;
+
+        // TODO: line wrap
 
         switch (b) {
             case '\n':
                 break;
+
             case ::ESC:
             case CTRL('c'):
                 return "";
+
             case KEY_BACKSPACE:
             case 127:
             case '\b':
@@ -48,10 +124,16 @@ std::string Cmd::input()
                     --i;
                 }
                 break;
+
+            case '\t':
+                skipB = complete(buf, getLastWord(buf), b, i);
+                break;
+
             default:
                 wprintw(line, "%c", b);
                 buf += b;
                 ++i;
+
         }
 
     }
@@ -73,7 +155,7 @@ bool Cmd::operator ()()
         return true;
     }
 
-    return parse(editor, buf);
+    return editor.parser(buf);
 }
 
 void Cmd::error(std::string msg)
