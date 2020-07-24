@@ -1,7 +1,6 @@
 #include "cmd.hpp"
 
 #include <algorithm>
-#include <ranges>
 
 #include <ncurses.h>
 
