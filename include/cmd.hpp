@@ -10,7 +10,7 @@ class Cmd {
     std::string input();
     WINDOW* line;
     Editor& editor;
-    bool complete(std::string&, const std::string&, int&, int&);
+    bool complete(std::string&, int&, int&);
 public:
     Cmd(Editor&);
     ~Cmd();

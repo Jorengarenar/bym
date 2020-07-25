@@ -26,30 +26,24 @@ void Cmd::redraw()
     wrefresh(line);
 }
 
-bool Cmd::complete(std::string& buf, const std::string& last, int& b, int& i)
+bool Cmd::complete(std::string& buf, int& b, int& i)
 {
-    int y = getcury(line);
+    const int y = getcury(line);
 
-    auto& keys = editor.parser.commandsKeys;
+    const std::string& prefix = getLastWord(buf);
 
-    auto first = keys.lower_bound(last);
+    auto& keys = editor.parser.commandsKeys; /* TODO: change it, so it will
+                                                complete also command arguments */
 
-    if (first == keys.end()) {
-        return false;
+    auto it = keys.lower_bound(prefix);
+
+    if (*it == prefix) {
+        ++it;
     }
 
-    auto it = first;
+    std::string completed{ prefix };
 
-    auto findCompletion = [&](std::string& b) {
-        if (it != keys.end()) {
-            i += it->length();
-            b = *it;
-        }
-        return b;
-    };
-
-    std::string completed{ last };
-
+    // Erase previous completion
     auto erase = [&]() {
         int n = i - completed.length();
 
@@ -60,31 +54,29 @@ bool Cmd::complete(std::string& buf, const std::string& last, int& b, int& i)
         buf.erase(i, i + completed.length());
     };
 
-    erase();
-    buf += findCompletion(completed);
-    wprintw(line, completed.c_str());
-
-    b = wgetch(line);
-
-    while (b == '\t') {
+    do {
         erase();
 
-        ++it;
-
-        if (it == keys.end()) {
-            it = first;
+        if (it != keys.end() && isPrefix(prefix, *it)) {
+                completed = *it;
         }
-        else if (!isPrefix(last, *it)) {
-            it = first;
+        else {
+            completed = prefix;
         }
 
-        completed = *it;
+        // Set new completion
         i += completed.length();
         buf += completed;
         wprintw(line, completed.c_str());
 
+        if (completed == prefix) {
+            return false;
+        }
+
+        ++it;
+
         b = wgetch(line);
-    }
+    } while (b == '\t');
 
     return true;
 }
@@ -101,8 +93,9 @@ std::string Cmd::input()
         if (!skipB) {
             b = wgetch(line);
         }
-
-        skipB = false;
+        else {
+            skipB = false;
+        }
 
         // TODO: line wrap
 
@@ -125,7 +118,7 @@ std::string Cmd::input()
                 break;
 
             case '\t':
-                skipB = complete(buf, getLastWord(buf), b, i);
+                skipB = complete(buf, b, i);
                 break;
 
             default:
