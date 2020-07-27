@@ -4,7 +4,7 @@
 
 #include "buffer.hpp"
 #include "window.hpp"
-#include "cmd.hpp"
+#include "cli.hpp"
 #include "parser.hpp"
 
 class Editor {
@@ -21,7 +21,7 @@ class Editor {
 public:
     Window* cw; // current window
 
-    Cmd cmd;
+    Cli cli;
     Parser parser;
 
     Editor(int argc, char* argv[], int optind); // yes, copy of main() arguments

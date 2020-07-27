@@ -6,14 +6,14 @@
 
 class Editor;
 
-class Cmd {
+class Cli {
     std::string input();
     WINDOW* line;
     Editor& editor;
     bool complete(std::string&, int&, int&);
 public:
-    Cmd(Editor&);
-    ~Cmd();
+    Cli(Editor&);
+    ~Cli();
     void redraw();
     bool operator()();
     void error(std::string);

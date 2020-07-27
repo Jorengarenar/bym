@@ -26,7 +26,7 @@ bool Parser::operator()(std::string line)
         auto c = commands.find(a);
 
         if (c == commands.end()) {
-            editor.cmd.error(a + " : No such command!");
+            editor.cli.error(a + " : No such command!");
             return true;
         }
 

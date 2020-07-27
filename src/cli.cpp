@@ -1,4 +1,4 @@
-#include "cmd.hpp"
+#include "cli.hpp"
 
 #include <algorithm>
 
@@ -8,25 +8,25 @@
 #include "util.hpp"
 #include "editor.hpp"
 
-Cmd::Cmd(Editor& e) : editor(e)
+Cli::Cli(Editor& e) : editor(e)
 {
     line = newwin(1, COLS, LINES-1, 0);
     wrefresh(line);
 }
 
-Cmd::~Cmd()
+Cli::~Cli()
 {
     delwin(line);
 }
 
-void Cmd::redraw()
+void Cli::redraw()
 {
     delwin(line);
     line = newwin(1, COLS, LINES-1, 0);
     wrefresh(line);
 }
 
-bool Cmd::complete(std::string& buf, int& b, int& i)
+bool Cli::complete(std::string& buf, int& b, int& i)
 {
     const int y = getcury(line);
 
@@ -81,7 +81,7 @@ bool Cmd::complete(std::string& buf, int& b, int& i)
     return true;
 }
 
-std::string Cmd::input()
+std::string Cli::input()
 {
     std::string buf{};
     int b = 0;
@@ -133,7 +133,7 @@ std::string Cmd::input()
     return buf;
 }
 
-bool Cmd::operator ()()
+bool Cli::operator ()()
 {
     wclear(line);
     mvwprintw(line, 0, 0, ":");
@@ -150,7 +150,7 @@ bool Cmd::operator ()()
     return editor.parser(buf);
 }
 
-void Cmd::error(std::string msg)
+void Cli::error(std::string msg)
 {
     wclear(line);
     mvwprintw(line, 0, 0, msg.c_str());

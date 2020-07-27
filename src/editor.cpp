@@ -24,7 +24,7 @@ Editor::InitCurses::~InitCurses()
 }
 
 
-Editor::Editor(int argc, char* argv[], int optind) : cmd(*this), parser(*this)
+Editor::Editor(int argc, char* argv[], int optind) : cli(*this), parser(*this)
 {
     if (argc > optind) {
         buffers.assign(argv+optind, argv+argc);
@@ -41,7 +41,7 @@ void Editor::replaceByte()
 {
     switch (cw->replaceByte()) {
         case 1:
-            cmd.error("Buffer size is 0");
+            cli.error("Buffer size is 0");
             break;
     }
 }
@@ -53,7 +53,7 @@ bool Editor::operator()()
     switch (c) {
         case KEY_RESIZE:
             cw->redraw();
-            cmd.redraw();
+            cli.redraw();
             break;
         case 'h':
             cw->hjkl(Direction::left);
@@ -71,7 +71,7 @@ bool Editor::operator()()
             replaceByte();
             break;
         case ':':
-            return cmd();
+            return cli();
     }
     return true;
 }
