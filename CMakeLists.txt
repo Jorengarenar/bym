@@ -14,8 +14,10 @@ include(DefineOutputDirs)
 include(ExportCompileCommands)
 
 set(CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -pedantic")
+
 find_package(Curses REQUIRED)
-add_compile_options(-g -Wall -Wextra -pedantic)
 
 include_directories(include/)
 
