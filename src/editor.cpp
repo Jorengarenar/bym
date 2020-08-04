@@ -48,7 +48,7 @@ void Editor::replaceByte()
 
 bool Editor::operator()()
 {
-    int c = getc(stdin);
+    int c = getchar();
 
     switch (c) {
         case KEY_RESIZE:

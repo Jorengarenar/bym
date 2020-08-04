@@ -1,9 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(Bim)
+project(Bim
+  VERSION 0.0.1
+  LANGUAGES CXX)
 
 add_definitions(-DPROJECT_NAME="${CMAKE_PROJECT_NAME}")
-add_definitions(-DVERSION="0.0.1")
+add_definitions(-DVERSION="${CMAKE_PROJECT_VERSION}")
 string(TOLOWER "${CMAKE_PROJECT_NAME}" EXECUTABLE_NAME)
 add_definitions(-DEXECUTABLE_NAME="${EXECUTABLE_NAME}")
 
@@ -17,13 +19,21 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -pedantic")
 
-find_package(Curses REQUIRED)
+set(ONLY_DOCS NO CACHE BOOL "Whether to build only docs")
 
-include_directories(include/)
+if(NOT ONLY_DOCS)
 
-add_subdirectory(src/)
-set_target_properties("${CMAKE_PROJECT_NAME}" PROPERTIES
-  OUTPUT_NAME "${EXECUTABLE_NAME}")
+  find_package(Curses REQUIRED)
 
-include(CTest)
-add_subdirectory(tests/)
+  include_directories(include/)
+
+  add_subdirectory(src/)
+  set_target_properties("${CMAKE_PROJECT_NAME}" PROPERTIES
+    OUTPUT_NAME "${EXECUTABLE_NAME}")
+
+  include(CTest)
+  add_subdirectory(tests/)
+
+endif()
+
+add_subdirectory(docs/)
