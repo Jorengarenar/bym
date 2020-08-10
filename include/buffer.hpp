@@ -7,6 +7,9 @@
 
 class Window;
 
+/// Buffer
+///
+/// A buffer is a file loaded into memory for editing
 class Buffer {
     friend class Window;
 
