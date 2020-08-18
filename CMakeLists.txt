@@ -1,16 +1,18 @@
 cmake_minimum_required(VERSION 3.10)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/extern/cmake")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
 project(Bym
   VERSION 0.0.1
   LANGUAGES CXX)
 
+string(TOLOWER "${CMAKE_PROJECT_NAME}" EXECUTABLE_NAME)
+
 add_definitions(-DPROJECT_NAME="${CMAKE_PROJECT_NAME}")
 add_definitions(-DVERSION="${CMAKE_PROJECT_VERSION}")
-string(TOLOWER "${CMAKE_PROJECT_NAME}" EXECUTABLE_NAME)
 add_definitions(-DEXECUTABLE_NAME="${EXECUTABLE_NAME}")
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/extern/cmake")
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(PreventInSourceBuilds)
 include(DefineOutputDirs)
 include(ExportCompileCommands)
@@ -28,8 +30,8 @@ if(NOT ONLY_DOCS)
   include_directories(include/)
 
   add_subdirectory(src/)
-  set_target_properties("${CMAKE_PROJECT_NAME}" PROPERTIES
-    OUTPUT_NAME "${EXECUTABLE_NAME}")
+
+  include(AddExecutable)
 
   include(CTest)
   add_subdirectory(tests/)
