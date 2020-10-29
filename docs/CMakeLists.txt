@@ -13,5 +13,5 @@ if(DOXYGEN_FOUND)
   doxygen_add_docs(doc ${CMAKE_SOURCE_DIR} ALL)
 
 else(DOXYGEN_FOUND)
-  message("Doxygen need to be installed to generate the doxygen documentation")
+  message("Doxygen needs to be installed to generate the Doxygen documentation")
 endif(DOXYGEN_FOUND)
