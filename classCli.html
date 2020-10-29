@@ -61,30 +61,271 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classCli-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Cli Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="cli_8hpp_source.html">cli.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7f3776a2c936b3284631bca6a3db5f45"><td class="memItemLeft" align="right" valign="top"><a id="a7f3776a2c936b3284631bca6a3db5f45"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Cli</b> (<a class="el" href="classEditor.html">Editor</a> &amp;)</td></tr>
+<tr class="memitem:a7f3776a2c936b3284631bca6a3db5f45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a7f3776a2c936b3284631bca6a3db5f45">Cli</a> (<a class="el" href="classEditor.html">Editor</a> &amp;)</td></tr>
 <tr class="separator:a7f3776a2c936b3284631bca6a3db5f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56d1734f3a335c36aff199cc27128f98"><td class="memItemLeft" align="right" valign="top"><a id="a56d1734f3a335c36aff199cc27128f98"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>redraw</b> ()</td></tr>
+<tr class="memitem:a0dc17fb95739fcf395a9c66332618719"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a0dc17fb95739fcf395a9c66332618719">~Cli</a> ()</td></tr>
+<tr class="separator:a0dc17fb95739fcf395a9c66332618719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56d1734f3a335c36aff199cc27128f98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a56d1734f3a335c36aff199cc27128f98">redraw</a> ()</td></tr>
+<tr class="memdesc:a56d1734f3a335c36aff199cc27128f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraw <code>line</code>  <a href="#a56d1734f3a335c36aff199cc27128f98">More...</a><br /></td></tr>
 <tr class="separator:a56d1734f3a335c36aff199cc27128f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e3e556ea039edbf988d82a7f485ff35"><td class="memItemLeft" align="right" valign="top"><a id="a6e3e556ea039edbf988d82a7f485ff35"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> ()</td></tr>
+<tr class="memitem:a6e3e556ea039edbf988d82a7f485ff35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a6e3e556ea039edbf988d82a7f485ff35">operator()</a> ()</td></tr>
+<tr class="memdesc:a6e3e556ea039edbf988d82a7f485ff35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get command (<code><a class="el" href="classCli.html#a66836a7efbd0b4cf5b8f13445ad9fc1c" title="Gets command from user. ">input()</a></code>) and pass it to parser.  <a href="#a6e3e556ea039edbf988d82a7f485ff35">More...</a><br /></td></tr>
 <tr class="separator:a6e3e556ea039edbf988d82a7f485ff35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c6dbd2c25a2988d6f17111352a5fe71"><td class="memItemLeft" align="right" valign="top"><a id="a5c6dbd2c25a2988d6f17111352a5fe71"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>error</b> (std::string)</td></tr>
+<tr class="memitem:a5c6dbd2c25a2988d6f17111352a5fe71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a5c6dbd2c25a2988d6f17111352a5fe71">error</a> (std::string)</td></tr>
+<tr class="memdesc:a5c6dbd2c25a2988d6f17111352a5fe71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display error message.  <a href="#a5c6dbd2c25a2988d6f17111352a5fe71">More...</a><br /></td></tr>
 <tr class="separator:a5c6dbd2c25a2988d6f17111352a5fe71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a66836a7efbd0b4cf5b8f13445ad9fc1c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a66836a7efbd0b4cf5b8f13445ad9fc1c">input</a> ()</td></tr>
+<tr class="memdesc:a66836a7efbd0b4cf5b8f13445ad9fc1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets command from user.  <a href="#a66836a7efbd0b4cf5b8f13445ad9fc1c">More...</a><br /></td></tr>
+<tr class="separator:a66836a7efbd0b4cf5b8f13445ad9fc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba9ff4490f499438d17aa86472c04f20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#aba9ff4490f499438d17aa86472c04f20">complete</a> (std::string &amp;, int &amp;, int &amp;)</td></tr>
+<tr class="memdesc:aba9ff4490f499438d17aa86472c04f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Complete commands.  <a href="#aba9ff4490f499438d17aa86472c04f20">More...</a><br /></td></tr>
+<tr class="separator:aba9ff4490f499438d17aa86472c04f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a49d6efecf65e534c05779bf2742ca15e"><td class="memItemLeft" align="right" valign="top">WINDOW *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#a49d6efecf65e534c05779bf2742ca15e">line</a></td></tr>
+<tr class="memdesc:a49d6efecf65e534c05779bf2742ca15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Points to CLI part of the screen.  <a href="#a49d6efecf65e534c05779bf2742ca15e">More...</a><br /></td></tr>
+<tr class="separator:a49d6efecf65e534c05779bf2742ca15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e82c63e506cf4620c11dd5a3a48c85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEditor.html">Editor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCli.html#aa3e82c63e506cf4620c11dd5a3a48c85">editor</a></td></tr>
+<tr class="memdesc:aa3e82c63e506cf4620c11dd5a3a48c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parent of this object.  <a href="#aa3e82c63e506cf4620c11dd5a3a48c85">More...</a><br /></td></tr>
+<tr class="separator:aa3e82c63e506cf4620c11dd5a3a48c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>CLI</p>
+<p>Command line </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7f3776a2c936b3284631bca6a3db5f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3776a2c936b3284631bca6a3db5f45">&#9670;&nbsp;</a></span>Cli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cli::Cli </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEditor.html">Editor</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dc17fb95739fcf395a9c66332618719"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc17fb95739fcf395a9c66332618719">&#9670;&nbsp;</a></span>~Cli()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Cli::~Cli </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aba9ff4490f499438d17aa86472c04f20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba9ff4490f499438d17aa86472c04f20">&#9670;&nbsp;</a></span>complete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cli::complete </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Complete commands. </p>
+
+</div>
+</div>
+<a id="a5c6dbd2c25a2988d6f17111352a5fe71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6dbd2c25a2988d6f17111352a5fe71">&#9670;&nbsp;</a></span>error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cli::error </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display error message. </p>
+
+</div>
+</div>
+<a id="a66836a7efbd0b4cf5b8f13445ad9fc1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66836a7efbd0b4cf5b8f13445ad9fc1c">&#9670;&nbsp;</a></span>input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Cli::input </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets command from user. </p>
+
+</div>
+</div>
+<a id="a6e3e556ea039edbf988d82a7f485ff35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e3e556ea039edbf988d82a7f485ff35">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cli::operator() </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get command (<code><a class="el" href="classCli.html#a66836a7efbd0b4cf5b8f13445ad9fc1c" title="Gets command from user. ">input()</a></code>) and pass it to parser. </p>
+
+</div>
+</div>
+<a id="a56d1734f3a335c36aff199cc27128f98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d1734f3a335c36aff199cc27128f98">&#9670;&nbsp;</a></span>redraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cli::redraw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Redraw <code>line</code> </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa3e82c63e506cf4620c11dd5a3a48c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e82c63e506cf4620c11dd5a3a48c85">&#9670;&nbsp;</a></span>editor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEditor.html">Editor</a>&amp; Cli::editor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parent of this object. </p>
+
+</div>
+</div>
+<a id="a49d6efecf65e534c05779bf2742ca15e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d6efecf65e534c05779bf2742ca15e">&#9670;&nbsp;</a></span>line</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">WINDOW* Cli::line</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Points to CLI part of the screen. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/bym/bym/include/<a class="el" href="cli_8hpp_source.html">cli.hpp</a></li>
-<li>/home/runner/work/bym/bym/src/cli.cpp</li>
+<li>/home/runner/work/bym/bym/src/<a class="el" href="cli_8cpp.html">cli.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

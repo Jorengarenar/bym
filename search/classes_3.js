@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['initcurses',['InitCurses',['../structInitCurses.html',1,'']]]
+  ['initcurses',['InitCurses',['../structEditor_1_1InitCurses.html',1,'Editor']]]
 ];

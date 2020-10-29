@@ -63,36 +63,293 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classEditor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Editor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="editor_8hpp_source.html">editor.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEditor_1_1InitCurses.html">InitCurses</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes curses.  <a href="structEditor_1_1InitCurses.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a064c89e8a896f921f79ab28c9687bd1f"><td class="memItemLeft" align="right" valign="top"><a id="a064c89e8a896f921f79ab28c9687bd1f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Editor</b> (int argc, char *argv[], int optind)</td></tr>
+<tr class="memitem:a064c89e8a896f921f79ab28c9687bd1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a064c89e8a896f921f79ab28c9687bd1f">Editor</a> (int argc, char *argv[], int optind)</td></tr>
 <tr class="separator:a064c89e8a896f921f79ab28c9687bd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa37727dbc267d9f44461a6d1d89f4972"><td class="memItemLeft" align="right" valign="top"><a id="aa37727dbc267d9f44461a6d1d89f4972"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> ()</td></tr>
+<tr class="memitem:a4e81aeedb25acf57c600dd806396c6c9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a4e81aeedb25acf57c600dd806396c6c9">~Editor</a> ()=default</td></tr>
+<tr class="separator:a4e81aeedb25acf57c600dd806396c6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37727dbc267d9f44461a6d1d89f4972"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#aa37727dbc267d9f44461a6d1d89f4972">operator()</a> ()</td></tr>
+<tr class="memdesc:aa37727dbc267d9f44461a6d1d89f4972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles input (for main loop)  <a href="#aa37727dbc267d9f44461a6d1d89f4972">More...</a><br /></td></tr>
 <tr class="separator:aa37727dbc267d9f44461a6d1d89f4972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2c52e4276b4134e123c46f1082ed25ac"><td class="memItemLeft" align="right" valign="top"><a id="a2c52e4276b4134e123c46f1082ed25ac"></a>
-<a class="el" href="classWindow.html">Window</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>cw</b></td></tr>
+<tr class="memitem:a2c52e4276b4134e123c46f1082ed25ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classWindow.html">Window</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a2c52e4276b4134e123c46f1082ed25ac">cw</a></td></tr>
+<tr class="memdesc:a2c52e4276b4134e123c46f1082ed25ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current window.  <a href="#a2c52e4276b4134e123c46f1082ed25ac">More...</a><br /></td></tr>
 <tr class="separator:a2c52e4276b4134e123c46f1082ed25ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d52c2dd5b18bbfdd5d74fab53d5f870"><td class="memItemLeft" align="right" valign="top"><a id="a8d52c2dd5b18bbfdd5d74fab53d5f870"></a>
-<a class="el" href="classCli.html">Cli</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cli</b></td></tr>
+<tr class="memitem:a8d52c2dd5b18bbfdd5d74fab53d5f870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCli.html">Cli</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a8d52c2dd5b18bbfdd5d74fab53d5f870">cli</a></td></tr>
+<tr class="memdesc:a8d52c2dd5b18bbfdd5d74fab53d5f870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command line.  <a href="#a8d52c2dd5b18bbfdd5d74fab53d5f870">More...</a><br /></td></tr>
 <tr class="separator:a8d52c2dd5b18bbfdd5d74fab53d5f870"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d5965fb5c6cd7b9375804a6020e043b"><td class="memItemLeft" align="right" valign="top"><a id="a1d5965fb5c6cd7b9375804a6020e043b"></a>
-<a class="el" href="classParser.html">Parser</a>&#160;</td><td class="memItemRight" valign="bottom"><b>parser</b></td></tr>
+<tr class="memitem:a1d5965fb5c6cd7b9375804a6020e043b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParser.html">Parser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a1d5965fb5c6cd7b9375804a6020e043b">parser</a></td></tr>
+<tr class="memdesc:a1d5965fb5c6cd7b9375804a6020e043b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses configs and commands.  <a href="#a1d5965fb5c6cd7b9375804a6020e043b">More...</a><br /></td></tr>
 <tr class="separator:a1d5965fb5c6cd7b9375804a6020e043b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a6bb9b1fe02bff2b8cd92af5a603c80c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a6bb9b1fe02bff2b8cd92af5a603c80c0">replaceByte</a> ()</td></tr>
+<tr class="memdesc:a6bb9b1fe02bff2b8cd92af5a603c80c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper over cw-&gt;<a class="el" href="classEditor.html#a6bb9b1fe02bff2b8cd92af5a603c80c0" title="Wrapper over cw-&gt;replaceByte() ">replaceByte()</a>  <a href="#a6bb9b1fe02bff2b8cd92af5a603c80c0">More...</a><br /></td></tr>
+<tr class="separator:a6bb9b1fe02bff2b8cd92af5a603c80c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a614fc86f9b90ed6d44f4e8431a63376b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structEditor_1_1InitCurses.html">Editor::InitCurses</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a614fc86f9b90ed6d44f4e8431a63376b">initCurses</a></td></tr>
+<tr class="separator:a614fc86f9b90ed6d44f4e8431a63376b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5da60c9e6729446f71535ea2f21eaec"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBuffer.html">Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#ab5da60c9e6729446f71535ea2f21eaec">buffers</a></td></tr>
+<tr class="memdesc:ab5da60c9e6729446f71535ea2f21eaec"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of opened buffers.  <a href="#ab5da60c9e6729446f71535ea2f21eaec">More...</a><br /></td></tr>
+<tr class="separator:ab5da60c9e6729446f71535ea2f21eaec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc5bb7293a42f66a4931bbe8eea25db6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classWindow.html">Window</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#abc5bb7293a42f66a4931bbe8eea25db6">windows</a></td></tr>
+<tr class="memdesc:abc5bb7293a42f66a4931bbe8eea25db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of existing windows.  <a href="#abc5bb7293a42f66a4931bbe8eea25db6">More...</a><br /></td></tr>
+<tr class="separator:abc5bb7293a42f66a4931bbe8eea25db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classEditor.html">Editor</a></p>
+<p>Contains main functionalities of program </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a064c89e8a896f921f79ab28c9687bd1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a064c89e8a896f921f79ab28c9687bd1f">&#9670;&nbsp;</a></span>Editor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Editor::Editor </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>optind</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e81aeedb25acf57c600dd806396c6c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e81aeedb25acf57c600dd806396c6c9">&#9670;&nbsp;</a></span>~Editor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Editor::~Editor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa37727dbc267d9f44461a6d1d89f4972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37727dbc267d9f44461a6d1d89f4972">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Editor::operator() </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles input (for main loop) </p>
+
+</div>
+</div>
+<a id="a6bb9b1fe02bff2b8cd92af5a603c80c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bb9b1fe02bff2b8cd92af5a603c80c0">&#9670;&nbsp;</a></span>replaceByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Editor::replaceByte </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wrapper over cw-&gt;<a class="el" href="classEditor.html#a6bb9b1fe02bff2b8cd92af5a603c80c0" title="Wrapper over cw-&gt;replaceByte() ">replaceByte()</a> </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab5da60c9e6729446f71535ea2f21eaec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5da60c9e6729446f71535ea2f21eaec">&#9670;&nbsp;</a></span>buffers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classBuffer.html">Buffer</a>&gt; Editor::buffers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of opened buffers. </p>
+
+</div>
+</div>
+<a id="a8d52c2dd5b18bbfdd5d74fab53d5f870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d52c2dd5b18bbfdd5d74fab53d5f870">&#9670;&nbsp;</a></span>cli</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classCli.html">Cli</a> Editor::cli</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Command line. </p>
+
+</div>
+</div>
+<a id="a2c52e4276b4134e123c46f1082ed25ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c52e4276b4134e123c46f1082ed25ac">&#9670;&nbsp;</a></span>cw</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classWindow.html">Window</a>* Editor::cw</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Current window. </p>
+
+</div>
+</div>
+<a id="a614fc86f9b90ed6d44f4e8431a63376b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614fc86f9b90ed6d44f4e8431a63376b">&#9670;&nbsp;</a></span>initCurses</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structEditor_1_1InitCurses.html">Editor::InitCurses</a>  Editor::initCurses</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d5965fb5c6cd7b9375804a6020e043b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d5965fb5c6cd7b9375804a6020e043b">&#9670;&nbsp;</a></span>parser</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classParser.html">Parser</a> Editor::parser</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parses configs and commands. </p>
+
+</div>
+</div>
+<a id="abc5bb7293a42f66a4931bbe8eea25db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc5bb7293a42f66a4931bbe8eea25db6">&#9670;&nbsp;</a></span>windows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classWindow.html">Window</a>&gt; Editor::windows</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List of existing windows. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/bym/bym/include/<a class="el" href="editor_8hpp_source.html">editor.hpp</a></li>
-<li>/home/runner/work/bym/bym/src/editor.cpp</li>
+<li>/home/runner/work/bym/bym/src/<a class="el" href="editor_8cpp.html">editor.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

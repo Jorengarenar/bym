@@ -62,30 +62,119 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classParser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Parser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="parser_8hpp_source.html">parser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a92310ea7eec71a9001aa18ef22ed1ff5"><td class="memItemLeft" align="right" valign="top"><a id="a92310ea7eec71a9001aa18ef22ed1ff5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Parser</b> (<a class="el" href="classEditor.html">Editor</a> &amp;)</td></tr>
+<tr class="memitem:a92310ea7eec71a9001aa18ef22ed1ff5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a92310ea7eec71a9001aa18ef22ed1ff5">Parser</a> (<a class="el" href="classEditor.html">Editor</a> &amp;)</td></tr>
 <tr class="separator:a92310ea7eec71a9001aa18ef22ed1ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369e068aa1f51fa5ef6b26757465e462"><td class="memItemLeft" align="right" valign="top"><a id="a369e068aa1f51fa5ef6b26757465e462"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (std::string)</td></tr>
+<tr class="memitem:a369e068aa1f51fa5ef6b26757465e462"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a369e068aa1f51fa5ef6b26757465e462">operator()</a> (std::string)</td></tr>
+<tr class="memdesc:a369e068aa1f51fa5ef6b26757465e462"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse.  <a href="#a369e068aa1f51fa5ef6b26757465e462">More...</a><br /></td></tr>
 <tr class="separator:a369e068aa1f51fa5ef6b26757465e462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a3df79f95c76f52acbaeb79d73463a6c9"><td class="memItemLeft" align="right" valign="top"><a id="a3df79f95c76f52acbaeb79d73463a6c9"></a>
-std::set&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commandsKeys</b></td></tr>
+<tr class="memitem:a3df79f95c76f52acbaeb79d73463a6c9"><td class="memItemLeft" align="right" valign="top">std::set&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a3df79f95c76f52acbaeb79d73463a6c9">commandsKeys</a></td></tr>
 <tr class="separator:a3df79f95c76f52acbaeb79d73463a6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a4aac95f1c00074e682429163ac139419"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEditor.html">Editor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParser.html#a4aac95f1c00074e682429163ac139419">editor</a></td></tr>
+<tr class="memdesc:a4aac95f1c00074e682429163ac139419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parent of this object.  <a href="#a4aac95f1c00074e682429163ac139419">More...</a><br /></td></tr>
+<tr class="separator:a4aac95f1c00074e682429163ac139419"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classParser.html">Parser</a></p>
+<p>Reads configs, executes commands etc. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a92310ea7eec71a9001aa18ef22ed1ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92310ea7eec71a9001aa18ef22ed1ff5">&#9670;&nbsp;</a></span>Parser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Parser::Parser </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEditor.html">Editor</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a369e068aa1f51fa5ef6b26757465e462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a369e068aa1f51fa5ef6b26757465e462">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Parser::operator() </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>line</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parse. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3df79f95c76f52acbaeb79d73463a6c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df79f95c76f52acbaeb79d73463a6c9">&#9670;&nbsp;</a></span>commandsKeys</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::set&lt;std::string&gt; Parser::commandsKeys</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4aac95f1c00074e682429163ac139419"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aac95f1c00074e682429163ac139419">&#9670;&nbsp;</a></span>editor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEditor.html">Editor</a>&amp; Parser::editor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parent of this object. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/bym/bym/include/<a class="el" href="parser_8hpp_source.html">parser.hpp</a></li>
-<li>/home/runner/work/bym/bym/src/parser.cpp</li>
+<li>/home/runner/work/bym/bym/src/<a class="el" href="parser_8cpp.html">parser.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

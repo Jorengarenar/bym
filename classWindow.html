@@ -62,73 +62,697 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classWindow-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Window Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="window_8hpp_source.html">window.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a89438f2c1eecc49e3da369e57e3537b9"><td class="memItemLeft" align="right" valign="top"><a id="a89438f2c1eecc49e3da369e57e3537b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Window</b> (int, int, <a class="el" href="classBuffer.html">Buffer</a> &amp;)</td></tr>
+<tr class="memitem:a89438f2c1eecc49e3da369e57e3537b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a89438f2c1eecc49e3da369e57e3537b9">Window</a> (int, int, <a class="el" href="classBuffer.html">Buffer</a> &amp;)</td></tr>
 <tr class="separator:a89438f2c1eecc49e3da369e57e3537b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac098fc6f9173b86405c4b2ee28947edc"><td class="memItemLeft" align="right" valign="top"><a id="ac098fc6f9173b86405c4b2ee28947edc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buf</b> (<a class="el" href="classBuffer.html">Buffer</a> &amp;)</td></tr>
+<tr class="memitem:a245d821e6016fa1f6970ccbbedd635f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a> ()</td></tr>
+<tr class="separator:a245d821e6016fa1f6970ccbbedd635f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac098fc6f9173b86405c4b2ee28947edc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ac098fc6f9173b86405c4b2ee28947edc">buf</a> (<a class="el" href="classBuffer.html">Buffer</a> &amp;)</td></tr>
+<tr class="memdesc:ac098fc6f9173b86405c4b2ee28947edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change buffer in window.  <a href="#ac098fc6f9173b86405c4b2ee28947edc">More...</a><br /></td></tr>
 <tr class="separator:ac098fc6f9173b86405c4b2ee28947edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad728a0062641ae544157cf78c9f2c5a0"><td class="memItemLeft" align="right" valign="top"><a id="ad728a0062641ae544157cf78c9f2c5a0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateStatusLine</b> ()</td></tr>
+<tr class="memitem:ad728a0062641ae544157cf78c9f2c5a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ad728a0062641ae544157cf78c9f2c5a0">updateStatusLine</a> ()</td></tr>
+<tr class="memdesc:ad728a0062641ae544157cf78c9f2c5a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates status line.  <a href="#ad728a0062641ae544157cf78c9f2c5a0">More...</a><br /></td></tr>
 <tr class="separator:ad728a0062641ae544157cf78c9f2c5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a569e4f84385ec5d351e9c19a596d29f8"><td class="memItemLeft" align="right" valign="top"><a id="a569e4f84385ec5d351e9c19a596d29f8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>redraw</b> (short=LINES-1, short=COLS)</td></tr>
+<tr class="memitem:a569e4f84385ec5d351e9c19a596d29f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a569e4f84385ec5d351e9c19a596d29f8">redraw</a> (short=LINES-1, short=COLS)</td></tr>
+<tr class="memdesc:a569e4f84385ec5d351e9c19a596d29f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Redraws window.  <a href="#a569e4f84385ec5d351e9c19a596d29f8">More...</a><br /></td></tr>
 <tr class="separator:a569e4f84385ec5d351e9c19a596d29f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfdd1791307bfd5fa229ba502ba50780"><td class="memItemLeft" align="right" valign="top"><a id="acfdd1791307bfd5fa229ba502ba50780"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>replaceByte</b> ()</td></tr>
-<tr class="separator:acfdd1791307bfd5fa229ba502ba50780"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95b384e0a44236cf924421dc034e6eb0"><td class="memItemLeft" align="right" valign="top"><a id="a95b384e0a44236cf924421dc034e6eb0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>applyToSubWindows</b> (std::function&lt; void(WINDOW *)&gt;)</td></tr>
+<tr class="memitem:a95b384e0a44236cf924421dc034e6eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a95b384e0a44236cf924421dc034e6eb0">applyToSubWindows</a> (std::function&lt; void(WINDOW *)&gt;)</td></tr>
+<tr class="memdesc:a95b384e0a44236cf924421dc034e6eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply function to subwindows.  <a href="#a95b384e0a44236cf924421dc034e6eb0">More...</a><br /></td></tr>
 <tr class="separator:a95b384e0a44236cf924421dc034e6eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5939b226a8a1e29f929af8226838b333"><td class="memItemLeft" align="right" valign="top"><a id="a5939b226a8a1e29f929af8226838b333"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>save</b> ()</td></tr>
+<tr class="memitem:a5939b226a8a1e29f929af8226838b333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a5939b226a8a1e29f929af8226838b333">save</a> ()</td></tr>
+<tr class="memdesc:a5939b226a8a1e29f929af8226838b333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save currently loaded buffer.  <a href="#a5939b226a8a1e29f929af8226838b333">More...</a><br /></td></tr>
 <tr class="separator:a5939b226a8a1e29f929af8226838b333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d000e1007164f1844b4c3b7eae984c6"><td class="memItemLeft" align="right" valign="top"><a id="a3d000e1007164f1844b4c3b7eae984c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>hjkl</b> (Direction)</td></tr>
+<tr class="memitem:acfdd1791307bfd5fa229ba502ba50780"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#acfdd1791307bfd5fa229ba502ba50780">replaceByte</a> ()</td></tr>
+<tr class="memdesc:acfdd1791307bfd5fa229ba502ba50780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces value of byte.  <a href="#acfdd1791307bfd5fa229ba502ba50780">More...</a><br /></td></tr>
+<tr class="separator:acfdd1791307bfd5fa229ba502ba50780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d000e1007164f1844b4c3b7eae984c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a3d000e1007164f1844b4c3b7eae984c6">hjkl</a> (<a class="el" href="window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>)</td></tr>
+<tr class="memdesc:a3d000e1007164f1844b4c3b7eae984c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Movement.  <a href="#a3d000e1007164f1844b4c3b7eae984c6">More...</a><br /></td></tr>
 <tr class="separator:a3d000e1007164f1844b4c3b7eae984c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5b4c7f9d2a691e509035c460941237c3"><td class="memItemLeft" align="right" valign="top"><a id="a5b4c7f9d2a691e509035c460941237c3"></a>
-unsigned short&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
+<tr class="memitem:a5b4c7f9d2a691e509035c460941237c3"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a5b4c7f9d2a691e509035c460941237c3">height</a></td></tr>
+<tr class="memdesc:a5b4c7f9d2a691e509035c460941237c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Height of window.  <a href="#a5b4c7f9d2a691e509035c460941237c3">More...</a><br /></td></tr>
 <tr class="separator:a5b4c7f9d2a691e509035c460941237c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8024b667dc1e5063ae9d27a5ad6eff2"><td class="memItemLeft" align="right" valign="top"><a id="aa8024b667dc1e5063ae9d27a5ad6eff2"></a>
-unsigned short&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+<tr class="memitem:aa8024b667dc1e5063ae9d27a5ad6eff2"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa8024b667dc1e5063ae9d27a5ad6eff2">width</a></td></tr>
+<tr class="memdesc:aa8024b667dc1e5063ae9d27a5ad6eff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width of window.  <a href="#aa8024b667dc1e5063ae9d27a5ad6eff2">More...</a><br /></td></tr>
 <tr class="separator:aa8024b667dc1e5063ae9d27a5ad6eff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3293360f054b6b72d3e20770229a50f"><td class="memItemLeft" align="right" valign="top"><a id="aa3293360f054b6b72d3e20770229a50f"></a>
-unsigned short&#160;</td><td class="memItemRight" valign="bottom"><b>cols</b></td></tr>
+<tr class="memitem:aa3293360f054b6b72d3e20770229a50f"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa3293360f054b6b72d3e20770229a50f">cols</a></td></tr>
+<tr class="memdesc:aa3293360f054b6b72d3e20770229a50f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximal number of columns of bytes.  <a href="#aa3293360f054b6b72d3e20770229a50f">More...</a><br /></td></tr>
 <tr class="separator:aa3293360f054b6b72d3e20770229a50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135bf1d775be89a8506a4591c0ce1632"><td class="memItemLeft" align="right" valign="top"><a id="a135bf1d775be89a8506a4591c0ce1632"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>currentByte</b></td></tr>
+<tr class="memitem:a135bf1d775be89a8506a4591c0ce1632"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a135bf1d775be89a8506a4591c0ce1632">currentByte</a></td></tr>
+<tr class="memdesc:a135bf1d775be89a8506a4591c0ce1632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte cursor is currently over.  <a href="#a135bf1d775be89a8506a4591c0ce1632">More...</a><br /></td></tr>
 <tr class="separator:a135bf1d775be89a8506a4591c0ce1632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49d2b86d615cd0217651b244e6c45bf3"><td class="memItemLeft" ><a id="a49d2b86d615cd0217651b244e6c45bf3"></a>
-struct {</td></tr>
-<tr class="memitem:a816be5f1f12b95a0adf964009dca8a0a"><td class="memItemLeft" >
-&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<b>numbers</b></td></tr>
+<tr class="memitem:a49d2b86d615cd0217651b244e6c45bf3"><td class="memItemLeft" >struct {</td></tr>
+<tr class="memitem:a816be5f1f12b95a0adf964009dca8a0a"><td class="memItemLeft" >&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<a class="el" href="classWindow.html#a719afd23c360b7e0bc02398d25cd4835">numbers</a></td></tr>
 <tr class="separator:a816be5f1f12b95a0adf964009dca8a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a942a3d940de36223b8ad4c944e4d3165"><td class="memItemLeft" >
-&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<b>hex</b></td></tr>
+<tr class="memitem:a942a3d940de36223b8ad4c944e4d3165"><td class="memItemLeft" >&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<a class="el" href="classWindow.html#a3318f5e588f450810df9664f6c000450">hex</a></td></tr>
 <tr class="separator:a942a3d940de36223b8ad4c944e4d3165"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae185931979103be0b3840429cea103db"><td class="memItemLeft" >
-&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<b>text</b></td></tr>
+<tr class="memitem:ae185931979103be0b3840429cea103db"><td class="memItemLeft" >&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<a class="el" href="classWindow.html#a783eb7a4ae65a3035e1e52081a363c96">text</a></td></tr>
 <tr class="separator:ae185931979103be0b3840429cea103db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a719908a0bc126cb6a5465dcb7b196a68"><td class="memItemLeft" >
-&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<b>statusline</b></td></tr>
+<tr class="memitem:a719908a0bc126cb6a5465dcb7b196a68"><td class="memItemLeft" >&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<a class="el" href="classWindow.html#ac46813a93b8890d9846218ecd5c427e4">statusline</a></td></tr>
 <tr class="separator:a719908a0bc126cb6a5465dcb7b196a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49d2b86d615cd0217651b244e6c45bf3"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><b>subWindows</b></td></tr>
+<tr class="memitem:a49d2b86d615cd0217651b244e6c45bf3"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a49d2b86d615cd0217651b244e6c45bf3">subWindows</a></td></tr>
 <tr class="separator:a49d2b86d615cd0217651b244e6c45bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:af8fbe6454893333cc8ea60a64d255a7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#af8fbe6454893333cc8ea60a64d255a7d">genSubWindows</a> ()</td></tr>
+<tr class="memdesc:af8fbe6454893333cc8ea60a64d255a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate subwindows.  <a href="#af8fbe6454893333cc8ea60a64d255a7d">More...</a><br /></td></tr>
+<tr class="separator:af8fbe6454893333cc8ea60a64d255a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2afa01a2bc7b452eb5d24787140af022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a2afa01a2bc7b452eb5d24787140af022">delSubWindows</a> ()</td></tr>
+<tr class="memdesc:a2afa01a2bc7b452eb5d24787140af022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete subwindows.  <a href="#a2afa01a2bc7b452eb5d24787140af022">More...</a><br /></td></tr>
+<tr class="separator:a2afa01a2bc7b452eb5d24787140af022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ab91494d1a97e1b1722b71cb4f03e7ee5">inputByte</a> (char *)</td></tr>
+<tr class="memdesc:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get byte value.  <a href="#ab91494d1a97e1b1722b71cb4f03e7ee5">More...</a><br /></td></tr>
+<tr class="separator:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e9cf906a99f15f3d72252b434e925a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a3e9cf906a99f15f3d72252b434e925a8">print</a> (short=0)</td></tr>
+<tr class="memdesc:a3e9cf906a99f15f3d72252b434e925a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">print buffer content in subWindows  <a href="#a3e9cf906a99f15f3d72252b434e925a8">More...</a><br /></td></tr>
+<tr class="separator:a3e9cf906a99f15f3d72252b434e925a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2fb12f8ae1402af287acc9085a3d285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa2fb12f8ae1402af287acc9085a3d285">placeCursor</a> ()</td></tr>
+<tr class="memdesc:aa2fb12f8ae1402af287acc9085a3d285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place cursor on current x,y coordinates.  <a href="#aa2fb12f8ae1402af287acc9085a3d285">More...</a><br /></td></tr>
+<tr class="separator:aa2fb12f8ae1402af287acc9085a3d285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de22aaa8920f2ac264b28bc27363f8a"><td class="memTemplParams" colspan="2">template&lt;typename T , typename R &gt; </td></tr>
+<tr class="memitem:a2de22aaa8920f2ac264b28bc27363f8a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWindow.html#a2de22aaa8920f2ac264b28bc27363f8a">moveCursor</a> (T, T, R)</td></tr>
+<tr class="memdesc:a2de22aaa8920f2ac264b28bc27363f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move cursor.  <a href="#a2de22aaa8920f2ac264b28bc27363f8a">More...</a><br /></td></tr>
+<tr class="separator:a2de22aaa8920f2ac264b28bc27363f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1da567c448323caf7873fe4f1d4cf4d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a1da567c448323caf7873fe4f1d4cf4d6">y</a></td></tr>
+<tr class="memdesc:a1da567c448323caf7873fe4f1d4cf4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current line.  <a href="#a1da567c448323caf7873fe4f1d4cf4d6">More...</a><br /></td></tr>
+<tr class="separator:a1da567c448323caf7873fe4f1d4cf4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3be8f50b45a4f7b48ae66ae54885672"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa3be8f50b45a4f7b48ae66ae54885672">x</a></td></tr>
+<tr class="memdesc:aa3be8f50b45a4f7b48ae66ae54885672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current column (current byte in column)  <a href="#aa3be8f50b45a4f7b48ae66ae54885672">More...</a><br /></td></tr>
+<tr class="separator:aa3be8f50b45a4f7b48ae66ae54885672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba8f47da0ace15437608fc211e4a999d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBuffer.html">Buffer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aba8f47da0ace15437608fc211e4a999d">buffer</a></td></tr>
+<tr class="separator:aba8f47da0ace15437608fc211e4a999d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classWindow.html">Window</a></p>
+<p>Edits and displays buffers </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a89438f2c1eecc49e3da369e57e3537b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89438f2c1eecc49e3da369e57e3537b9">&#9670;&nbsp;</a></span>Window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Window::Window </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classBuffer.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a245d821e6016fa1f6970ccbbedd635f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a245d821e6016fa1f6970ccbbedd635f6">&#9670;&nbsp;</a></span>~Window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Window::~Window </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a95b384e0a44236cf924421dc034e6eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95b384e0a44236cf924421dc034e6eb0">&#9670;&nbsp;</a></span>applyToSubWindows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::applyToSubWindows </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(WINDOW *)&gt;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apply function to subwindows. </p>
+
+</div>
+</div>
+<a id="ac098fc6f9173b86405c4b2ee28947edc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac098fc6f9173b86405c4b2ee28947edc">&#9670;&nbsp;</a></span>buf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::buf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classBuffer.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Change buffer in window. </p>
+
+</div>
+</div>
+<a id="a2afa01a2bc7b452eb5d24787140af022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2afa01a2bc7b452eb5d24787140af022">&#9670;&nbsp;</a></span>delSubWindows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::delSubWindows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delete subwindows. </p>
+
+</div>
+</div>
+<a id="af8fbe6454893333cc8ea60a64d255a7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8fbe6454893333cc8ea60a64d255a7d">&#9670;&nbsp;</a></span>genSubWindows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::genSubWindows </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generate subwindows. </p>
+
+</div>
+</div>
+<a id="a3d000e1007164f1844b4c3b7eae984c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d000e1007164f1844b4c3b7eae984c6">&#9670;&nbsp;</a></span>hjkl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::hjkl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td>
+          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Movement. </p>
+
+</div>
+</div>
+<a id="ab91494d1a97e1b1722b71cb4f03e7ee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab91494d1a97e1b1722b71cb4f03e7ee5">&#9670;&nbsp;</a></span>inputByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Window::inputByte </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get byte value. </p>
+
+</div>
+</div>
+<a id="a2de22aaa8920f2ac264b28bc27363f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2de22aaa8920f2ac264b28bc27363f8a">&#9670;&nbsp;</a></span>moveCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename R &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::moveCursor </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>y_prev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x_prev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">R&#160;</td>
+          <td class="paramname"><em>current_prev</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move cursor. </p>
+
+</div>
+</div>
+<a id="aa2fb12f8ae1402af287acc9085a3d285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2fb12f8ae1402af287acc9085a3d285">&#9670;&nbsp;</a></span>placeCursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::placeCursor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Place cursor on current x,y coordinates. </p>
+
+</div>
+</div>
+<a id="a3e9cf906a99f15f3d72252b434e925a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e9cf906a99f15f3d72252b434e925a8">&#9670;&nbsp;</a></span>print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::print </td>
+          <td>(</td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>startLine</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>print buffer content in subWindows </p>
+
+</div>
+</div>
+<a id="a569e4f84385ec5d351e9c19a596d29f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a569e4f84385ec5d351e9c19a596d29f8">&#9670;&nbsp;</a></span>redraw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::redraw </td>
+          <td>(</td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>height_</em> = <code>LINES-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>width_</em> = <code>COLS</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Redraws window. </p>
+
+</div>
+</div>
+<a id="acfdd1791307bfd5fa229ba502ba50780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfdd1791307bfd5fa229ba502ba50780">&#9670;&nbsp;</a></span>replaceByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Window::replaceByte </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Replaces value of byte. </p>
+
+</div>
+</div>
+<a id="a5939b226a8a1e29f929af8226838b333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5939b226a8a1e29f929af8226838b333">&#9670;&nbsp;</a></span>save()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::save </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Save currently loaded buffer. </p>
+
+</div>
+</div>
+<a id="ad728a0062641ae544157cf78c9f2c5a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad728a0062641ae544157cf78c9f2c5a0">&#9670;&nbsp;</a></span>updateStatusLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::updateStatusLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates status line. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aba8f47da0ace15437608fc211e4a999d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba8f47da0ace15437608fc211e4a999d">&#9670;&nbsp;</a></span>buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classBuffer.html">Buffer</a>* Window::buffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3293360f054b6b72d3e20770229a50f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3293360f054b6b72d3e20770229a50f">&#9670;&nbsp;</a></span>cols</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short Window::cols</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximal number of columns of bytes. </p>
+
+</div>
+</div>
+<a id="a135bf1d775be89a8506a4591c0ce1632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135bf1d775be89a8506a4591c0ce1632">&#9670;&nbsp;</a></span>currentByte</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Window::currentByte</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Byte cursor is currently over. </p>
+
+</div>
+</div>
+<a id="a5b4c7f9d2a691e509035c460941237c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b4c7f9d2a691e509035c460941237c3">&#9670;&nbsp;</a></span>height</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short Window::height</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Height of window. </p>
+
+</div>
+</div>
+<a id="a3318f5e588f450810df9664f6c000450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3318f5e588f450810df9664f6c000450">&#9670;&nbsp;</a></span>hex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WINDOW* Window::hex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a719afd23c360b7e0bc02398d25cd4835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a719afd23c360b7e0bc02398d25cd4835">&#9670;&nbsp;</a></span>numbers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WINDOW* Window::numbers</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac46813a93b8890d9846218ecd5c427e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46813a93b8890d9846218ecd5c427e4">&#9670;&nbsp;</a></span>statusline</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WINDOW* Window::statusline</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49d2b86d615cd0217651b244e6c45bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d2b86d615cd0217651b244e6c45bf3">&#9670;&nbsp;</a></span>subWindows</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct { ... }   Window::subWindows</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a783eb7a4ae65a3035e1e52081a363c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a783eb7a4ae65a3035e1e52081a363c96">&#9670;&nbsp;</a></span>text</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WINDOW* Window::text</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8024b667dc1e5063ae9d27a5ad6eff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8024b667dc1e5063ae9d27a5ad6eff2">&#9670;&nbsp;</a></span>width</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short Window::width</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Width of window. </p>
+
+</div>
+</div>
+<a id="aa3be8f50b45a4f7b48ae66ae54885672"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3be8f50b45a4f7b48ae66ae54885672">&#9670;&nbsp;</a></span>x</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Window::x</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Current column (current byte in column) </p>
+
+</div>
+</div>
+<a id="a1da567c448323caf7873fe4f1d4cf4d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da567c448323caf7873fe4f1d4cf4d6">&#9670;&nbsp;</a></span>y</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Window::y</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Current line. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/runner/work/bym/bym/include/<a class="el" href="window_8hpp_source.html">window.hpp</a></li>
-<li>/home/runner/work/bym/bym/src/window.cpp</li>
+<li>/home/runner/work/bym/bym/src/<a class="el" href="window_8cpp.html">window.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
