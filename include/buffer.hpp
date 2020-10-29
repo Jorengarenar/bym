@@ -13,16 +13,16 @@ class Window;
 class Buffer {
     friend class Window;
 
-  public:
+public:
     Buffer();
-    Buffer(const char*);
-    size_t size();
-    bool empty();
+    Buffer(const char*); ///< Constructor with path to file
 
-  private:
-    std::string path; // path to opened file
-    std::string text;
-    std::vector<unsigned char> bytes;
+    size_t size(); ///< Size of file
+    bool empty();  ///< Checks if file is of size 0
 
-    void save(std::string = "");
+private:
+    std::string path; ///< Path to opened file
+    std::string text; ///< Text representation of bytes
+    std::vector<unsigned char> bytes; ///< Contains bytes
+    void save(std::string = ""); ///< Saves edits to file
 };

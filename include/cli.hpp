@@ -6,15 +6,19 @@
 
 class Editor;
 
+/// CLI
+///
+/// Command line
 class Cli {
-    std::string input();
-    WINDOW* line;
-    Editor& editor;
-    bool complete(std::string&, int&, int&);
+    std::string input(); ///< Gets command from user
+    WINDOW* line; ///< Points to CLI part of the screen
+    Editor& editor; ///< Parent of this object
+    bool complete(std::string&, int&, int&); ///< Complete commands
 public:
     Cli(Editor&);
     ~Cli();
-    void redraw();
-    bool operator()();
-    void error(std::string);
+
+    void redraw(); ///< Redraw `line`
+    bool operator ()(); ///< Get command (`input()`) and pass it to parser
+    void error(std::string); ///< Display error message
 };

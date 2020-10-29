@@ -8,24 +8,29 @@
 
 enum class Direction { down, up, right, left };
 
+/// Window
+///
+/// Edits and displays buffers
 class Window {
-  public:
+public:
     Window(int, int, Buffer&);
     ~Window();
 
-    unsigned short  height;
-    unsigned short  width;
-    unsigned short  cols;   // maximal number of columns of bytes
-    size_t currentByte;
+    unsigned short height; ///< Height of window
+    unsigned short width;  ///< Width of window
+    unsigned short cols;   ///< Maximal number of columns of bytes
+    size_t currentByte;    ///< Byte cursor is currently over
 
-    void buf(Buffer&); // change buffer in window
-    void updateStatusLine();
-    void redraw(short = LINES-1, short = COLS);
-    int replaceByte();
-    void applyToSubWindows(std::function<void (WINDOW*)>);
-    void save(); // save actually loaded buffer
 
-    void hjkl(Direction);
+    void buf(Buffer&);                                      ///< Change buffer in window
+    void updateStatusLine();                                ///< Updates status line
+    void redraw(short = LINES-1, short = COLS);             ///< Redraws window
+    void applyToSubWindows(std::function<void (WINDOW*)>);  ///< Apply function to subwindows
+    void save();                                            ///< Save currently loaded buffer
+
+    int replaceByte(); ///< Replaces value of byte
+
+    void hjkl(Direction); ///< Movement
 
     struct {
         WINDOW* numbers;
@@ -34,19 +39,18 @@ class Window {
         WINDOW* statusline;
     } subWindows;
 
-  private:
-    int y; // current line
-    int x; // current column (current byte in column)
+private:
+    int y; ///< Current line
+    int x; ///< Current column (current byte in column)
     Buffer* buffer;
 
-    void fill(); // print buffer content in subWindows
-    void genSubWindows();
-    void delSubWindows();
+    void genSubWindows(); ///< Generate subwindows
+    void delSubWindows(); ///< Delete subwindows
 
-    bool inputByte(char*);
+    bool inputByte(char*); ///< Get byte value
 
-    void print(short = 0);
+    void print(short = 0); ///< print buffer content in subWindows
 
-    void placeCursor();
-    template<typename T, typename R> void moveCursor(T, T, R);
+    void placeCursor(); ///< Place cursor on current x,y coordinates
+    template<typename T, typename R> void moveCursor(T, T, R); ///< Move cursor
 };

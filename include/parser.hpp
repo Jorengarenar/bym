@@ -11,11 +11,14 @@ enum class Command {
     quit, save, savequit
 };
 
+/// Parser
+///
+/// Reads configs, executes commands etc.
 class Parser {
-    Editor& editor;
+    Editor& editor; ///< Parent of this object
 public:
     std::set<std::string> commandsKeys;
     Parser(Editor&);
 
-    bool operator()(std::string);
+    bool operator ()(std::string); ///< Parse
 };

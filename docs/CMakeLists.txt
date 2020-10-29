@@ -8,7 +8,10 @@ if(DOXYGEN_FOUND)
   set(DOXYGEN_EXCLUDE_PATTERNS
     */docs/*
     */extern/*
-  )
+    )
+
+  set(DOXYGEN_EXTRACT_ALL YES)
+  set(DOXYGEN_EXTRACT_PRIVATE YES)
 
   doxygen_add_docs(doc ${CMAKE_SOURCE_DIR} ALL)
 
