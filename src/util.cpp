@@ -15,13 +15,13 @@ EnableCursor::~EnableCursor()
     curs_set(FALSE);
 }
 
-char toPrintable(int x)
+char toPrintable(int x, char blank)
 {
     if (isprint(x)) {
         return x;
     }
     else {
-        return ' ';
+        return blank;
     }
 }
 

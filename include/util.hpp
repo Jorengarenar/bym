@@ -17,7 +17,7 @@ struct EnableCursor {
     ~EnableCursor();
 };
 
-char toPrintable(int);
+char toPrintable(int, char);
 
 std::string getLastWord(const std::string&);
 

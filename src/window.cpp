@@ -13,7 +13,7 @@ Window::Window(int height_, int width_, Buffer& buffer_) :
     buffer(&buffer_)
 {
     genSubWindows();
-    fill();
+    print();
     updateStatusLine();
     placeCursor();
 }
@@ -51,7 +51,7 @@ void Window::buf(Buffer& b)
     x = 0;
     currentByte = 0;
     buffer = &b;
-    fill();
+    print();
 }
 
 void Window::redraw(short height_, short width_)
@@ -67,7 +67,7 @@ void Window::redraw(short height_, short width_)
         applyToSubWindows(delwin);
         genSubWindows();
 
-        fill();
+        print();
         updateStatusLine();
 
         y = currentByte / cols;
@@ -85,9 +85,60 @@ void Window::applyToSubWindows(std::function<void (WINDOW*)> f)
     f(subWindows.statusline);
 }
 
-void Window::fill()
+void Window::print(short startLine)
 {
-    buffer->print(*(this));
+    std::string str = ""; // representation of bytes in line
+    int y = 0; // current line
+    int x = 0; // current column of bytes
+
+    int maxY = height - 1 + startLine;
+
+    applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
+
+    auto& bytes = buffer->bytes;
+    auto& subWins = subWindows;
+
+    if (bytes.size()) {
+        for (size_t i = 0; i < bytes.size() && y < maxY; ++i) {
+            if (y >= startLine) {
+                if (x == 0) {
+                    wprintw(subWins.numbers, "%08X:\n", i);
+                }
+
+                wprintw(subWins.hex, "%02X ", bytes[i]);
+
+                str += toPrintable(bytes[i], '.');
+
+                ++x;
+                if (x == cols) {
+                    x = 0;
+                    wprintw(subWins.text, "%s\n", str.c_str());
+                    str = "";
+                    ++y;
+                }
+            }
+            else {
+                ++x;
+                if (x == cols) {
+                    x = 0;
+                    ++y;
+                }
+            }
+        }
+    }
+    else {
+        wprintw(subWindows.numbers, "%08X: ", 0);
+    }
+
+    // Print any remaining bytes if main loop ended because of end of buffer
+    if (y < height) {
+        while (x < cols) {
+            wprintw(subWindows.hex, "   ");
+            ++x;
+        }
+        wprintw(subWindows.text, "%s\n", str.c_str());
+    }
+
     applyToSubWindows(wrefresh);
 }
 
@@ -125,12 +176,12 @@ void Window::placeCursor()
 {
     // Scrolling
     if (y >= height - 1) { // scrolling down
-        buffer->print(*(this), currentByte/cols - height + 2);
+        print(currentByte/cols - height + 2);
         applyToSubWindows(wrefresh);
         y = height - 2;
     }
     else if (y < 0) {      // scrolling up
-        buffer->print(*(this), currentByte/cols + y + 1);
+        print(currentByte/cols + y + 1);
         applyToSubWindows(wrefresh);
         y = 0;
     }
@@ -149,19 +200,14 @@ void Window::placeCursor()
     };
 
     printCursor(subWindows.hex, x*3, buffer->empty() ? "  " : "%02X", c);
-    printCursor(subWindows.text, x, "%c", toPrintable(c));
+    printCursor(subWindows.text, x, "%c", toPrintable(c, '.'));
 }
 
 template<typename T, typename R>
 void Window::moveCursor(T y_prev, T x_prev, R current_prev)
 {
     // clear cursor background highlight
-    if (buffer->bytes[current_prev] >= 32 && buffer->bytes[current_prev] <= 126) {
-        mvwprintw(subWindows.text, y_prev, x_prev, "%c", buffer->bytes[current_prev]);
-    }
-    else {
-        mvwprintw(subWindows.text, y_prev, x_prev, " ");
-    }
+    mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(buffer->bytes[current_prev], '.'));
     mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[current_prev]);
 
     placeCursor(); // and place it on new position
@@ -215,7 +261,7 @@ int Window::replaceByte()
     if (inputByte(buf)) {
         unsigned char b = std::stoi(buf, 0, 16);
         buffer->bytes[currentByte] = b;
-        mvwprintw(subWindows.text, y, x, "%c", toPrintable(b));
+        mvwprintw(subWindows.text, y, x, "%c", toPrintable(b, '.'));
     } // No `else`, bc `placeCursor()` already handles printing correct byte
 
     placeCursor();

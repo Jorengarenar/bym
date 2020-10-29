@@ -45,6 +45,8 @@ class Window {
 
     bool inputByte(char*);
 
+    void print(short = 0);
+
     void placeCursor();
     template<typename T, typename R> void moveCursor(T, T, R);
 };
