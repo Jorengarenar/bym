@@ -156,3 +156,10 @@ void Cli::error(std::string msg)
     mvwprintw(line, 0, 0, msg.c_str());
     wrefresh(line);
 }
+
+void Cli::echo(std::string msg)
+{
+    wclear(line);
+    mvwprintw(line, 0, 0, msg.c_str());
+    wrefresh(line);
+}

@@ -30,6 +30,10 @@ bool Parser::operator ()(std::string line)
             continue;
         }
 
+        if (a == "#") {
+            break;
+        }
+
         auto c = commands.find(a);
 
         if (c == commands.end()) {
@@ -49,15 +53,20 @@ bool Parser::operator ()(std::string line)
                 return false;
                 break;
             case Command::echo: {
-                std::string msg;
-                buf >> msg;
-                Editor().cli.echo(msg);
-            } break;
+                    std::string msg;
+                    buf >> msg;
+                    Editor().cli.echo(msg);
+                } break;
             case Command::set: {
-                std::string opt;
-                buf >> opt;
-                Editor().set(opt);
-            } break;
+                    std::string opt;
+                    buf >> opt;
+                    Editor().options.set(opt);
+                } break;
+            case Command::redraw:
+                Editor().cw->redraw();
+                break;
+            case Command::map:
+                break;
         }
 
     }

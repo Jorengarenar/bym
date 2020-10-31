@@ -38,7 +38,7 @@ void Buffer::save(std::string p)
     output.close();
 }
 
-int Buffer::getOption(std::string o)
+std::string Buffer::getOption(std::string o)
 {
-    return Editor().options[o];
+    return Editor().options.get(o);
 }

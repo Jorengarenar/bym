@@ -5,6 +5,8 @@
 
 #include <ncurses.h>
 
+#include "options.hpp"
+
 class Window;
 
 /// Buffer
@@ -20,7 +22,7 @@ public:
     size_t size(); ///< Size of file
     bool empty();  ///< Checks if file is of size 0
 
-    int getOption(std::string);
+    std::string getOption(std::string);
 
 private:
     std::string path; ///< Path to opened file

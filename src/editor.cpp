@@ -26,6 +26,8 @@ Editor::InitCurses::~InitCurses()
 
 void Editor::init(int argc, char* argv[], int optind)
 {
+    parser.config();
+
     if (argc > optind) {
         buffers.assign(argv+optind, argv+argc);
     }

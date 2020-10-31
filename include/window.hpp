@@ -18,7 +18,6 @@ public:
 
     unsigned short height; ///< Height of window
     unsigned short width;  ///< Width of window
-    unsigned short cols;   ///< Maximal number of columns of bytes
     size_t currentByte;    ///< Byte cursor is currently over
 
     void buf(Buffer&);                                      ///< Change buffer in window
@@ -52,4 +51,14 @@ private:
 
     void placeCursor(); ///< Place cursor on current x,y coordinates
     template<typename T, typename R> void moveCursor(T, T, R); ///< Move cursor
+
+    struct Opts {
+        Opts(Window&);
+        Window& w;
+
+        unsigned short cols() const;  ///< Maximal number of columns of bytes
+        char blank() const;
+    } opts;
+    friend struct Opts;
+
 };

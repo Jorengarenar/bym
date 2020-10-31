@@ -3,15 +3,16 @@
 #include <vector>
 
 #include "buffer.hpp"
-#include "window.hpp"
 #include "cli.hpp"
+#include "options.hpp"
 #include "parser.hpp"
+#include "window.hpp"
 
 /// Editor
 ///
 /// Contains main functionalities of program
 class Editor {
-    Editor() = default;
+    Editor() {}
 public:
     Editor(const Editor&)         = delete;
     void operator=(const Editor&) = delete;
@@ -39,11 +40,13 @@ public:
     Window* cw; ///< Current window
     Cli cli; ///< Command line
     Parser parser; ///< Parses configs and commands
+    Options options;
 
     void init(int argc, char* argv[], int optind); // yes, copy of main() arguments
     ~Editor() = default;
 
     bool input(); ///< Handles input (for main loop)
+    void set(std::string);
 };
 
 #define Editor() Editor::getInstance()
