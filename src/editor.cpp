@@ -58,16 +58,16 @@ bool Editor::input()
             cli.redraw();
             break;
         case 'h':
-            cw->hjkl(Direction::left);
+            cw->mvCursor(Direction::left);
             break;
         case 'j':
-            cw->hjkl(Direction::down);
+            cw->mvCursor(Direction::down);
             break;
         case 'k':
-            cw->hjkl(Direction::up);
+            cw->mvCursor(Direction::up);
             break;
         case 'l':
-            cw->hjkl(Direction::right);
+            cw->mvCursor(Direction::right);
             break;
         case 'r':
             replaceByte();

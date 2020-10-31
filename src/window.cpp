@@ -148,7 +148,7 @@ void Window::print(short startLine)
     applyToSubWindows(wrefresh);
 }
 
-void Window::hjkl(Direction direction)
+void Window::mvCursor(Direction direction)
 {
     // *_prev are for cleaning cursor background highlight
     unsigned short x_prev = x;
@@ -175,7 +175,7 @@ void Window::hjkl(Direction direction)
     }
 
     if (current_prev != currentByte) {
-        moveCursor(y_prev, x_prev, current_prev);
+        relocCursor(y_prev, x_prev, current_prev);
         updateStatusLine();
     }
 }
@@ -214,7 +214,7 @@ void Window::placeCursor()
 }
 
 template<typename T, typename R>
-void Window::moveCursor(T y_prev, T x_prev, R current_prev)
+void Window::relocCursor(T y_prev, T x_prev, R current_prev)
 {
     // clear cursor background highlight
     mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(buffer->bytes[current_prev], opts.blank()));

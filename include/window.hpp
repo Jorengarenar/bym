@@ -28,7 +28,7 @@ public:
 
     int replaceByte(); ///< Replaces value of byte
 
-    void hjkl(Direction); ///< Movement
+    void mvCursor(Direction); ///< Movement
 
     struct {
         WINDOW* numbers;
@@ -50,7 +50,7 @@ private:
     void print(short = 0); ///< print buffer content in subWindows
 
     void placeCursor(); ///< Place cursor on current x,y coordinates
-    template<typename T, typename R> void moveCursor(T, T, R); ///< Move cursor
+    template<typename T, typename R> void relocCursor(T, T, R); ///< Move cursor
 
     struct Opts {
         Opts(Window&);
