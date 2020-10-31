@@ -7,6 +7,7 @@
 
 #include "window.hpp"
 #include "util.hpp"
+#include "editor.hpp"
 
 Buffer::Buffer() : path(""), text("") {}
 
@@ -35,4 +36,9 @@ void Buffer::save(std::string p)
     std::ofstream output(p, std::ios::binary);
     std::copy(bytes.begin(), bytes.end(), std::ostreambuf_iterator<char>(output));
     output.close();
+}
+
+int Buffer::getOption(std::string o)
+{
+    return Editor().options[o];
 }

@@ -6,10 +6,15 @@
 #include <sstream>
 
 #include "editor.hpp"
+#include "util.hpp"
 
 const std::map<std::string, Command> commands{
+    { "echo",   Command::echo },
+    { "map",    Command::map },
     { "q",      Command::quit },
     { "quit",   Command::quit },
+    { "redraw", Command::redraw },
+    { "set",    Command::set },
     { "w",      Command::save },
     { "wq",     Command::savequit },
 };
@@ -43,10 +48,41 @@ bool Parser::operator ()(std::string line)
                 Editor().cw->save();
                 return false;
                 break;
+            case Command::echo: {
+                std::string msg;
+                buf >> msg;
+                Editor().cli.echo(msg);
+            } break;
+            case Command::set: {
+                std::string opt;
+                buf >> opt;
+                Editor().set(opt);
+            } break;
         }
 
     }
     return true;
+}
+
+void Parser::config()
+{
+    std::string xdg_config_home = getEnvVar("XDG_CONFIG_HOME");
+    if (xdg_config_home.empty()) {
+        std::string home = getEnvVar("HOME");
+        if (!home.empty()) {
+            xdg_config_home = home + "/.config";
+        }
+    }
+
+    std::ifstream conf{ xdg_config_home + "/bym/bymrc" };
+
+    if (conf.is_open()) {
+        std::string buf;
+        while (getline(conf, buf)) {
+            (*this)(buf);
+        }
+        conf.close();
+    }
 }
 
 Parser::Parser()

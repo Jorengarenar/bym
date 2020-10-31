@@ -20,6 +20,8 @@ public:
     size_t size(); ///< Size of file
     bool empty();  ///< Checks if file is of size 0
 
+    int getOption(std::string);
+
 private:
     std::string path; ///< Path to opened file
     std::string text; ///< Text representation of bytes

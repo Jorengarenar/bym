@@ -46,7 +46,7 @@ void Editor::replaceByte()
     }
 }
 
-bool Editor::loop()
+bool Editor::input()
 {
     int c = getchar();
 

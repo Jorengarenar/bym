@@ -7,11 +7,12 @@
 
 Window::Window(int height_, int width_, Buffer& buffer_) :
     height(height_), width(width_),
-    cols((width-10)/4),
     currentByte(0),
     y(0), x(0),
     buffer(&buffer_)
 {
+    cols = buffer->getOption("cols");
+
     genSubWindows();
     print();
     updateStatusLine();
@@ -42,6 +43,7 @@ void Window::updateStatusLine()
         delwin(subWindows.statusline);
     }
     subWindows.statusline = newwin(1, width, height-1, 0);
+    wprintw(subWindows.statusline, "%s %zu", buffer->path.c_str(), buffer->size()); // TODO
 
     wrefresh(subWindows.statusline);
 }

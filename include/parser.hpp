@@ -6,7 +6,7 @@
 #include <set>
 
 enum class Command {
-    quit, save, savequit
+    quit, save, savequit, redraw, set, map, echo
 };
 
 /// Parser
@@ -18,4 +18,5 @@ public:
     Parser();
 
     bool operator ()(std::string); ///< Parse
+    void config(); ///< Read config file
 };

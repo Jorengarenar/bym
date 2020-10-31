@@ -42,3 +42,9 @@ bool isPrefix(const std::string& prefix, const std::string& data)
 
     return mismatch == prefix.end();
 }
+
+std::string getEnvVar(const std::string& var)
+{
+    char* val = getenv(var.c_str());
+    return val == NULL ? "" : val;
+}
