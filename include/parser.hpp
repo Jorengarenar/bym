@@ -5,8 +5,6 @@
 #include <string>
 #include <set>
 
-class Editor;
-
 enum class Command {
     quit, save, savequit
 };
@@ -15,10 +13,9 @@ enum class Command {
 ///
 /// Reads configs, executes commands etc.
 class Parser {
-    Editor& editor; ///< Parent of this object
 public:
     std::set<std::string> commandsKeys;
-    Parser(Editor&);
+    Parser();
 
     bool operator ()(std::string); ///< Parse
 };

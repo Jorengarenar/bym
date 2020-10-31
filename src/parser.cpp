@@ -1,18 +1,20 @@
 #include "parser.hpp"
 
-#include <sstream>
+#include <cstdlib>
+#include <fstream>
 #include <iterator>
+#include <sstream>
 
 #include "editor.hpp"
 
-const std::map<std::string, Command> commands {
-    { "q",    Command::quit },
-    { "quit", Command::quit },
-    { "w",    Command::save },
-    { "wq",   Command::savequit },
+const std::map<std::string, Command> commands{
+    { "q",      Command::quit },
+    { "quit",   Command::quit },
+    { "w",      Command::save },
+    { "wq",     Command::savequit },
 };
 
-bool Parser::operator()(std::string line)
+bool Parser::operator ()(std::string line)
 {
     std::stringstream buf{ line };
     std::string a;
@@ -26,7 +28,7 @@ bool Parser::operator()(std::string line)
         auto c = commands.find(a);
 
         if (c == commands.end()) {
-            editor.cli.error(a + " : No such command!");
+            Editor().cli.error(a + " : No such command!");
             return true;
         }
 
@@ -35,10 +37,10 @@ bool Parser::operator()(std::string line)
                 return false;
                 break;
             case Command::save:
-                editor.cw->save();
+                Editor().cw->save();
                 break;
             case Command::savequit:
-                editor.cw->save();
+                Editor().cw->save();
                 return false;
                 break;
         }
@@ -47,7 +49,7 @@ bool Parser::operator()(std::string line)
     return true;
 }
 
-Parser::Parser(Editor& e) : editor(e)
+Parser::Parser()
 {
     std::transform(::commands.begin(), ::commands.end(),
                    std::inserter(commandsKeys, commandsKeys.begin()),

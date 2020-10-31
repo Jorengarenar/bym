@@ -42,6 +42,7 @@ void Window::updateStatusLine()
         delwin(subWindows.statusline);
     }
     subWindows.statusline = newwin(1, width, height-1, 0);
+
     wrefresh(subWindows.statusline);
 }
 

@@ -4,6 +4,7 @@
 
 #include "editor.hpp"
 
+
 void usage()
 {
     std::cout << PROJECT_NAME << " (" << VERSION << ")" << std::endl;
@@ -28,8 +29,8 @@ int main(int argc, char* argv[])
         }
     }
 
-    Editor editor{ argc, argv, optind };
-    while (editor()) {}
+    Editor().init(argc, argv, optind);
+    while (Editor().input()) {}
 
     return 0;
 }

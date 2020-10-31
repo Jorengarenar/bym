@@ -21,7 +21,6 @@ public:
     unsigned short cols;   ///< Maximal number of columns of bytes
     size_t currentByte;    ///< Byte cursor is currently over
 
-
     void buf(Buffer&);                                      ///< Change buffer in window
     void updateStatusLine();                                ///< Updates status line
     void redraw(short = LINES-1, short = COLS);             ///< Redraws window

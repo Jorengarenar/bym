@@ -24,7 +24,7 @@ Editor::InitCurses::~InitCurses()
 }
 
 
-Editor::Editor(int argc, char* argv[], int optind) : cli(*this), parser(*this)
+void Editor::init(int argc, char* argv[], int optind)
 {
     if (argc > optind) {
         buffers.assign(argv+optind, argv+argc);
@@ -46,7 +46,7 @@ void Editor::replaceByte()
     }
 }
 
-bool Editor::operator()()
+bool Editor::loop()
 {
     int c = getchar();
 

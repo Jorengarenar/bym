@@ -8,7 +8,7 @@
 #include "util.hpp"
 #include "editor.hpp"
 
-Cli::Cli(Editor& e) : editor(e)
+Cli::Cli()
 {
     line = newwin(1, COLS, LINES-1, 0);
     wrefresh(line);
@@ -32,7 +32,7 @@ bool Cli::complete(std::string& buf, int& b, int& i)
 
     const std::string& prefix = getLastWord(buf);
 
-    auto& keys = editor.parser.commandsKeys; /* TODO: change it, so it will
+    auto& keys = Editor().parser.commandsKeys; /* TODO: change it, so it will
                                                 complete also command arguments */
 
     auto it = keys.lower_bound(prefix);
@@ -147,7 +147,7 @@ bool Cli::operator ()()
         return true;
     }
 
-    return editor.parser(buf);
+    return Editor().parser(buf);
 }
 
 void Cli::error(std::string msg)

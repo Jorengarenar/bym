@@ -4,18 +4,15 @@
 
 #include <ncurses.h>
 
-class Editor;
-
 /// CLI
 ///
 /// Command line
 class Cli {
     std::string input(); ///< Gets command from user
     WINDOW* line; ///< Points to CLI part of the screen
-    Editor& editor; ///< Parent of this object
     bool complete(std::string&, int&, int&); ///< Complete commands
 public:
-    Cli(Editor&);
+    Cli();
     ~Cli();
 
     void redraw(); ///< Redraw `line`
