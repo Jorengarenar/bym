@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quit',['quit',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153adbd73c2b545209688ed794c0d5413d5a',1,'parser.hpp']]]
+  ['left',['left',['../window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa811882fecd5c7618d7099ebbd39ea254',1,'window.hpp']]]
 ];
