@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['echo',['echo',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153acbb11ed87dc8a95d81400c7f33c7c171',1,'parser.hpp']]],
-  ['editor',['Editor',['../classEditor.html',1,'Editor'],['../classEditor.html#a011f961f9281ccf3619ec6a41ec962f4',1,'Editor::Editor()=default'],['../classEditor.html#a2637a9c47d76c43fdc34dc5b0390aedd',1,'Editor::Editor(const Editor &amp;)=delete'],['../editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c',1,'Editor():&#160;editor.hpp']]],
+  ['echo',['echo',['../classCli.html#ac52bb416160bf1fc8dd40b7a46725f4c',1,'Cli::echo()'],['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153acbb11ed87dc8a95d81400c7f33c7c171',1,'echo():&#160;parser.hpp']]],
+  ['editor',['Editor',['../classEditor.html',1,'Editor'],['../classEditor.html#ae208b788b6212af03488814462ae40d6',1,'Editor::Editor()'],['../classEditor.html#a2637a9c47d76c43fdc34dc5b0390aedd',1,'Editor::Editor(const Editor &amp;)=delete'],['../editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c',1,'Editor():&#160;editor.hpp']]],
   ['editor_2ecpp',['editor.cpp',['../editor_8cpp.html',1,'']]],
   ['editor_2ehpp',['editor.hpp',['../editor_8hpp.html',1,'']]],
   ['empty',['empty',['../classBuffer.html#a4261c1a06920df9c964e4e1ef03353eb',1,'Buffer']]],
