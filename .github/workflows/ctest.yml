@@ -39,6 +39,7 @@ jobs:
                       -i "$out"
 
                   sed -zi '$ s/\[ERROR_MESSAGE\].*\nErrors while running CTest\n//' "$out"
-                  "${PAGER:-less}" "$out"
+                  cat "$out"
+                  exit 1
               fi
           fi
