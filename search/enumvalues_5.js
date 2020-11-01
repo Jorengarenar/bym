@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['redraw',['redraw',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153adaa55f45b87ef593dd961238ee16d83f',1,'parser.hpp']]],
-  ['right',['right',['../window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa7c4f29407893c334a6cb7a87bf045c0d',1,'window.hpp']]]
+  ['quit',['quit',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153adbd73c2b545209688ed794c0d5413d5a',1,'parser.hpp']]]
 ];

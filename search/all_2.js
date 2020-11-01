@@ -1,7 +1,7 @@
 var searchData=
 [
   ['check_5foutput',['CHECK_OUTPUT',['../init__tests_8hpp.html#a602be95a38a494d6a2aaabe9db403a6b',1,'init_tests.hpp']]],
-  ['cli',['Cli',['../classCli.html',1,'Cli'],['../classEditor.html#a8d52c2dd5b18bbfdd5d74fab53d5f870',1,'Editor::cli()'],['../classCli.html#a756d17b0a631b24f92d057ab332026a8',1,'Cli::Cli()']]],
+  ['cli',['Cli',['../classCli.html',1,'Cli'],['../classCli.html#a756d17b0a631b24f92d057ab332026a8',1,'Cli::Cli()'],['../classEditor.html#a8d52c2dd5b18bbfdd5d74fab53d5f870',1,'Editor::cli()']]],
   ['cli_2ecpp',['cli.cpp',['../cli_8cpp.html',1,'']]],
   ['cli_2ehpp',['cli.hpp',['../cli_8hpp.html',1,'']]],
   ['cols',['cols',['../structWindow_1_1Opts.html#a9592a8064305b15455afd2619a0bbd45',1,'Window::Opts']]],

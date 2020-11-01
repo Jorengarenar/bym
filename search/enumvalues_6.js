@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['save',['save',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a43781db5c40ecc39fd718685594f0956',1,'parser.hpp']]],
-  ['savequit',['savequit',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153acbd71fef566fe5edb572d92ed5f71e55',1,'parser.hpp']]],
-  ['set',['set',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153acdaeeeba9b4a4c5ebf042c0215a7bb0e',1,'parser.hpp']]]
+  ['redraw',['redraw',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153adaa55f45b87ef593dd961238ee16d83f',1,'parser.hpp']]],
+  ['right',['right',['../window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa7c4f29407893c334a6cb7a87bf045c0d',1,'window.hpp']]]
 ];
