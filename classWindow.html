@@ -106,6 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a37b22f091de31ac769c06b8a69a31824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a37b22f091de31ac769c06b8a69a31824">mvCursor</a> (<a class="el" href="window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>)</td></tr>
 <tr class="memdesc:a37b22f091de31ac769c06b8a69a31824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Movement.  <a href="#a37b22f091de31ac769c06b8a69a31824">More...</a><br /></td></tr>
 <tr class="separator:a37b22f091de31ac769c06b8a69a31824"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd45001c771ef3551065caf22c52d4b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#afd45001c771ef3551065caf22c52d4b4">mvCursor</a> (std::size_t, std::size_t)</td></tr>
+<tr class="memdesc:afd45001c771ef3551065caf22c52d4b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Movement.  <a href="#afd45001c771ef3551065caf22c52d4b4">More...</a><br /></td></tr>
+<tr class="separator:afd45001c771ef3551065caf22c52d4b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -115,9 +118,13 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aa8024b667dc1e5063ae9d27a5ad6eff2"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa8024b667dc1e5063ae9d27a5ad6eff2">width</a></td></tr>
 <tr class="memdesc:aa8024b667dc1e5063ae9d27a5ad6eff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width of window.  <a href="#aa8024b667dc1e5063ae9d27a5ad6eff2">More...</a><br /></td></tr>
 <tr class="separator:aa8024b667dc1e5063ae9d27a5ad6eff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135bf1d775be89a8506a4591c0ce1632"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a135bf1d775be89a8506a4591c0ce1632">currentByte</a></td></tr>
-<tr class="memdesc:a135bf1d775be89a8506a4591c0ce1632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte cursor is currently over.  <a href="#a135bf1d775be89a8506a4591c0ce1632">More...</a><br /></td></tr>
-<tr class="separator:a135bf1d775be89a8506a4591c0ce1632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5dec97770f8c0086039a71c045dd272"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ac5dec97770f8c0086039a71c045dd272">currentByte</a></td></tr>
+<tr class="memdesc:ac5dec97770f8c0086039a71c045dd272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte cursor is currently over.  <a href="#ac5dec97770f8c0086039a71c045dd272">More...</a><br /></td></tr>
+<tr class="separator:ac5dec97770f8c0086039a71c045dd272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a791f81909fc28e4283c2544bf14f996e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a791f81909fc28e4283c2544bf14f996e">prevByte</a></td></tr>
+<tr class="separator:a791f81909fc28e4283c2544bf14f996e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e0c034ca42d4710cdf68b275837249"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa7e0c034ca42d4710cdf68b275837249">startline</a></td></tr>
+<tr class="separator:aa7e0c034ca42d4710cdf68b275837249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49d2b86d615cd0217651b244e6c45bf3"><td class="memItemLeft" >struct {</td></tr>
 <tr class="memitem:a816be5f1f12b95a0adf964009dca8a0a"><td class="memItemLeft" >&#160;&#160;&#160;WINDOW *&#160;&#160;&#160;<a class="el" href="classWindow.html#a719afd23c360b7e0bc02398d25cd4835">numbers</a></td></tr>
 <tr class="separator:a816be5f1f12b95a0adf964009dca8a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,24 +150,20 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ab91494d1a97e1b1722b71cb4f03e7ee5">inputByte</a> (char *)</td></tr>
 <tr class="memdesc:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get byte value.  <a href="#ab91494d1a97e1b1722b71cb4f03e7ee5">More...</a><br /></td></tr>
 <tr class="separator:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e9cf906a99f15f3d72252b434e925a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a3e9cf906a99f15f3d72252b434e925a8">print</a> (short=0)</td></tr>
-<tr class="memdesc:a3e9cf906a99f15f3d72252b434e925a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">print buffer content in subWindows  <a href="#a3e9cf906a99f15f3d72252b434e925a8">More...</a><br /></td></tr>
-<tr class="separator:a3e9cf906a99f15f3d72252b434e925a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8847d89f7b7741db70926a49219eb7f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a8847d89f7b7741db70926a49219eb7f9">print</a> ()</td></tr>
+<tr class="memdesc:a8847d89f7b7741db70926a49219eb7f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">print buffer content in subWindows  <a href="#a8847d89f7b7741db70926a49219eb7f9">More...</a><br /></td></tr>
+<tr class="separator:a8847d89f7b7741db70926a49219eb7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2fb12f8ae1402af287acc9085a3d285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa2fb12f8ae1402af287acc9085a3d285">placeCursor</a> ()</td></tr>
 <tr class="memdesc:aa2fb12f8ae1402af287acc9085a3d285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place cursor on current x,y coordinates.  <a href="#aa2fb12f8ae1402af287acc9085a3d285">More...</a><br /></td></tr>
 <tr class="separator:aa2fb12f8ae1402af287acc9085a3d285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17848a7cd1d2e15613f2cc5abf8d1df2"><td class="memTemplParams" colspan="2">template&lt;typename T , typename R &gt; </td></tr>
-<tr class="memitem:a17848a7cd1d2e15613f2cc5abf8d1df2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classWindow.html#a17848a7cd1d2e15613f2cc5abf8d1df2">relocCursor</a> (T, T, R)</td></tr>
-<tr class="memdesc:a17848a7cd1d2e15613f2cc5abf8d1df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move cursor.  <a href="#a17848a7cd1d2e15613f2cc5abf8d1df2">More...</a><br /></td></tr>
-<tr class="separator:a17848a7cd1d2e15613f2cc5abf8d1df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a1da567c448323caf7873fe4f1d4cf4d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a1da567c448323caf7873fe4f1d4cf4d6">y</a></td></tr>
-<tr class="memdesc:a1da567c448323caf7873fe4f1d4cf4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current line.  <a href="#a1da567c448323caf7873fe4f1d4cf4d6">More...</a><br /></td></tr>
+<tr class="memdesc:a1da567c448323caf7873fe4f1d4cf4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current line on screen.  <a href="#a1da567c448323caf7873fe4f1d4cf4d6">More...</a><br /></td></tr>
 <tr class="separator:a1da567c448323caf7873fe4f1d4cf4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3be8f50b45a4f7b48ae66ae54885672"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#aa3be8f50b45a4f7b48ae66ae54885672">x</a></td></tr>
-<tr class="memdesc:aa3be8f50b45a4f7b48ae66ae54885672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current column (current byte in column)  <a href="#aa3be8f50b45a4f7b48ae66ae54885672">More...</a><br /></td></tr>
+<tr class="memdesc:aa3be8f50b45a4f7b48ae66ae54885672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current column (current byte in column) on screen.  <a href="#aa3be8f50b45a4f7b48ae66ae54885672">More...</a><br /></td></tr>
 <tr class="separator:aa3be8f50b45a4f7b48ae66ae54885672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc92c6402611767519c8625b84afb4a6"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structWindow_1_1Opts.html">Window::Opts</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#acc92c6402611767519c8625b84afb4a6">opts</a></td></tr>
 <tr class="separator:acc92c6402611767519c8625b84afb4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -349,7 +352,7 @@ Friends</h2></td></tr>
 </div>
 </div>
 <a id="a37b22f091de31ac769c06b8a69a31824"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37b22f091de31ac769c06b8a69a31824">&#9670;&nbsp;</a></span>mvCursor()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a37b22f091de31ac769c06b8a69a31824">&#9670;&nbsp;</a></span>mvCursor() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,8 +361,38 @@ Friends</h2></td></tr>
           <td class="memname">void Window::mvCursor </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a>&#160;</td>
-          <td class="paramname"><em>direction</em></td><td>)</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Movement. </p>
+
+</div>
+</div>
+<a id="afd45001c771ef3551065caf22c52d4b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd45001c771ef3551065caf22c52d4b4">&#9670;&nbsp;</a></span>mvCursor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Window::mvCursor </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>X</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>Y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -395,8 +428,8 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a3e9cf906a99f15f3d72252b434e925a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e9cf906a99f15f3d72252b434e925a8">&#9670;&nbsp;</a></span>print()</h2>
+<a id="a8847d89f7b7741db70926a49219eb7f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8847d89f7b7741db70926a49219eb7f9">&#9670;&nbsp;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -407,8 +440,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">void Window::print </td>
           <td>(</td>
-          <td class="paramtype">short&#160;</td>
-          <td class="paramname"><em>startLine</em> = <code>0</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -450,52 +482,6 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Redraws window. </p>
-
-</div>
-</div>
-<a id="a17848a7cd1d2e15613f2cc5abf8d1df2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17848a7cd1d2e15613f2cc5abf8d1df2">&#9670;&nbsp;</a></span>relocCursor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename R &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Window::relocCursor </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y_prev</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x_prev</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">R&#160;</td>
-          <td class="paramname"><em>current_prev</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move cursor. </p>
 
 </div>
 </div>
@@ -594,14 +580,14 @@ template&lt;typename T , typename R &gt; </div>
 
 </div>
 </div>
-<a id="a135bf1d775be89a8506a4591c0ce1632"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a135bf1d775be89a8506a4591c0ce1632">&#9670;&nbsp;</a></span>currentByte</h2>
+<a id="ac5dec97770f8c0086039a71c045dd272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5dec97770f8c0086039a71c045dd272">&#9670;&nbsp;</a></span>currentByte</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Window::currentByte</td>
+          <td class="memname">std::size_t Window::currentByte</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -672,6 +658,34 @@ template&lt;typename T , typename R &gt; </div>
 <span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a791f81909fc28e4283c2544bf14f996e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a791f81909fc28e4283c2544bf14f996e">&#9670;&nbsp;</a></span>prevByte</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Window::prevByte</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7e0c034ca42d4710cdf68b275837249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7e0c034ca42d4710cdf68b275837249">&#9670;&nbsp;</a></span>startline</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Window::startline</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -754,7 +768,7 @@ template&lt;typename T , typename R &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Current column (current byte in column) </p>
+<p>Current column (current byte in column) on screen. </p>
 
 </div>
 </div>
@@ -778,7 +792,7 @@ template&lt;typename T , typename R &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Current line. </p>
+<p>Current line on screen. </p>
 
 </div>
 </div>

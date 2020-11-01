@@ -8,6 +8,7 @@ var searchData=
   ['setlocal',['setlocal',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153aaf6280a59d19d9b13a931db98d0801c7',1,'parser.hpp']]],
   ['setoption',['setOption',['../classEditor.html#a2c10d05e7e5fc9a39eddee44cdd0e391',1,'Editor']]],
   ['size',['size',['../classBuffer.html#ae37eef5147fd1c987c880bb6b62387f5',1,'Buffer']]],
+  ['startline',['startline',['../classWindow.html#aa7e0c034ca42d4710cdf68b275837249',1,'Window']]],
   ['statusline',['statusline',['../classWindow.html#ac46813a93b8890d9846218ecd5c427e4',1,'Window']]],
   ['subwindows',['subWindows',['../classWindow.html#a49d2b86d615cd0217651b244e6c45bf3',1,'Window']]]
 ];
