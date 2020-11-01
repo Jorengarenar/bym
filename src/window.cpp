@@ -8,6 +8,8 @@
 Window::Window(int height_, int width_, Buffer& buffer_) :
     height(height_), width(width_),
     currentByte(0),
+    prevByte(0),
+    startline(0),
     buffer(&buffer_),
     y(0), x(0),
     opts(*this)
@@ -25,13 +27,14 @@ Window::~Window()
 
 void Window::genSubWindows()
 {
+    applyToSubWindows(delwin);
     unsigned short c = opts.cols();
     refresh();
     subWindows = { // be wary of order in declaration of Window class!
-        newwin(height, 10, 0, 0),               // numbers
-        newwin(height, c*3, 0, 10),          // hex
+        newwin(height, 10, 0, 0),         // numbers
+        newwin(height, c*3, 0, 10),       // hex
         newwin(height, c+5, 0, c*3 + 10), // text
-        nullptr                                 // statusline
+        nullptr                           // statusline
     };
     updateStatusLine();
     refresh();
@@ -50,8 +53,7 @@ void Window::updateStatusLine()
 
 void Window::buf(Buffer& b)
 {
-    y = 0;
-    x = 0;
+    startline = y = x = 0;
     currentByte = 0;
     buffer = &b;
     print();
@@ -66,16 +68,7 @@ void Window::redraw(short height_, short width_)
         height = height_;
         width  = width_;
 
-
-        applyToSubWindows(delwin);
         genSubWindows();
-
-        print();
-        updateStatusLine();
-
-        auto c = opts.cols();
-        y = currentByte / c;
-        x = currentByte % c;
 
         placeCursor();
     }
@@ -83,52 +76,43 @@ void Window::redraw(short height_, short width_)
 
 void Window::applyToSubWindows(std::function<void (WINDOW*)> f)
 {
-    f(subWindows.hex);
-    f(subWindows.text);
-    f(subWindows.numbers);
-    f(subWindows.statusline);
+    if (subWindows.hex)        { f(subWindows.hex);        }
+    if (subWindows.text)       { f(subWindows.text);       }
+    if (subWindows.numbers)    { f(subWindows.numbers);    }
+    if (subWindows.statusline) { f(subWindows.statusline); }
 }
 
-void Window::print(short startLine)
+void Window::print()
 {
+    auto c = opts.cols();
+
     std::string str = ""; // representation of bytes in line
-    int y = 0; // current line
+    int y = startline; // current line
     int x = 0; // current column of bytes
 
-    int maxY = height - 1 + startLine;
+    int maxY = height - 1 + startline;
 
     applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
     auto& bytes = buffer->bytes;
     auto& subWins = subWindows;
 
-    auto c = opts.cols();
-
     if (bytes.size()) {
-        for (size_t i = 0; i < bytes.size() && y < maxY; ++i) {
-            if (y >= startLine) {
-                if (x == 0) {
-                    wprintw(subWins.numbers, "%08X:\n", i);
-                }
-
-                wprintw(subWins.hex, "%02X ", bytes[i]);
-
-                str += toPrintable(bytes[i], opts.blank());
-
-                ++x;
-                if (x == c) {
-                    x = 0;
-                    wprintw(subWins.text, "%s\n", str.c_str());
-                    str = "";
-                    ++y;
-                }
+        for (std::size_t i = y*c; i < bytes.size() && y < maxY; ++i) {
+            if (x == 0) {
+                wprintw(subWins.numbers, "%08X:\n", i);
             }
-            else {
-                ++x;
-                if (x == c) {
-                    x = 0;
-                    ++y;
-                }
+
+            wprintw(subWins.hex, "%02X ", bytes[i]);
+
+            str += toPrintable(bytes[i], opts.blank());
+
+            ++x;
+            if (x == c) {
+                x = 0;
+                wprintw(subWins.text, "%s\n", str.c_str());
+                str = "";
+                ++y;
             }
         }
     }
@@ -148,53 +132,76 @@ void Window::print(short startLine)
     applyToSubWindows(wrefresh);
 }
 
-void Window::mvCursor(Direction direction)
+void Window::mvCursor(Direction d)
 {
-    // *_prev are for cleaning cursor background highlight
-    unsigned short x_prev = x;
-    unsigned short y_prev = y;
-    size_t current_prev = currentByte;
-
+    auto s = buffer->size();
     auto c = opts.cols();
+    auto x = currentByte % c;
 
-    if (direction == Direction::down && currentByte + c < buffer->size()) {
+    prevByte = currentByte;
+
+    if (d == Direction::down && currentByte + c < s) {
         currentByte += c;
-        y++;
     }
-    else if (direction == Direction::up && currentByte - c < buffer->size()) {
+    else if (d == Direction::up && currentByte - c < s) {
         currentByte -= c;
-        y--;
     }
-    else if (direction == Direction::right && currentByte + 1 < buffer->size() && x < c - 1) {
-        currentByte++;
-        x++;
+    else if (d == Direction::right && currentByte + 1 < s && x < c - 1) {
+        ++currentByte;
     }
-    else if (direction == Direction::left && currentByte > 0 && x > 0) {
-        currentByte--;
-        x--;
+    else if (d == Direction::left && currentByte > 0 && x > 0) {
+        --currentByte;
     }
 
-    if (current_prev != currentByte) {
-        relocCursor(y_prev, x_prev, current_prev);
-        updateStatusLine();
+    placeCursor();
+}
+
+void Window::mvCursor(std::size_t X, std::size_t Y)
+{
+    auto c = opts.cols();
+    auto maxY = (buffer->size()-1) / c;
+    if (Y >= maxY) {
+        Y = maxY;
+        auto maxX = buffer->size() % c;
+        if (X > maxX) {
+            X = maxX;
+        }
     }
+    else if (X >= c) {
+        X = c-1;
+    }
+
+    prevByte = currentByte;
+    currentByte = Y * c + X;
+
+    placeCursor();
 }
 
 void Window::placeCursor()
 {
     auto C = opts.cols();
 
+    auto x_prev = prevByte % C;
+    auto y_prev = prevByte / C - startline;
+
+    if (prevByte != currentByte) {
+        // Clear previous cursor background highlight
+        mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(buffer->bytes[prevByte], opts.blank()));
+        mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[prevByte]);
+    }
+
     // Scrolling
-    if (y >= height - 1) { // scrolling down
-        print(currentByte/C - height + 2);
-        applyToSubWindows(wrefresh);
-        y = height - 2;
+    if (currentByte/C >= startline + height - 1) { // scrolling down
+        ++startline;
+        print();
     }
-    else if (y < 0) {      // scrolling up
-        print(currentByte/C + y + 1);
-        applyToSubWindows(wrefresh);
-        y = 0;
+    else if (currentByte/C < startline) { // scrolling up
+        --startline;
+        print();
     }
+
+    x = currentByte % C;
+    y = currentByte / C - startline;
 
     unsigned char c = 0;
     if (!buffer->empty()) {
@@ -202,25 +209,17 @@ void Window::placeCursor()
     }
 
     auto printCursor = [&](WINDOW* w, int X, const char* fmt, unsigned char C) {
-                           wattron(w, A_REVERSE);
-                           mvwprintw(w, y, X, fmt, C);
-                           wattroff(w, A_REVERSE);
+        wattron(w, A_REVERSE);
+        mvwprintw(w, y, X, fmt, C);
+        wattroff(w, A_REVERSE);
 
-                           wrefresh(w);
-                       };
+        wrefresh(w);
+    };
 
     printCursor(subWindows.hex, x*3, buffer->empty() ? "  " : "%02X", c);
     printCursor(subWindows.text, x, "%c", toPrintable(c, opts.blank()));
-}
 
-template<typename T, typename R>
-void Window::relocCursor(T y_prev, T x_prev, R current_prev)
-{
-    // clear cursor background highlight
-    mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(buffer->bytes[current_prev], opts.blank()));
-    mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[current_prev]);
-
-    placeCursor(); // and place it on new position
+    updateStatusLine();
 }
 
 bool Window::inputByte(char* buf)
@@ -286,7 +285,8 @@ void Window::save()
 
 // --/--/-- OPTIONS --/--/--/--
 
-Window::Opts::Opts(Window& w_) : w(w_) {}
+Window::Opts::Opts(Window& w_) : w(w_)
+{}
 
 unsigned short Window::Opts::cols() const
 {

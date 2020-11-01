@@ -18,7 +18,10 @@ public:
 
     unsigned short height; ///< Height of window
     unsigned short width;  ///< Width of window
-    size_t currentByte;    ///< Byte cursor is currently over
+    std::size_t currentByte;    ///< Byte cursor is currently over
+    std::size_t prevByte;
+
+    std::size_t startline;
 
     void buf(Buffer&);                                      ///< Change buffer in window
     void updateStatusLine();                                ///< Updates status line
@@ -29,6 +32,7 @@ public:
     int replaceByte(); ///< Replaces value of byte
 
     void mvCursor(Direction); ///< Movement
+    void mvCursor(std::size_t, std::size_t); ///< Movement
 
     struct {
         WINDOW* numbers;
@@ -39,18 +43,17 @@ public:
 
     Buffer* buffer;
 private:
-    int y; ///< Current line
-    int x; ///< Current column (current byte in column)
+    int y; ///< Current line on screen
+    int x; ///< Current column (current byte in column) on screen
 
     void genSubWindows(); ///< Generate subwindows
     void delSubWindows(); ///< Delete subwindows
 
     bool inputByte(char*); ///< Get byte value
 
-    void print(short = 0); ///< print buffer content in subWindows
+    void print(); ///< print buffer content in subWindows
 
     void placeCursor(); ///< Place cursor on current x,y coordinates
-    template<typename T, typename R> void relocCursor(T, T, R); ///< Move cursor
 
     struct Opts {
         Opts(Window&);
