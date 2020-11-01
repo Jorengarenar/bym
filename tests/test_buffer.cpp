@@ -3,6 +3,15 @@
 
 #include "buffer.hpp"
 
+BOOST_AUTO_TEST_SUITE(foo)
+
+BOOST_AUTO_TEST_CASE(bar)
+{
+    BOOST_CHECK_EQUAL(0, 0);
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
 BOOST_AUTO_TEST_SUITE(nofile)
 
 BOOST_AUTO_TEST_CASE(size)
