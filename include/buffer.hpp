@@ -22,6 +22,7 @@ public:
     size_t size(); ///< Size of file
     bool empty();  ///< Checks if file is of size 0
 
+    Options options;
     std::string getOption(std::string);
 
 private:

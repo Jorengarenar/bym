@@ -46,7 +46,7 @@ public:
     ~Editor() = default;
 
     bool input(); ///< Handles input (for main loop)
-    void set(std::string);
+    void setOption(std::string);
 };
 
 #define Editor() Editor::getInstance()

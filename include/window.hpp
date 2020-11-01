@@ -37,10 +37,10 @@ public:
         WINDOW* statusline;
     } subWindows;
 
+    Buffer* buffer;
 private:
     int y; ///< Current line
     int x; ///< Current column (current byte in column)
-    Buffer* buffer;
 
     void genSubWindows(); ///< Generate subwindows
     void delSubWindows(); ///< Delete subwindows
@@ -60,5 +60,4 @@ private:
         char blank() const;
     } opts;
     friend struct Opts;
-
 };

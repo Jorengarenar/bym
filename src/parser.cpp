@@ -9,17 +9,21 @@
 #include "util.hpp"
 
 const std::map<std::string, Command> commands{
-    { "echo",   Command::echo },
-    { "map",    Command::map },
-    { "q",      Command::quit },
-    { "quit",   Command::quit },
-    { "redraw", Command::redraw },
-    { "set",    Command::set },
-    { "w",      Command::save },
-    { "wq",     Command::savequit },
+    { "echo",     Command::echo         },
+    { "map",      Command::map          },
+    { "newwin",   Command::newwin       },
+    { "q",        Command::quit         },
+    { "quit",     Command::quit         },
+    { "redraw",   Command::redraw       },
+    { "set",      Command::set          },
+    { "setlocal", Command::setlocal     },
+    { "w",        Command::save         },
+    { "wa",       Command::saveall      },
+    { "wq",       Command::savequit     },
+    { "wqa",      Command::saveallquit  },
 };
 
-bool Parser::operator ()(std::string line)
+bool Parser::operator () (std::string line)
 {
     std::stringstream buf{ line };
     std::string a;
@@ -52,21 +56,30 @@ bool Parser::operator ()(std::string line)
                 Editor().cw->save();
                 return false;
                 break;
-            case Command::echo: {
-                    std::string msg;
-                    buf >> msg;
-                    Editor().cli.echo(msg);
-                } break;
-            case Command::set: {
-                    std::string opt;
-                    buf >> opt;
-                    Editor().options.set(opt);
-                } break;
+
             case Command::redraw:
                 Editor().cw->redraw();
                 break;
             case Command::map:
                 break;
+
+            case Command::echo:
+            case Command::set:
+            case Command::setlocal: {
+                    std::string temp;
+                    buf >> temp;
+                    switch (c->second) {
+                        case Command::echo:
+                            Editor().cli.echo(temp);
+                            break;
+                        case Command::set:
+                            Editor().setOption(temp);
+                            break;
+                        case Command::setlocal:
+                            Editor().cw->buffer->options.set(temp);
+                            break;
+                    }
+                } break;
         }
 
     }

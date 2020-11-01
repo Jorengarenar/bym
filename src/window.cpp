@@ -8,8 +8,8 @@
 Window::Window(int height_, int width_, Buffer& buffer_) :
     height(height_), width(width_),
     currentByte(0),
-    y(0), x(0),
     buffer(&buffer_),
+    y(0), x(0),
     opts(*this)
 {
     genSubWindows();
@@ -290,8 +290,12 @@ Window::Opts::Opts(Window& w_) : w(w_) {}
 
 unsigned short Window::Opts::cols() const
 {
-    std::string temp = w.buffer->getOption("cols");
-    return temp == "0" ? (w.width-10)/4 : std::stoi(temp);
+    auto c = std::stoi(w.buffer->getOption("cols"));
+    auto C = (w.width-10)/4;
+    if (c > 0 && c <= C) {
+        return c;
+    }
+    return C;
 }
 
 char Window::Opts::blank() const

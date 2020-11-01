@@ -77,3 +77,11 @@ bool Editor::input()
     }
     return true;
 }
+
+void Editor::setOption(std::string opt)
+{
+    options.set(opt);
+    for (auto& b: buffers) {
+        b.options.set(opt);
+    }
+}

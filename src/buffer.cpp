@@ -9,9 +9,9 @@
 #include "util.hpp"
 #include "editor.hpp"
 
-Buffer::Buffer() : path(""), text("") {}
+Buffer::Buffer() : options(Editor().options), path(""), text("") {}
 
-Buffer::Buffer(const char* p) : path(p)
+Buffer::Buffer(const char* p) : options(Editor().options), path(p)
 {
     std::ifstream file(p, std::ios::binary);
     bytes = std::vector<unsigned char>(std::istreambuf_iterator<char>(file), {});
@@ -40,5 +40,5 @@ void Buffer::save(std::string p)
 
 std::string Buffer::getOption(std::string o)
 {
-    return Editor().options.get(o);
+    return options.get(o);
 }

@@ -2,7 +2,7 @@
 
 Options::Options() :
     opts{
-         { "cols", "0" },
+         { "cols",  "0" },
          { "blank", "." },
         }
 {}

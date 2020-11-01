@@ -3,7 +3,7 @@
 
 #include "buffer.hpp"
 
-BOOST_AUTO_TEST_SUITE(nofile);
+BOOST_AUTO_TEST_SUITE(nofile)
 
 BOOST_AUTO_TEST_CASE(size)
 {
@@ -17,9 +17,9 @@ BOOST_AUTO_TEST_CASE(empty)
     BOOST_CHECK(f.empty());
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(testfile256);
+BOOST_AUTO_TEST_SUITE(testfile256)
 
 BOOST_AUTO_TEST_CASE(size)
 {
@@ -33,6 +33,6 @@ BOOST_AUTO_TEST_CASE(empty)
     BOOST_CHECK(!f.empty());
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
 
 // vim: fen
