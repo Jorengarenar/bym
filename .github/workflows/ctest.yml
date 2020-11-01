@@ -24,22 +24,5 @@ jobs:
         run: |
           # CTest
           if [ "$(basename $(pwd))" = "build" ] || cd build/; then
-              out="ctest_fails.txt"
-
-              if ctest -j 4 -Q --output-on-failure -O "$out" $@; then
-                  sed -n -e '/tests passed/p' -e '/Total Test time/p' "$out"
-                  echo
-                  rm "$out"
-              else
-                  sed \
-                      -e '/^\[HANDLER_OUTPUT\]/d' \
-                      -e '/^\s*Start\ .*:/d' \
-                      -e '/Passed/d' \
-                      -e '/^Running\ .*\ test case/d' \
-                      -i "$out"
-
-                  sed -zi '$ s/\[ERROR_MESSAGE\].*\nErrors while running CTest\n//' "$out"
-                  cat "$out"
-                  exit 1
-              fi
+              ctest -j 4
           fi
