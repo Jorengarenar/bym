@@ -23,7 +23,6 @@ jobs:
       - name: CTest
         run: |
           # CTest
-          TERM=linux
           if [ "$(basename $(pwd))" = "build" ] || cd build/; then
               out="ctest_fails.txt"
 
