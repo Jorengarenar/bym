@@ -1,10 +1,12 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/extern/cmake")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 project(Bym
   VERSION 0.0.1
+  DESCRIPTION "Hex editor"
+  HOMEPAGE_URL "https://joren.ga/bym"
   LANGUAGES CXX)
 
 string(TOLOWER "${CMAKE_PROJECT_NAME}" EXECUTABLE_NAME)
