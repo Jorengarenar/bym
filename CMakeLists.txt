@@ -5,7 +5,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 project(Bym
   VERSION 0.0.1
-  DESCRIPTION "Hex editor"
+  DESCRIPTION "The hex editor"
   HOMEPAGE_URL "https://joren.ga/bym"
   LANGUAGES CXX)
 
