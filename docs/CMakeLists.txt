@@ -16,7 +16,6 @@ if(DOXYGEN_FOUND)
   set(DOXYGEN_EXTRACT_PRIVATE YES)
 
   set(DOXYGEN_LAYOUT_FILE "DoxygenLayout.xml")
-  set(DOXYGEN_HTML_HEADER "header.html")
 
   # set(DOXYGEN_PROJECT_LOGO "../res/logo.jpg")
 
