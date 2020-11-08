@@ -6,14 +6,21 @@ if(DOXYGEN_FOUND)
   endif()
 
   set(DOXYGEN_EXCLUDE_PATTERNS
-    */docs/*
+    */build/*
     */extern/*
     )
+
+  set(DOXYGEN_IMAGE_PATH "../res/")
 
   set(DOXYGEN_EXTRACT_ALL YES)
   set(DOXYGEN_EXTRACT_PRIVATE YES)
 
-  doxygen_add_docs(doc ${CMAKE_SOURCE_DIR} ALL)
+  set(DOXYGEN_LAYOUT_FILE "DoxygenLayout.xml")
+  set(DOXYGEN_HTML_HEADER "header.html")
+
+  # set(DOXYGEN_PROJECT_LOGO "../res/logo.jpg")
+
+  doxygen_add_docs(docs ${CMAKE_SOURCE_DIR} ALL)
 
 else(DOXYGEN_FOUND)
   message("Doxygen needs to be installed to generate the Doxygen documentation")
