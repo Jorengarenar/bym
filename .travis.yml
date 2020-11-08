@@ -1,6 +1,6 @@
-dist: xenial
-
 language: cpp
+compiler: gcc
+dist: xenial
 
 addons:
   apt:
@@ -8,15 +8,12 @@ addons:
       - g++
       - cmake
 
-before_install:
-  sudo apt-get install -y libncurses5-dev
+install:
+  - sudo apt-get install -y libncurses5-dev
 
 before_script:
-  cmake -Bbuild -H.
+  - cmake -Bbuild -H.
 
 script:
-  cmake --build build/ --target all
-  # CTest
-  if [ "$(basename $(pwd))" = "build" ] || cd build/; then
-      ctest
-  fi
+  - cmake --build build/ --target all
+  - if [ "$(basename $(pwd))" = "build" ] || cd build/; then ctest; fi
