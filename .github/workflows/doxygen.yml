@@ -16,7 +16,7 @@ jobs:
       - name: CMake
         run: cmake -B build -H. -D ONLY_DOCS=YES
       - name: Make docs
-        run: cmake --build build --target doc
+        run: cmake --build build --target docs
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
