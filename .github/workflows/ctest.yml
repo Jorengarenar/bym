@@ -1,0 +1,24 @@
+name: CTest with Boost
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Install dependencies (Boost, ncurses)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -yq libboost-test-dev
+          sudo apt-get install -yq libncurses5-dev
+      - name: CMake
+        run: cmake -Bbuild -H.
+      - name: Make
+        run: cmake --build build/ --target all
+      - name: CTest
+        run: if [ "$(basename $(pwd))" = "build" ] || cd build/; then ctest; fi
