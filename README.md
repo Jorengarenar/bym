@@ -2,6 +2,7 @@ Bym: The Hex Editor
 ===================
 
 [![Build Status](https://travis-ci.com/Jorengarenar/bym.svg?branch=master)](https://travis-ci.com/Jorengarenar/bym)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/16282bcfff234db6b499436128e32684)](https://www.codacy.com/gh/Jorengarenar/bym/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Jorengarenar/bym&amp;utm_campaign=Badge_Grade)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4399/badge)](https://bestpractices.coreinfrastructure.org/projects/4399)
 [![Coverity Scan](https://scan.coverity.com/projects/22049/badge.svg)](https://scan.coverity.com/projects/jorengarenar-bym)
 [![Doxygen](https://github.com/Jorengarenar/bym/workflows/Doxygen/badge.svg)](https://github.com/Jorengarenar/bym/actions?query=workflow%3ADoxygen)
