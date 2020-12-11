@@ -21,4 +21,4 @@ jobs:
       - name: Make
         run: cmake --build build/ --target all
       - name: CTest
-        run: if [ "$(basename $(pwd))" = "build" ] || cd build/; then ctest; fi
+        run: if [ "$(basename $(pwd))" = "build" ] || cd build/; then ls **; ctest; fi
