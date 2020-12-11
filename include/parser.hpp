@@ -6,17 +6,17 @@
 #include <set>
 
 enum class Command {
-    echo,
-    map,
-    newwin,
-    quit,
-    redraw,
-    save,
-    saveall,
-    saveallquit,
-    savequit,
-    set,
-    setlocal,
+    ECHO,
+    MAP,
+    NEWWIN,
+    QUIT,
+    REDRAW,
+    SAVE,
+    SAVEALL,
+    SAVEALLQUIT,
+    SAVEQUIT,
+    SET,
+    SETLOCAL,
 };
 
 /// Parser

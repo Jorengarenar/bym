@@ -1,4 +1,4 @@
-set(objs "util;buffer;window;cli;editor;parser;options")
+set(objs "util;buffer;window;cli;editor;parser;options;mapping")
 
 foreach(obj ${objs})
   add_library(${obj} OBJECT ${obj}.cpp)

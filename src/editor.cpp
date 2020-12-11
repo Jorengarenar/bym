@@ -50,30 +50,37 @@ void Editor::replaceByte()
 
 bool Editor::input()
 {
-    int c = getchar();
+    int c = std::getchar();
 
-    switch (c) {
-        case KEY_RESIZE:
-            cw->redraw();
-            cli.redraw();
-            break;
-        case 'h':
-            cw->mvCursor(Direction::left);
-            break;
-        case 'j':
-            cw->mvCursor(Direction::down);
-            break;
-        case 'k':
-            cw->mvCursor(Direction::up);
-            break;
-        case 'l':
-            cw->mvCursor(Direction::right);
-            break;
-        case 'r':
-            replaceByte();
-            break;
-        case ':':
-            return cli();
+    for(auto a: mappings(c)) {
+        switch (a) {
+            case Action::RESIZE:
+                cw->redraw();
+                cli.redraw();
+                break;
+            case Action::LEFT:
+                cw->mvCursor(Direction::LEFT);
+                break;
+            case Action::DOWN:
+                cw->mvCursor(Direction::DOWN);
+                break;
+            case Action::UP:
+                cw->mvCursor(Direction::UP);
+                break;
+            case Action::RIGHT:
+                cw->mvCursor(Direction::RIGHT);
+                break;
+            case Action::REPLACE:
+                replaceByte();
+                break;
+            case Action::CMD:
+                return cli();
+            case Action::FIRSTCOL:
+                cw->mvCursor(0, cw->y);
+                break;
+            default:
+                break;
+        }
     }
     return true;
 }

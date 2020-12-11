@@ -6,7 +6,7 @@
 
 #include "buffer.hpp"
 
-enum class Direction { down, up, right, left };
+enum class Direction { DOWN, UP, RIGHT, LEFT };
 
 /// Window
 ///
@@ -42,10 +42,10 @@ public:
     } subWindows;
 
     Buffer* buffer;
-private:
     int y; ///< Current line on screen
     int x; ///< Current column (current byte in column) on screen
 
+private:
     void genSubWindows(); ///< Generate subwindows
     void delSubWindows(); ///< Delete subwindows
 

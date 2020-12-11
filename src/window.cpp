@@ -95,22 +95,21 @@ void Window::print()
     applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
     auto& bytes = buffer->bytes;
-    auto& subWins = subWindows;
 
     if (bytes.size()) {
         for (std::size_t i = y*c; i < bytes.size() && y < maxY; ++i) {
             if (x == 0) {
-                wprintw(subWins.numbers, "%08X:\n", i);
+                wprintw(subWindows.numbers, "%08X:\n", i);
             }
 
-            wprintw(subWins.hex, "%02X ", bytes[i]);
+            wprintw(subWindows.hex, "%02X ", bytes[i]);
 
             str += toPrintable(bytes[i], opts.blank());
 
             ++x;
             if (x == c) {
                 x = 0;
-                wprintw(subWins.text, "%s\n", str.c_str());
+                wprintw(subWindows.text, "%s\n", str.c_str());
                 str = "";
                 ++y;
             }
@@ -140,16 +139,16 @@ void Window::mvCursor(Direction d)
 
     prevByte = currentByte;
 
-    if (d == Direction::down && currentByte + c < s) {
+    if (d == Direction::DOWN && currentByte + c < s) {
         currentByte += c;
     }
-    else if (d == Direction::up && currentByte - c < s) {
+    else if (d == Direction::UP && currentByte - c < s) {
         currentByte -= c;
     }
-    else if (d == Direction::right && currentByte + 1 < s && x < c - 1) {
+    else if (d == Direction::RIGHT && currentByte + 1 < s && x < c - 1) {
         ++currentByte;
     }
-    else if (d == Direction::left && currentByte > 0 && x > 0) {
+    else if (d == Direction::LEFT && currentByte > 0 && x > 0) {
         --currentByte;
     }
 
@@ -229,7 +228,7 @@ bool Window::inputByte(char* buf)
     EnableCursor cur;
 
     int b;
-    for (int i = 0; i < 2; ) { // value 2 is temporary, it will be mutable
+    for (int i = 0; i < 2; ) { // TODO: value 2 is temporary, it will be mutable
         wmove(subWindows.hex, y, x*3 + i);
         b = wgetch(subWindows.hex);
 

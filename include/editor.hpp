@@ -4,6 +4,7 @@
 
 #include "buffer.hpp"
 #include "cli.hpp"
+#include "mapping.hpp"
 #include "options.hpp"
 #include "parser.hpp"
 #include "window.hpp"
@@ -41,6 +42,7 @@ public:
     Cli cli; ///< Command line
     Parser parser; ///< Parses configs and commands
     Options options;
+    Mappings mappings;
 
     void init(int argc, char* argv[], int optind); // yes, copy of main() arguments
     ~Editor() = default;

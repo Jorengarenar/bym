@@ -9,21 +9,21 @@
 #include "util.hpp"
 
 const std::map<std::string, Command> commands{
-    { "echo",     Command::echo         },
-    { "map",      Command::map          },
-    { "newwin",   Command::newwin       },
-    { "q",        Command::quit         },
-    { "quit",     Command::quit         },
-    { "redraw",   Command::redraw       },
-    { "set",      Command::set          },
-    { "setlocal", Command::setlocal     },
-    { "w",        Command::save         },
-    { "wa",       Command::saveall      },
-    { "wq",       Command::savequit     },
-    { "wqa",      Command::saveallquit  },
+    { "echo",     Command::ECHO         },
+    { "map",      Command::MAP          },
+    { "newwin",   Command::NEWWIN       },
+    { "q",        Command::QUIT         },
+    { "quit",     Command::QUIT         },
+    { "redraw",   Command::REDRAW       },
+    { "set",      Command::SET          },
+    { "setlocal", Command::SETLOCAL     },
+    { "w",        Command::SAVE         },
+    { "wa",       Command::SAVEALL      },
+    { "wq",       Command::SAVEQUIT     },
+    { "wqa",      Command::SAVEALLQUIT  },
 };
 
-bool Parser::operator () (std::string line)
+bool Parser::operator ()(std::string line)
 {
     std::stringstream buf{ line };
     std::string a;
@@ -46,40 +46,47 @@ bool Parser::operator () (std::string line)
         }
 
         switch (c->second) {
-            case Command::quit:
+            case Command::QUIT:
                 return false;
                 break;
-            case Command::save:
+            case Command::SAVE:
                 Editor().cw->save();
                 break;
-            case Command::savequit:
+            case Command::SAVEQUIT:
                 Editor().cw->save();
                 return false;
                 break;
 
-            case Command::redraw:
+            case Command::REDRAW:
                 Editor().cw->redraw();
                 break;
-            case Command::map:
+            case Command::MAP:
                 break;
 
-            case Command::echo:
-            case Command::set:
-            case Command::setlocal: {
+            case Command::ECHO:
+            case Command::SET:
+            case Command::SETLOCAL:
+                {
                     std::string temp;
                     buf >> temp;
                     switch (c->second) {
-                        case Command::echo:
+                        case Command::ECHO:
                             Editor().cli.echo(temp);
                             break;
-                        case Command::set:
+                        case Command::SET:
                             Editor().setOption(temp);
                             break;
-                        case Command::setlocal:
+                        case Command::SETLOCAL:
                             Editor().cw->buffer->options.set(temp);
                             break;
+                        default:
+                            break;
                     }
-                } break;
+                }
+                break;
+
+            default:
+                break;
         }
 
     }
