@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['init_45',['init',['../classEditor.html#a61478aff26fdc1d329950a481adae0ac',1,'Editor']]],
-  ['init_5ftests_2ehpp_46',['init_tests.hpp',['../init__tests_8hpp.html',1,'']]],
-  ['initcurses_47',['InitCurses',['../structEditor_1_1InitCurses.html',1,'Editor::InitCurses'],['../structEditor_1_1InitCurses.html#a1064cf6ed4d11a9f98a10b35aa0f5e93',1,'Editor::InitCurses::InitCurses()'],['../classEditor.html#ad8ade8cdaeea928637298efe692d64a1',1,'Editor::initCurses()']]],
-  ['input_48',['input',['../classCli.html#a66836a7efbd0b4cf5b8f13445ad9fc1c',1,'Cli::input()'],['../classEditor.html#a5c957b45dc0efeed040a43378765fbe5',1,'Editor::input()']]],
-  ['inputbyte_49',['inputByte',['../classWindow.html#ab91494d1a97e1b1722b71cb4f03e7ee5',1,'Window']]],
-  ['isprefix_50',['isPrefix',['../util_8hpp.html#a6c091935a96b6ba45e4b58ec8de5929d',1,'isPrefix(const std::string &amp;prefix, const std::string &amp;data):&#160;util.cpp'],['../util_8cpp.html#a6c091935a96b6ba45e4b58ec8de5929d',1,'isPrefix(const std::string &amp;prefix, const std::string &amp;data):&#160;util.cpp']]]
+  ['height_49',['height',['../classWindow.html#a5b4c7f9d2a691e509035c460941237c3',1,'Window']]],
+  ['hex_50',['hex',['../classWindow.html#a3318f5e588f450810df9664f6c000450',1,'Window']]]
 ];

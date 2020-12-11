@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['map_225',['map',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a1d78dc8ed51214e518b5114fe24490ae',1,'parser.hpp']]]
+  ['firstcol_248',['FIRSTCOL',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498aebf2eea4ed991fc1641ccaca89548dc8',1,'mapping.hpp']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newwin_226',['newwin',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153ae1a91aa4c2f6f1c609c1560c97d84401',1,'parser.hpp']]]
+  ['left_249',['LEFT',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758',1,'LEFT():&#160;mapping.hpp'],['../window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa684d325a7303f52e64011467ff5c5758',1,'LEFT():&#160;window.hpp']]]
 ];

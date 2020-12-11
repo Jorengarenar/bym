@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['save_79',['save',['../classBuffer.html#a6ee90ce63cbce35cf8e5f679c0a363e9',1,'Buffer::save()'],['../classWindow.html#a5939b226a8a1e29f929af8226838b333',1,'Window::save()'],['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a43781db5c40ecc39fd718685594f0956',1,'save():&#160;parser.hpp']]],
-  ['saveall_80',['saveall',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153afd13749c9cd91525b66a6571b5efe7fd',1,'parser.hpp']]],
-  ['saveallquit_81',['saveallquit',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a18d6f27205f2f5ad15aa0fad79aee3cc',1,'parser.hpp']]],
-  ['savequit_82',['savequit',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153acbd71fef566fe5edb572d92ed5f71e55',1,'parser.hpp']]],
-  ['set_83',['set',['../classOptions.html#af2b2b17bab4274dc2be9c0ed2cf179ee',1,'Options::set(std::string)'],['../classOptions.html#a3117d83e7597645dfb0f2ef3122b871e',1,'Options::set(std::string, std::string)'],['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153acdaeeeba9b4a4c5ebf042c0215a7bb0e',1,'set():&#160;parser.hpp']]],
-  ['setlocal_84',['setlocal',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153aaf6280a59d19d9b13a931db98d0801c7',1,'parser.hpp']]],
-  ['setoption_85',['setOption',['../classEditor.html#a2c10d05e7e5fc9a39eddee44cdd0e391',1,'Editor']]],
-  ['size_86',['size',['../classBuffer.html#ae37eef5147fd1c987c880bb6b62387f5',1,'Buffer']]],
-  ['startline_87',['startline',['../classWindow.html#aa7e0c034ca42d4710cdf68b275837249',1,'Window']]],
-  ['statusline_88',['statusline',['../classWindow.html#ac46813a93b8890d9846218ecd5c427e4',1,'Window']]],
-  ['subwindows_89',['subWindows',['../classWindow.html#ae562ca93e3a37af3b2b881beb3a94468',1,'Window']]]
+  ['readme_2emd_85',['README.md',['../README_8md.html',1,'']]],
+  ['redraw_86',['redraw',['../classCli.html#a56d1734f3a335c36aff199cc27128f98',1,'Cli::redraw()'],['../classWindow.html#a569e4f84385ec5d351e9c19a596d29f8',1,'Window::redraw()'],['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a8493617dd77e400daa81294925a52201',1,'REDRAW():&#160;mapping.hpp'],['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a8493617dd77e400daa81294925a52201',1,'REDRAW():&#160;parser.hpp']]],
+  ['replace_87',['REPLACE',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a560a2dd6f6744646473b3b19e1fe96d7',1,'mapping.hpp']]],
+  ['replacebyte_88',['replaceByte',['../classEditor.html#a6bb9b1fe02bff2b8cd92af5a603c80c0',1,'Editor::replaceByte()'],['../classWindow.html#acfdd1791307bfd5fa229ba502ba50780',1,'Window::replaceByte()']]],
+  ['resize_89',['RESIZE',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a1acac8984c2139895dee3e8aa928de57',1,'mapping.hpp']]],
+  ['returntype_90',['returnType',['../classMappings.html#a986c13c3cb525419a2491617e0cb76c8',1,'Mappings']]],
+  ['right_91',['RIGHT',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a21507b40c80068eda19865706fdc2403',1,'RIGHT():&#160;mapping.hpp'],['../window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa21507b40c80068eda19865706fdc2403',1,'RIGHT():&#160;window.hpp']]]
 ];
