@@ -1,3 +1,6 @@
 [submodule "extern/cmake"]
 	path = extern/cmake
 	url = https://github.com/Jorengarenar/cmake-modules.git
+[submodule "extern/libJCBC++"]
+	path = extern/libJCBC++
+	url = https://github.com/Jorengarenar/libJCBCPP.git
