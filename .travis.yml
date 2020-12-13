@@ -7,6 +7,7 @@ addons:
     packages:
       - g++
       - cmake
+      - boost
 
 install:
   - sudo apt-get install -y libncurses5-dev
@@ -16,4 +17,4 @@ before_script:
 
 script:
   - cmake --build build/ --target all
-  - if [ "$(basename $(pwd))" = "build" ] || cd build/; then ctest; fi
+  - cd build/ && ctest
