@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mappings_223',['mappings',['../classEditor.html#ad89ff2f3b03c2d44c656678c137c3e2e',1,'Editor']]]
+  ['line_236',['line',['../classCli.html#a49d6efecf65e534c05779bf2742ca15e',1,'Cli']]]
 ];

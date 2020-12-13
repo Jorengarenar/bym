@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['initcurses_221',['initCurses',['../classEditor.html#ad8ade8cdaeea928637298efe692d64a1',1,'Editor']]]
+  ['height_233',['height',['../classWindow.html#a5b4c7f9d2a691e509035c460941237c3',1,'Window']]],
+  ['hex_234',['hex',['../classWindow.html#a3318f5e588f450810df9664f6c000450',1,'Window']]]
 ];

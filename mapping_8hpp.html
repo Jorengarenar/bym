@@ -76,7 +76,9 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;jcbcpp/trie.hpp&gt;</code><br />
 <code>#include &lt;ncurses.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="util_8hpp_source.html">util.hpp</a>&quot;</code><br />
 </div>
 <p><a href="mapping_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -95,13 +97,24 @@ Enumerations</h2></td></tr>
 <br />
 &#160;&#160;<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498ac4e0e4e3118472beeb2ae75827450f1f">Action::DOWN</a>, 
 <a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a1acac8984c2139895dee3e8aa928de57">Action::RESIZE</a>, 
+<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a5dfd352dd6b7a5d118237fcf1e19fcc1">Action::QUIT</a>, 
+<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a0f544d682c3a664870f025f48c4b04b5">Action::SEARCH</a>, 
+<br />
+&#160;&#160;<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a7ca48f787d7b4a48e225f496e6b70a36">Action::SAVEQUIT</a>, 
 <a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498aa28966bac17b8eef99c5afa5eb594130">Action::CMD</a>, 
 <a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a8493617dd77e400daa81294925a52201">Action::REDRAW</a>, 
+<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a560a2dd6f6744646473b3b19e1fe96d7">Action::REPLACE</a>, 
 <br />
-&#160;&#160;<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a560a2dd6f6744646473b3b19e1fe96d7">Action::REPLACE</a>, 
-<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498aebf2eea4ed991fc1641ccaca89548dc8">Action::FIRSTCOL</a>
+&#160;&#160;<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498aebf2eea4ed991fc1641ccaca89548dc8">Action::FIRSTCOL</a>, 
+<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a5c43cb9d3bb05c1574ec23f017809758">Action::LASTCOL</a>, 
+<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498aa404b3eb770a9adbca3d447ec3399a22">Action::FIRSTBYTE</a>, 
+<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a25c754923fa242236802ea09440dae36">Action::LASTBYTE</a>, 
+<br />
+&#160;&#160;<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a90cf1f5206b348a822cc1a453a587534">Action::INCREMENT</a>, 
+<a class="el" href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498ac0ffa6e46086551bc5113d1238faf106">Action::DECREMENT</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a8bb1ef53467e4f61410d12822d922498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defined secular actions.  <a href="mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498">More...</a><br /></td></tr>
 <tr class="separator:a8bb1ef53467e4f61410d12822d922498"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -124,6 +137,8 @@ Enumerations</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Defined secular actions. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758"></a>LEFT&#160;</td><td class="fielddoc"></td></tr>
@@ -131,10 +146,18 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498afbaedde498cdead4f2780217646e9ba1"></a>UP&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498ac4e0e4e3118472beeb2ae75827450f1f"></a>DOWN&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a1acac8984c2139895dee3e8aa928de57"></a>RESIZE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a5dfd352dd6b7a5d118237fcf1e19fcc1"></a>QUIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a0f544d682c3a664870f025f48c4b04b5"></a>SEARCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a7ca48f787d7b4a48e225f496e6b70a36"></a>SAVEQUIT&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498aa28966bac17b8eef99c5afa5eb594130"></a>CMD&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a8493617dd77e400daa81294925a52201"></a>REDRAW&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a560a2dd6f6744646473b3b19e1fe96d7"></a>REPLACE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498aebf2eea4ed991fc1641ccaca89548dc8"></a>FIRSTCOL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a5c43cb9d3bb05c1574ec23f017809758"></a>LASTCOL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498aa404b3eb770a9adbca3d447ec3399a22"></a>FIRSTBYTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a25c754923fa242236802ea09440dae36"></a>LASTBYTE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498a90cf1f5206b348a822cc1a453a587534"></a>INCREMENT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8bb1ef53467e4f61410d12822d922498ac0ffa6e46086551bc5113d1238faf106"></a>DECREMENT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>

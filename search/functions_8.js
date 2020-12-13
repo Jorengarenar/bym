@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['operator_28_29_186',['operator()',['../classCli.html#a6e3e556ea039edbf988d82a7f485ff35',1,'Cli::operator()()'],['../classMappings.html#a9b1a744cc0a28ed48c793be2e4633631',1,'Mappings::operator()()'],['../classParser.html#a369e068aa1f51fa5ef6b26757465e462',1,'Parser::operator()()']]],
-  ['operator_3d_187',['operator=',['../classEditor.html#a218df8fb48a7687c4a58c8b36ebe5806',1,'Editor']]],
-  ['options_188',['Options',['../classOptions.html#ab72fb640172a6109e34c8a5366563753',1,'Options']]],
-  ['opts_189',['Opts',['../structWindow_1_1Opts.html#a5141c36f32d92ff8f0d0b5dda72ce45d',1,'Window::Opts']]]
+  ['main_197',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['mappings_198',['Mappings',['../classMappings.html#a3eff73543255c812b9a4f8cfadcab938',1,'Mappings']]],
+  ['mvcursor_199',['mvCursor',['../classWindow.html#a37b22f091de31ac769c06b8a69a31824',1,'Window::mvCursor(Direction)'],['../classWindow.html#afd45001c771ef3551065caf22c52d4b4',1,'Window::mvCursor(std::size_t, std::size_t)']]]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['w_235',['w',['../structWindow_1_1Opts.html#ae51e027687c879cecc09913594e76f7a',1,'Window::Opts']]],
-  ['width_236',['width',['../classWindow.html#aa8024b667dc1e5063ae9d27a5ad6eff2',1,'Window']]],
-  ['windows_237',['windows',['../classEditor.html#abc5bb7293a42f66a4931bbe8eea25db6',1,'Editor']]]
+  ['text_248',['text',['../classBuffer.html#a9ae11de27fd366e02c733da87b1d41c7',1,'Buffer::text()'],['../classWindow.html#a783eb7a4ae65a3035e1e52081a363c96',1,'Window::text()']]]
 ];

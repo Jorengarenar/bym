@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['numbers_224',['numbers',['../classWindow.html#a719afd23c360b7e0bc02398d25cd4835',1,'Window']]]
+  ['mappings_237',['mappings',['../classEditor.html#ad89ff2f3b03c2d44c656678c137c3e2e',1,'Editor']]]
 ];
