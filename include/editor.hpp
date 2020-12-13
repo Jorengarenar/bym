@@ -38,16 +38,17 @@ private:
     void replaceByte(); ///< Wrapper over cw->replaceByte()
 
 public:
-    Window* cw; ///< Current window
-    Cli cli; ///< Command line
-    Parser parser; ///< Parses configs and commands
+    Window* cw;       ///< Current window
+    Cli cli;          ///< Command line
+    Parser parser;    ///< Parses configs and commands
     Options options;
     Mappings mappings;
 
     void init(int argc, char* argv[], int optind); // yes, copy of main() arguments
     ~Editor() = default;
 
-    bool input(); ///< Handles input (for main loop)
+    int input(); ///< Gets keystrokes
+    int loop();  ///< Interprets keystrokes into actions
     void setOption(std::string);
 };
 

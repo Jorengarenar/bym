@@ -29,7 +29,5 @@ int main(int argc, char* argv[])
     }
 
     Editor().init(argc, argv, optind);
-    while (Editor().input());
-
-    return 0;
+    return Editor().loop();
 }

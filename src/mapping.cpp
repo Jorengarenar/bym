@@ -1,7 +1,9 @@
 #include "mapping.hpp"
+#include "editor.hpp"
 
 Mappings::Mappings() :
-    basics{
+    defaults{
+        { { KEY_RESIZE }, { Action::RESIZE } },
         { { ':' }, { Action::CMD } },
         { { 'h' }, { Action::LEFT } },
         { { 'j' }, { Action::DOWN } },
@@ -9,18 +11,52 @@ Mappings::Mappings() :
         { { 'l' }, { Action::RIGHT } },
         { { 'r' }, { Action::REPLACE } },
         { { '0' }, { Action::FIRSTCOL } },
-        { { KEY_RESIZE }, { Action::RESIZE } },
-    },
-    compounds{
+        { { '$' }, { Action::LASTCOL } },
+        { { 'G' }, { Action::LASTBYTE } },
         { { 'g', '0' }, { Action::FIRSTCOL } },
+        { { 'g', 'g' }, { Action::FIRSTBYTE } },
+        { { 'Z', 'Z' }, { Action::SAVEQUIT } },
+        { { CTRL('a') }, { Action::INCREMENT } },
+        { { CTRL('x') }, { Action::DECREMENT } },
     }
-{}
+{
+    for (auto m: defaults) {
+        bar.add(m.first);
+    }
+}
 
 Mappings::returnType Mappings::operator ()(int c)
 {
-    auto x = basics.find({ c });
-    if (x != basics.end()) {
-        return x->second;
+    auto endings = bar.getEndings(c);
+    if (endings != nullptr) {
+        std::vector<int> compound{c};
+
+        do {
+            c = Editor().input();
+            compound.push_back(c);
+            endings = bar.getEndings(compound);
+        } while (endings != nullptr);
+
+        auto r = defaults.find(compound);
+        if (r != defaults.end()) {
+            return r->second;
+        }
+        else {
+            compound.pop_back();
+            r = defaults.find(compound);
+            if (r != defaults.end()) {
+                return r->second;
+            }
+            return { Action::NONE };
+        }
+
     }
+    else {
+        auto x = defaults.find({ c });
+        if (x != defaults.end()) {
+            return x->second;
+        }
+    }
+
     return { Action::NONE };
 }

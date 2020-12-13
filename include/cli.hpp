@@ -15,8 +15,8 @@ public:
     Cli();
     ~Cli();
 
-    void redraw(); ///< Redraw `line`
-    bool operator ()(); ///< Get command (`input()`) and pass it to parser
+    void redraw();           ///< Redraw `line`
+    bool operator ()();      ///< Get command (`input()`) and pass it to parser
     void error(std::string); ///< Display error message
     void echo(std::string);  ///< Prints message
 };

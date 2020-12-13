@@ -19,9 +19,9 @@ public:
     unsigned short height; ///< Height of window
     unsigned short width;  ///< Width of window
     std::size_t currentByte;    ///< Byte cursor is currently over
-    std::size_t prevByte;
+    std::size_t prevByte; ///< Byte cursor was previously over
 
-    std::size_t startline;
+    std::size_t startline; ///< "Line" of buffer from which to start printing
 
     void buf(Buffer&);                                      ///< Change buffer in window
     void updateStatusLine();                                ///< Updates status line
@@ -30,9 +30,12 @@ public:
     void save();                                            ///< Save currently loaded buffer
 
     int replaceByte(); ///< Replaces value of byte
+    void addToByte(unsigned char); ///< Adds value to current byte
 
     void mvCursor(Direction); ///< Movement
     void mvCursor(std::size_t, std::size_t); ///< Movement
+
+    void gotoByte(std::size_t); ///< Move directly to byte of given number
 
     struct {
         WINDOW* numbers;
@@ -61,6 +64,11 @@ private:
 
         unsigned short cols() const;  ///< Maximal number of columns of bytes
         char blank() const;
-    } opts;
+    };
     friend struct Opts;
+
+public:
+
+    Opts opts;
+
 };

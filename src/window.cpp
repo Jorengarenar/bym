@@ -3,6 +3,7 @@
 #include <cctype>
 #include <string>
 
+#include "editor.hpp"
 #include "util.hpp"
 
 Window::Window(int height_, int width_, Buffer& buffer_) :
@@ -145,7 +146,7 @@ void Window::mvCursor(Direction d)
     else if (d == Direction::UP && currentByte - c < s) {
         currentByte -= c;
     }
-    else if (d == Direction::RIGHT && currentByte + 1 < s && x < c - 1) {
+    else if (d == Direction::RIGHT && currentByte + 1 < s && x + 1 < c) {
         ++currentByte;
     }
     else if (d == Direction::LEFT && currentByte > 0 && x > 0) {
@@ -153,6 +154,15 @@ void Window::mvCursor(Direction d)
     }
 
     placeCursor();
+}
+
+void Window::gotoByte(std::size_t b)
+{
+    if (b < buffer->size()) {
+        prevByte = currentByte;
+        currentByte = b;
+        placeCursor();
+    }
 }
 
 void Window::mvCursor(std::size_t X, std::size_t Y)
@@ -189,18 +199,20 @@ void Window::placeCursor()
         mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[prevByte]);
     }
 
+    auto curLine = currentByte / C;
+
     // Scrolling
-    if (currentByte/C >= startline + height - 1) { // scrolling down
-        ++startline;
+    if (curLine >= startline + height - 1) { // scrolling down
+        startline = curLine - height + 2;
         print();
     }
-    else if (currentByte/C < startline) { // scrolling up
-        --startline;
+    else if (curLine < startline) { // scrolling up
+        startline = curLine;
         print();
     }
 
     x = currentByte % C;
-    y = currentByte / C - startline;
+    y = curLine - startline;
 
     unsigned char c = 0;
     if (!buffer->empty()) {
@@ -275,6 +287,12 @@ int Window::replaceByte()
     placeCursor();
 
     return 0;
+}
+
+void Window::addToByte(unsigned char x)
+{
+    buffer->bytes[currentByte] += x;
+    placeCursor();
 }
 
 void Window::save()
