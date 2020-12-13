@@ -45,7 +45,7 @@ if(NOT ONLY_DOCS)
       )
 
     set(JCBCPP "JCBC++")
-    add_library(${JCBCPP} SHARED IMPORTED)
+    add_library(${JCBCPP} STATIC IMPORTED)
     set_target_properties(${JCBCPP} PROPERTIES IMPORTED_LOCATION ${DEPS_DIR}/lib/libJCBC++.a)
     include_directories(${DEPS_DIR}/include/)
   endif()
