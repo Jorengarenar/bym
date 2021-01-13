@@ -39,7 +39,10 @@ int Editor::loop()
                     break;
 
                 case Action::CMD:
-                    return cli();
+                    if (!cli()) {
+                        return 0;
+                    }
+                    break;
                 case Action::SEARCH:
                     break;
 

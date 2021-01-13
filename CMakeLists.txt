@@ -62,3 +62,5 @@ if(NOT ONLY_DOCS)
 endif()
 
 add_subdirectory(docs/)
+
+install(TARGETS "${CMAKE_PROJECT_NAME}")

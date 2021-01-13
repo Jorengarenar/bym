@@ -13,8 +13,11 @@ Buffer::Buffer() : options(Editor().options), path(""), text("") {}
 
 Buffer::Buffer(const char* p) : options(Editor().options), path(p)
 {
-    std::ifstream file(p, std::ios::binary);
-    bytes = std::vector<unsigned char>(std::istreambuf_iterator<char>(file), {});
+    std::ifstream file(p, std::ios::binary | std::ios::ate);
+    std::size_t size = file.tellg(); // Determine the file length
+    file.seekg(0, std::ios::beg);
+    bytes.resize(size);
+    file.read(reinterpret_cast<char*>(bytes.data()), size);
     file.close();
 }
 
@@ -25,7 +28,7 @@ size_t Buffer::size()
 
 bool Buffer::empty()
 {
-    return !bytes.size();
+    return bytes.empty();
 }
 
 void Buffer::save(std::string p)
