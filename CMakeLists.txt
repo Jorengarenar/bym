@@ -59,8 +59,7 @@ if(NOT ONLY_DOCS)
   include(CTest)
   add_subdirectory(tests/)
 
+  install(TARGETS "${CMAKE_PROJECT_NAME}")
 endif()
 
 add_subdirectory(docs/)
-
-install(TARGETS "${CMAKE_PROJECT_NAME}")

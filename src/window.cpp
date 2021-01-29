@@ -95,17 +95,17 @@ void Window::print()
 
     applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
-    auto& bytes = buffer->bytes;
+    auto& b = *buffer;
 
-    if (bytes.size()) {
-        for (std::size_t i = y*c; i < bytes.size() && y < maxY; ++i) {
+    if (buffer->size()) {
+        for (std::size_t i = y*c; i < b.size() && y < maxY; ++i) {
             if (x == 0) {
                 wprintw(subWindows.numbers, "%08X:\n", i);
             }
 
-            wprintw(subWindows.hex, "%02X ", bytes[i]);
+            wprintw(subWindows.hex, "%02X ", b[i]);
 
-            str += toPrintable(bytes[i], opts.blank());
+            str += toPrintable(b[i], opts.blank());
 
             ++x;
             if (x == c) {
@@ -193,10 +193,12 @@ void Window::placeCursor()
     auto x_prev = prevByte % C;
     auto y_prev = prevByte / C - startline;
 
+    auto& b = *buffer;
+
     if (prevByte != currentByte) {
         // Clear previous cursor background highlight
-        mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(buffer->bytes[prevByte], opts.blank()));
-        mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", buffer->bytes[prevByte]);
+        mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(b[prevByte], opts.blank()));
+        mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", b[prevByte]);
     }
 
     auto curLine = currentByte / C;
@@ -216,16 +218,16 @@ void Window::placeCursor()
 
     unsigned char c = 0;
     if (!buffer->empty()) {
-        c = buffer->bytes[currentByte];
+        c = b[currentByte];
     }
 
     auto printCursor = [&](WINDOW* w, int X, const char* fmt, unsigned char C) {
-        wattron(w, A_REVERSE);
-        mvwprintw(w, y, X, fmt, C);
-        wattroff(w, A_REVERSE);
+                           wattron(w, A_REVERSE);
+                           mvwprintw(w, y, X, fmt, C);
+                           wattroff(w, A_REVERSE);
 
-        wrefresh(w);
-    };
+                           wrefresh(w);
+                       };
 
     printCursor(subWindows.hex, x*3, buffer->empty() ? "  " : "%02X", c);
     printCursor(subWindows.text, x, "%c", toPrintable(c, opts.blank()));
@@ -280,7 +282,7 @@ int Window::replaceByte()
 
     if (inputByte(buf)) {
         unsigned char b = std::stoi(buf, 0, 16);
-        buffer->bytes[currentByte] = b;
+        (*buffer)[currentByte] = b;
         mvwprintw(subWindows.text, y, x, "%c", toPrintable(b, '.'));
     } // No `else`, bc `placeCursor()` already handles printing correct byte
 
@@ -291,7 +293,7 @@ int Window::replaceByte()
 
 void Window::addToByte(unsigned char x)
 {
-    buffer->bytes[currentByte] += x;
+    (*buffer)[currentByte] += x;
     placeCursor();
 }
 
@@ -302,8 +304,7 @@ void Window::save()
 
 // --/--/-- OPTIONS --/--/--/--
 
-Window::Opts::Opts(Window& w_) : w(w_)
-{}
+Window::Opts::Opts(Window& w_) : w(w_) {}
 
 unsigned short Window::Opts::cols() const
 {

@@ -9,7 +9,7 @@
 #include "util.hpp"
 #include "editor.hpp"
 
-Buffer::Buffer() : options(Editor().options), path(""), text("") {}
+Buffer::Buffer() : options(Editor().options), path("") {}
 
 Buffer::Buffer(const char* p) : options(Editor().options), path(p)
 {
@@ -44,4 +44,14 @@ void Buffer::save(std::string p)
 std::string Buffer::getOption(std::string o)
 {
     return options.get(o);
+}
+
+unsigned char Buffer::operator [](std::size_t n) const
+{
+    return bytes[n];
+}
+
+unsigned char& Buffer::operator [](std::size_t n)
+{
+    return bytes[n];
 }
