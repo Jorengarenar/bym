@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['she_3a_20simple_20hex_20editor_101',['SHE: Simple Hex Editor',['../md__home_runner_work_bym_bym_README.html',1,'']]],
   ['save_102',['save',['../classBuffer.html#a6ee90ce63cbce35cf8e5f679c0a363e9',1,'Buffer::save()'],['../classWindow.html#a5939b226a8a1e29f929af8226838b333',1,'Window::save()'],['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153af5cf47ab06d0d98b0d16d10c82d87953',1,'SAVE():&#160;parser.hpp']]],
   ['saveall_103',['SAVEALL',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a88ea1b8ffad8d3da9c1b76da132e4661',1,'parser.hpp']]],
   ['saveallquit_104',['SAVEALLQUIT',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a89f099f9d9db33d84dc776f68727e410',1,'parser.hpp']]],

@@ -9,6 +9,5 @@ var searchData=
   ['buffer_2ecpp_9',['buffer.cpp',['../buffer_8cpp.html',1,'']]],
   ['buffer_2ehpp_10',['buffer.hpp',['../buffer_8hpp.html',1,'']]],
   ['buffers_11',['buffers',['../classEditor.html#ab5da60c9e6729446f71535ea2f21eaec',1,'Editor']]],
-  ['bytes_12',['bytes',['../classBuffer.html#a1c71f68fc9410e14b46c75f0ce9b87f0',1,'Buffer']]],
-  ['bym_3a_20the_20hex_20editor_13',['Bym: The Hex Editor',['../md__home_runner_work_bym_bym_README.html',1,'']]]
+  ['bytes_12',['bytes',['../classBuffer.html#a1c71f68fc9410e14b46c75f0ce9b87f0',1,'Buffer']]]
 ];
