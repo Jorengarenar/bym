@@ -103,7 +103,7 @@ void Parser::config()
         }
     }
 
-    std::ifstream conf{ xdg_config_home + "/bym/bymrc" };
+    std::ifstream conf{ xdg_config_home + "/sXe/rc" };
 
     if (conf.is_open()) {
         std::string buf;
