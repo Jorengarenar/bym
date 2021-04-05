@@ -1,0 +1,11 @@
+<map id="include/editor.hpp" name="include/editor.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="463,5,601,32"/>
+<area shape="rect" id="node2" href="$buffer_8cpp.html" title=" " alt="" coords="5,80,115,107"/>
+<area shape="rect" id="node3" href="$cli_8cpp.html" title=" " alt="" coords="139,80,226,107"/>
+<area shape="rect" id="node4" href="$editor_8cpp.html" title=" " alt="" coords="251,80,360,107"/>
+<area shape="rect" id="node5" href="$editor__loop_8cpp.html" title=" " alt="" coords="385,80,530,107"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title=" " alt="" coords="554,80,659,107"/>
+<area shape="rect" id="node7" href="$mapping_8cpp.html" title=" " alt="" coords="683,80,813,107"/>
+<area shape="rect" id="node8" href="$parser_8cpp.html" title=" " alt="" coords="837,80,949,107"/>
+<area shape="rect" id="node9" href="$window_8cpp.html" title=" " alt="" coords="974,80,1095,107"/>
+</map>
