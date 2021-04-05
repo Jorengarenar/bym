@@ -6,7 +6,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 include(PreventInSourceBuilds)
 
 project(sXe
-  VERSION 0.0.1
+  VERSION 0.1.0
   DESCRIPTION "simple heX editor"
   HOMEPAGE_URL "https://joren.ga/sXe"
   LANGUAGES CXX)
@@ -60,6 +60,7 @@ if(NOT ONLY_DOCS)
   add_subdirectory(tests/)
 
   install(TARGETS "${CMAKE_PROJECT_NAME}")
+
 endif()
 
 add_subdirectory(docs/)

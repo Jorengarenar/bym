@@ -12,7 +12,7 @@ jobs:
         with:
           submodules: recursive
       - name: Install Doxygen
-        run: sudo apt-get update && sudo apt-get install -yq doxygen
+        run: sudo apt-get update && sudo apt-get install -yq doxygen graphviz
       - name: CMake
         run: cmake -B build -H. -D ONLY_DOCS=YES
       - name: Make docs

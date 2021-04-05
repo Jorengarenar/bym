@@ -4,3 +4,9 @@
 [submodule "extern/libJCBC++"]
 	path = extern/libJCBC++
 	url = https://github.com/Jorengarenar/libJCBCPP.git
+[submodule "docs/doxygen-awesome-css"]
+	path = docs/doxygen-awesome-css
+	url = https://github.com/jothepro/doxygen-awesome-css.git
+[submodule "extern/doxygen-awesome-css"]
+	path = extern/doxygen-awesome-css
+	url = https://github.com/jothepro/doxygen-awesome-css.git
