@@ -1,6 +1,7 @@
 #define BOOST_TEST_MODULE BufferTests
 #include "init_tests.hpp"
 
+#include "editor.hpp"
 #include "buffer.hpp"
 
 BOOST_AUTO_TEST_SUITE(nofile)
@@ -35,4 +36,9 @@ BOOST_AUTO_TEST_CASE(empty)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-// vim: fen
+BOOST_AUTO_TEST_CASE(cols)
+{
+    Buffer f;
+    auto c = f.getOption("cols");
+    BOOST_CHECK_EQUAL(std::stoi(c), 0);
+}
