@@ -70,6 +70,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">init_tests.hpp File Reference</div>  </div>
@@ -77,14 +79,16 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;boost/test/included/unit_test.hpp&gt;</code><br />
 <code>#include &lt;boost/test/tools/output_test_stream.hpp&gt;</code><br />
+<code>#include &lt;ncurses.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for init_tests.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="init__tests_8hpp__incl.png" border="0" usemap="#tests_2init__tests_8hpp" alt=""/></div>
 <map name="tests_2init__tests_8hpp" id="tests_2init__tests_8hpp">
-<area shape="rect" title=" " alt="" coords="96,5,243,32"/>
+<area shape="rect" title=" " alt="" coords="188,5,335,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,152,121"/>
 <area shape="rect" title=" " alt="" coords="177,80,346,121"/>
+<area shape="rect" title=" " alt="" coords="370,87,454,114"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -92,8 +96,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="init__tests_8hpp__dep__incl.png" border="0" usemap="#tests_2init__tests_8hppdep" alt=""/></div>
 <map name="tests_2init__tests_8hppdep" id="tests_2init__tests_8hppdep">
-<area shape="rect" title=" " alt="" coords="9,5,156,32"/>
+<area shape="rect" title=" " alt="" coords="188,5,335,32"/>
 <area shape="rect" href="test__buffer_8cpp.html" title=" " alt="" coords="5,80,160,107"/>
+<area shape="rect" href="test__editor_8cpp.html" title=" " alt="" coords="184,80,339,107"/>
+<area shape="rect" href="test__window_8cpp.html" title=" " alt="" coords="363,80,530,107"/>
 </map>
 </div>
 </div>
@@ -103,6 +109,16 @@ This graph shows which files directly or indirectly include this file:</div>
 Macros</h2></td></tr>
 <tr class="memitem:a602be95a38a494d6a2aaabe9db403a6b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="init__tests_8hpp.html#a602be95a38a494d6a2aaabe9db403a6b">CHECK_OUTPUT</a>(msg)&#160;&#160;&#160;BOOST_CHECK(output.is_equal(msg))</td></tr>
 <tr class="separator:a602be95a38a494d6a2aaabe9db403a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a9bf17d1d419bd14f7448c6f07e6081db"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="init__tests_8hpp.html#a9bf17d1d419bd14f7448c6f07e6081db">boost_timeout</a> = boost::unit_test::timeout</td></tr>
+<tr class="separator:a9bf17d1d419bd14f7448c6f07e6081db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:acc4d9e689a782bde5cf613c651121ba2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="init__tests_8hpp.html#acc4d9e689a782bde5cf613c651121ba2">unget_string_to_ncurses</a> (std::string s)</td></tr>
+<tr class="separator:acc4d9e689a782bde5cf613c651121ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -127,6 +143,44 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="init__tests_8hpp_source.html#l00013">13</a> of file <a class="el" href="init__tests_8hpp_source.html">init_tests.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a9bf17d1d419bd14f7448c6f07e6081db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bf17d1d419bd14f7448c6f07e6081db">&#9670;&nbsp;</a></span>boost_timeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="init__tests_8hpp.html#a9bf17d1d419bd14f7448c6f07e6081db">boost_timeout</a> =  boost::unit_test::timeout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="init__tests_8hpp_source.html#l00016">16</a> of file <a class="el" href="init__tests_8hpp_source.html">init_tests.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="acc4d9e689a782bde5cf613c651121ba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc4d9e689a782bde5cf613c651121ba2">&#9670;&nbsp;</a></span>unget_string_to_ncurses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unget_string_to_ncurses </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="init__tests_8hpp_source.html#l00021">21</a> of file <a class="el" href="init__tests_8hpp_source.html">init_tests.hpp</a>.</p>
 
 </div>
 </div>

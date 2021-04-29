@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['returntype_256',['returnType',['../classMappings.html#a986c13c3cb525419a2491617e0cb76c8',1,'Mappings']]]
+  ['foo_284',['foo',['../classMappings.html#a47c38769dc8492f8094b79fddf86d29f',1,'Mappings']]]
 ];

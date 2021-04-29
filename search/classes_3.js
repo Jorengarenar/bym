@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['initcurses_139',['InitCurses',['../structEditor_1_1InitCurses.html',1,'Editor']]]
+  ['f_152',['F',['../structF.html',1,'']]],
+  ['f1_153',['F1',['../structF1.html',1,'']]],
+  ['f2_154',['F2',['../structF2.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mappings_140',['Mappings',['../classMappings.html',1,'']]]
+  ['initcurses_155',['InitCurses',['../structEditor_1_1InitCurses.html',1,'Editor']]]
 ];
