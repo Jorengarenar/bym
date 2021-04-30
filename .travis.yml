@@ -15,5 +15,5 @@ before_script:
   - cmake -Bbuild -H.
 
 script:
-  - cmake --build build/ --target all
+  - cmake --build build/ --target all -DCMAKE_BUILD_TYPE=Debug
   - cd build/ && ctest

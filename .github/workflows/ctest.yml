@@ -19,7 +19,7 @@ jobs:
       - name: CMake
         run: cmake -Bbuild -H.
       - name: Make
-        run: cmake --build build/ --target all
+        run: cmake --build build/ --target all -DCMAKE_BUILD_TYPE=Debug
       - name: CTest
         run: |
           cp -r tests/res build/tests
