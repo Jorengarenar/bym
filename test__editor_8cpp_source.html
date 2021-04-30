@@ -88,7 +88,7 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structF1.html#aeff669ed75b4ec7640143cb5bab9d107">   14</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structF1.html#aeff669ed75b4ec7640143cb5bab9d107">do_editor</a>(<span class="keywordtype">int</span> c)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="init__tests_8hpp.html#acc4d9e689a782bde5cf613c651121ba2">unget_string_to_ncurses</a>(<span class="stringliteral">&quot;:q\n&quot;</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        unget_wch(c);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        ungetch(c);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().loop();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
