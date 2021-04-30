@@ -16,7 +16,7 @@ boost::test_tools::output_test_stream output;
 using boost_timeout = boost::unit_test::timeout;
 
 
-#include <ncurses.h>
+#include <curses.h>
 
 void unget_string_to_ncurses(std::string s)
 {
