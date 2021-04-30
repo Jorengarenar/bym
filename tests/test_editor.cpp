@@ -14,7 +14,7 @@ struct F1 {
     void do_editor(int c)
     {
         unget_string_to_ncurses(":q\n");
-        unget_wch(c);
+        ungetch(c);
         Editor().loop();
     }
 

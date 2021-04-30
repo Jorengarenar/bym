@@ -21,6 +21,6 @@ using boost_timeout = boost::unit_test::timeout;
 void unget_string_to_ncurses(std::string s)
 {
     for (auto i = s.rbegin(); i != s.rend(); ++i) {
-        unget_wch(*i);
+        ungetch(*i);
     }
 }
