@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['window_316',['Window',['../classBuffer.html#a553f958a25683445088050a69d3de8e9',1,'Buffer']]]
+  ['parser_316',['Parser',['../classOptions.html#ab80291af9c262f63b83fa9c16f12014d',1,'Options']]]
 ];

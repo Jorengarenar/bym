@@ -69,6 +69,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">parser.cpp File Reference</div>  </div>
@@ -76,9 +77,11 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="parser_8hpp_source.html">parser.hpp</a>&quot;</code><br />
 <code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;lua.hpp&gt;</code><br />
+<code>#include &lt;xdgdirs.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="editor_8hpp_source.html">editor.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="util_8hpp_source.html">util.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -86,12 +89,14 @@ Include dependency graph for parser.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="parser_8cpp__incl.png" border="0" usemap="#src_2parser_8cpp" alt=""/></div>
 <map name="src_2parser_8cpp" id="src_2parser_8cpp">
-<area shape="rect" title=" " alt="" coords="758,5,870,32"/>
+<area shape="rect" title=" " alt="" coords="861,5,973,32"/>
 <area shape="rect" href="parser_8hpp.html" title=" " alt="" coords="753,304,843,331"/>
 <area shape="rect" title=" " alt="" coords="781,80,847,107"/>
-<area shape="rect" title=" " alt="" coords="871,80,944,107"/>
-<area shape="rect" title=" " alt="" coords="968,80,1039,107"/>
-<area shape="rect" title=" " alt="" coords="1063,80,1138,107"/>
+<area shape="rect" title=" " alt="" coords="871,80,962,107"/>
+<area shape="rect" title=" " alt="" coords="987,80,1057,107"/>
+<area shape="rect" title=" " alt="" coords="1082,80,1157,107"/>
+<area shape="rect" title=" " alt="" coords="1181,80,1252,107"/>
+<area shape="rect" title=" " alt="" coords="1277,80,1359,107"/>
 <area shape="rect" href="editor_8hpp.html" title=" " alt="" coords="364,80,451,107"/>
 <area shape="rect" href="util_8hpp.html" title=" " alt="" coords="657,304,728,331"/>
 <area shape="rect" title=" " alt="" coords="667,379,753,405"/>
@@ -112,11 +117,45 @@ Include dependency graph for parser.cpp:</div>
 </div>
 <p><a href="parser_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a736e75f0e7f7edaddfce1d39ea3a83be"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a736e75f0e7f7edaddfce1d39ea3a83be">set</a> (lua_State *L)</td></tr>
+<tr class="separator:a736e75f0e7f7edaddfce1d39ea3a83be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a9c7a8885a6db2c74142593e9e15b2397"><td class="memItemLeft" align="right" valign="top">const std::map&lt; std::string, <a class="el" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8cpp.html#a9c7a8885a6db2c74142593e9e15b2397">commands</a></td></tr>
 <tr class="separator:a9c7a8885a6db2c74142593e9e15b2397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a736e75f0e7f7edaddfce1d39ea3a83be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a736e75f0e7f7edaddfce1d39ea3a83be">&#9670;&nbsp;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int set </td>
+          <td>(</td>
+          <td class="paramtype">lua_State *&#160;</td>
+          <td class="paramname"><em>L</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="parser_8cpp_source.html#l00099">99</a> of file <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a9c7a8885a6db2c74142593e9e15b2397"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9c7a8885a6db2c74142593e9e15b2397">&#9670;&nbsp;</a></span>commands</h2>
@@ -144,7 +183,7 @@ Variables</h2></td></tr>
 <div class="line">    { <span class="stringliteral">&quot;wqa&quot;</span>,      <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a89f099f9d9db33d84dc776f68727e410">Command::SAVEALLQUIT</a>  },</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="parser_8cpp_source.html#l00011">11</a> of file <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="parser_8cpp_source.html#l00015">15</a> of file <a class="el" href="parser_8cpp_source.html">parser.cpp</a>.</p>
 
 </div>
 </div>
