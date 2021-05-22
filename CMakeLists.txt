@@ -50,6 +50,12 @@ if(NOT ONLY_DOCS)
     include_directories(${DEPS_DIR}/include/)
   endif()
 
+  find_library(XDGdirs XDGdirs)
+
+  find_package(Lua REQUIRED)
+  include_directories(${LUA_INCLUDE_DIR})
+  add_definitions(-DLUA)
+
   include_directories(include/)
 
   add_subdirectory(src/)

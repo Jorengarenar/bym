@@ -1,9 +1,13 @@
 #include "parser.hpp"
 
 #include <cstdlib>
-#include <fstream>
+#include <filesystem>
 #include <iterator>
 #include <sstream>
+
+#include <lua.hpp>
+
+#include <xdgdirs.h>
 
 #include "editor.hpp"
 #include "util.hpp"
@@ -65,8 +69,7 @@ bool Parser::operator ()(std::string line)
 
             case Command::ECHO:
             case Command::SET:
-            case Command::SETLOCAL:
-                {
+            case Command::SETLOCAL: {
                     std::string temp;
                     buf >> temp;
                     switch (c->second) {
@@ -93,25 +96,40 @@ bool Parser::operator ()(std::string line)
     return true;
 }
 
+static int set(lua_State *L)
+{
+    auto argc = lua_gettop(L);
+    if (argc > 2) {
+        Editor().cli.error("wrong number of arguments");
+        return -1;
+    }
+    Editor().options.set(lua_tostring(L,1), lua_tostring(L,2));
+
+    return 0;
+}
+
 void Parser::config()
 {
-    std::string xdg_config_home = getEnvVar("XDG_CONFIG_HOME");
+    std::string xdg_config_home = xdgConfigHome();
     if (xdg_config_home.empty()) {
-        std::string home = getEnvVar("HOME");
-        if (!home.empty()) {
-            xdg_config_home = home + "/.config";
-        }
+        Editor().cli.error("XDG_CONFIG_HOME is set to invalid (empty) location");
+        return;
     }
 
-    std::ifstream conf{ xdg_config_home + "/sXe/rc" };
+    std::string file{ xdg_config_home + "/sXe/init.lua" };
 
-    if (conf.is_open()) {
-        std::string buf;
-        while (getline(conf, buf)) {
-            (*this)(buf);
-        }
-        conf.close();
+    if (!std::filesystem::exists(file)) {
+        return;
     }
+
+    lua_State* L = luaL_newstate();
+    luaL_openlibs(L);
+
+    lua_register(L, "set", set);
+
+    luaL_dofile(L, file.c_str());
+
+    lua_close(L);
 }
 
 Parser::Parser()

@@ -11,4 +11,6 @@ public:
     void set(std::string);
     void set(std::string, std::string);
     std::string get(std::string);
+
+    friend class Parser;
 };
