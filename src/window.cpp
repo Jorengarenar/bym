@@ -70,6 +70,7 @@ void Window::redraw(short height_, short width_)
         width  = width_;
 
         genSubWindows();
+        print();
 
         placeCursor();
     }
