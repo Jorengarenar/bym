@@ -169,7 +169,7 @@ void Window::gotoByte(std::size_t b)
 void Window::mvCursor(std::size_t X, std::size_t Y)
 {
     auto c = opts.cols();
-    auto maxY = (buffer->size()-1) / c;
+    auto maxY = buffer->size() / c;
     if (Y >= maxY) {
         Y = maxY;
         auto maxX = buffer->size() % c;
