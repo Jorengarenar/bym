@@ -106,6 +106,12 @@ BOOST_AUTO_TEST_CASE(test4)
     BOOST_CHECK(b() == 0);
 }
 
+BOOST_AUTO_TEST_CASE(test5)
+{
+    do_editor("G0$");
+    BOOST_CHECK(b() == 255);
+}
+
 BOOST_AUTO_TEST_SUITE(newline)
 
 BOOST_AUTO_TEST_CASE(test1)

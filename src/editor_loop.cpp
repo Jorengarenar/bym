@@ -25,11 +25,15 @@ int Editor::loop()
                     cw->mvCursor(Direction::RIGHT);
                     break;
 
+                case Action::NEXTBYTE:
+                    cw->gotoByte(cw->currentByte + 1);
+                    break;
+
                 case Action::FIRSTCOL:
                     cw->mvCursor(0, cw->y);
                     break;
                 case Action::LASTCOL:
-                    cw->mvCursor(cw->opts.cols() - 1, 0);
+                    cw->mvCursor(cw->opts.cols() - 1, cw->y);
                     break;
                 case Action::FIRSTBYTE:
                     cw->gotoByte(0);

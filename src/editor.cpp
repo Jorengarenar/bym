@@ -35,8 +35,6 @@ void Editor::init(int argc, char* argv[], int optind)
 
     windows.emplace_back(LINES-1, COLS, buffers[0]);
     cw = &windows.front();
-
-    parser.config();
 }
 
 void Editor::replaceByte()

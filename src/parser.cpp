@@ -5,8 +5,6 @@
 #include <iterator>
 #include <sstream>
 
-#include <lua.hpp>
-
 #include <xdgdirs.h>
 
 #include "editor.hpp"
@@ -27,7 +25,7 @@ const std::map<std::string, Command> commands{
     { "wqa",      Command::SAVEALLQUIT  },
 };
 
-bool Parser::operator ()(std::string line)
+bool Parser::operator ()(std::string line) // TODO: use Lua
 {
     std::stringstream buf{ line };
     std::string a;
@@ -93,19 +91,8 @@ bool Parser::operator ()(std::string line)
         }
 
     }
+
     return true;
-}
-
-static int set(lua_State *L)
-{
-    auto argc = lua_gettop(L);
-    if (argc > 2) {
-        Editor().cli.error("wrong number of arguments");
-        return -1;
-    }
-    Editor().options.set(lua_tostring(L,1), lua_tostring(L,2));
-
-    return 0;
 }
 
 void Parser::config()
@@ -122,19 +109,38 @@ void Parser::config()
         return;
     }
 
-    lua_State* L = luaL_newstate();
-    luaL_openlibs(L);
-
-    lua_register(L, "set", set);
-
     luaL_dofile(L, file.c_str());
-
-    lua_close(L);
 }
 
-Parser::Parser()
+
+namespace sxe {
+
+int set(lua_State* L)
 {
+    auto argc = lua_gettop(L);
+    if (argc > 2) {
+        Editor().cli.error("wrong number of arguments");
+        return -1;
+    }
+    Editor().options.set(lua_tostring(L,1), lua_tostring(L,2));
+
+    return 0;
+}
+
+}
+
+
+Parser::Parser() : L(luaL_newstate())
+{
+    luaL_openlibs(L);
+    lua_register(L, "set", sxe::set);
+
     std::transform(::commands.begin(), ::commands.end(),
                    std::inserter(commandsKeys, commandsKeys.begin()),
                    [](const auto& p) { return p.first; });
+}
+
+Parser::~Parser()
+{
+    lua_close(L);
 }

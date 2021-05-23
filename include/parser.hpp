@@ -5,6 +5,8 @@
 #include <string>
 #include <set>
 
+#include <lua.hpp>
+
 enum class Command {
     ECHO,
     MAP,
@@ -23,9 +25,11 @@ enum class Command {
 ///
 /// Reads configs, executes commands etc.
 class Parser {
+    lua_State* L;
 public:
     std::set<std::string> commandsKeys;
     Parser();
+    ~Parser();
 
     bool operator () (std::string); ///< Parse
     void config(); ///< Read config file

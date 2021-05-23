@@ -24,6 +24,7 @@ enum class Action {
     REPLACE,
     FIRSTCOL,
     LASTCOL,
+    NEXTBYTE,
     FIRSTBYTE,
     LASTBYTE,
     INCREMENT,
