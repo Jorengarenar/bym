@@ -89,10 +89,10 @@ void Window::print()
     auto c = opts.cols();
 
     std::string str = ""; // representation of bytes in line
-    int y = startline; // current line
-    int x = 0; // current column of bytes
+    std::size_t y = startline; // current line
+    std::size_t x = 0; // current column of bytes
 
-    int maxY = height - 1 + startline;
+    auto maxY = height - 1 + startline;
 
     applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
