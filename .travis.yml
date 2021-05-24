@@ -9,7 +9,7 @@ addons:
       - cmake
 
 install:
-  - sudo apt-get install -yq libncurses5-dev libboost-all-dev
+  - sudo apt-get install -yq libncurses5-dev libboost-all-dev lua
 
 before_script:
   - cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Debug
