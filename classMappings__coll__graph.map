@@ -1,3 +1,6 @@
 <map id="Mappings" name="Mappings">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,117,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="12,660,124,752"/>
+<area shape="rect" id="node2" href="$classTrie.html" title=" " alt="" coords="9,403,127,597"/>
+<area shape="rect" id="node3" href="$structTrie_1_1Node.html" title=" " alt="" coords="5,5,131,83"/>
+<area shape="rect" id="node4" href="$classTrie.html" title=" " alt="" coords="110,145,229,340"/>
 </map>

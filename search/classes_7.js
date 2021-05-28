@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['parser_163',['Parser',['../classParser.html',1,'']]]
+  ['options_173',['Options',['../classOptions.html',1,'']]],
+  ['opts_174',['Opts',['../structWindow_1_1Opts.html',1,'Window']]]
 ];

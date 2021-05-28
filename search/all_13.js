@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['w_136',['w',['../structWindow_1_1Opts.html#ae51e027687c879cecc09913594e76f7a',1,'Window::Opts']]],
-  ['w1_137',['w1',['../structF.html#a211852746cb06f2bd6ce173595246036',1,'F']]],
-  ['w2_138',['w2',['../structF.html#a12de5697a261d32a3217bbc1c8e4eb2c',1,'F']]],
-  ['width_139',['width',['../classWindow.html#aa8024b667dc1e5063ae9d27a5ad6eff2',1,'Window']]],
-  ['window_140',['Window',['../classWindow.html',1,'Window'],['../classBuffer.html#a553f958a25683445088050a69d3de8e9',1,'Buffer::Window()'],['../classWindow.html#a89438f2c1eecc49e3da369e57e3537b9',1,'Window::Window()']]],
-  ['window_2ecpp_141',['window.cpp',['../window_8cpp.html',1,'']]],
-  ['window_2ehpp_142',['window.hpp',['../window_8hpp.html',1,'']]],
-  ['windows_143',['windows',['../classEditor.html#abc5bb7293a42f66a4931bbe8eea25db6',1,'Editor']]]
+  ['val_145',['val',['../structTrie_1_1Node.html#ab438f3451794f3100aa738d2a95e7868',1,'Trie::Node']]],
+  ['vec_146',['vec',['../classTrie.html#ad20a6852a5e9558e4ee9dce7af4f6a84',1,'Trie']]]
 ];
