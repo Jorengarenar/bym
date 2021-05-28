@@ -1,6 +1,6 @@
 set(objs "util;buffer;window;cli;editor;editor_loop;parser;options;mapping")
 
-set(LIBS ${CURSES_LIBRARIES} ${JCBCPP} ${XDGdirs} ${LUA_LIBRARIES})
+set(LIBS ${CURSES_LIBRARIES} ${XDGdirs} ${LUA_LIBRARIES})
 
 foreach(obj ${objs})
   add_library(${obj} OBJECT ${obj}.cpp)

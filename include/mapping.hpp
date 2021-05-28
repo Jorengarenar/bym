@@ -3,10 +3,10 @@
 #include <map>
 #include <vector>
 
-#include <jcbcpp/trie.hpp>
 #include <ncurses.h>
 
 #include "util.hpp"
+#include "trie.hpp"
 
 /// Defined secular actions
 enum class Action {
@@ -35,7 +35,7 @@ class Mappings {
     using returnType = std::vector<Action>;
     using foo = std::map<std::vector<int>, returnType>;
     const foo defaults;
-    jcbcpp::Trie<int> bar;
+    Trie<int> bar;
 public:
     Mappings();
     returnType operator ()(int);

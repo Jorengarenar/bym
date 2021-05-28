@@ -34,22 +34,6 @@ if(NOT ONLY_DOCS)
 
   find_package(Curses REQUIRED)
 
-  find_library(JCBCPP JCBC++)
-  if(NOT JCBCPP)
-    ExternalProject_Add(libJCBC++
-      PREFIX ""
-      SOURCE_DIR ${CMAKE_SOURCE_DIR}
-      SOURCE_SUBDIR "extern/libJCBC++"
-      INSTALL_DIR "${DEPS_DIR}"
-      CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>
-      )
-
-    set(JCBCPP "JCBC++")
-    add_library(${JCBCPP} STATIC IMPORTED)
-    set_target_properties(${JCBCPP} PROPERTIES IMPORTED_LOCATION ${DEPS_DIR}/lib/libJCBC++.a)
-    include_directories(${DEPS_DIR}/include/)
-  endif()
-
   find_library(XDGdirs XDGdirs)
 
   find_package(Lua REQUIRED)
