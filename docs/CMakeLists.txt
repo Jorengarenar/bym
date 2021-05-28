@@ -8,6 +8,7 @@ if(DOXYGEN_FOUND)
   set(DOXYGEN_EXCLUDE_PATTERNS
     */build/*
     */extern/*
+    */tests/*
     )
 
   set(DOXYGEN_IMAGE_PATH "../res/")

@@ -120,4 +120,4 @@ public:
 
 #endif // JOREN_TRIE_HPP_
 
-// vim: fdl=3
+// vim: fdl=1
