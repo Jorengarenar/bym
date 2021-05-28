@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['node_172',['Node',['../structTrie_1_1Node.html',1,'Trie']]]
+  ['options_151',['Options',['../classOptions.html',1,'']]],
+  ['opts_152',['Opts',['../structWindow_1_1Opts.html',1,'Window']]]
 ];

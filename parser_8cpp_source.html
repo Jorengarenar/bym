@@ -117,7 +117,7 @@ $(function() {
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">auto</span> c = <a class="code" href="parser_8cpp.html#a9c7a8885a6db2c74142593e9e15b2397">commands</a>.find(a);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> (c == <a class="code" href="parser_8cpp.html#a9c7a8885a6db2c74142593e9e15b2397">commands</a>.end()) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cli.error(a + <span class="stringliteral">&quot; : No such command!&quot;</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cli.error(a + <span class="stringliteral">&quot; : No such command!&quot;</span>);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
@@ -126,15 +126,15 @@ $(function() {
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153af5cf47ab06d0d98b0d16d10c82d87953">Command::SAVE</a>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cw-&gt;save();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cw-&gt;save();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a7ca48f787d7b4a48e225f496e6b70a36">Command::SAVEQUIT</a>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cw-&gt;save();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cw-&gt;save();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a8493617dd77e400daa81294925a52201">Command::REDRAW</a>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cw-&gt;redraw();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cw-&gt;redraw();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a5af1a3a285c2bdee4192223e31e1f833">Command::MAP</a>:</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">break</span>;</div>
@@ -146,13 +146,13 @@ $(function() {
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    buf &gt;&gt; temp;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <span class="keywordflow">switch</span> (c-&gt;second) {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                        <span class="keywordflow">case</span> <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153ad61484f1331c7f66061e43b859556409">Command::ECHO</a>:</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                            <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cli.echo(temp);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                            <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cli.echo(temp);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        <span class="keywordflow">case</span> <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a8c52684db8f49511e9b44471716bf164">Command::SET</a>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().setOption(temp);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().setOption(temp);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <span class="keywordflow">case</span> <a class="code" href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153adedbe56a3a779cfcfe004ed6912fa9ec">Command::SETLOCAL</a>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                            <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cw-&gt;buffer-&gt;options.set(temp);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                            <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cw-&gt;buffer-&gt;options.set(temp);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                            <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                            <span class="keywordflow">break</span>;</div>
@@ -173,7 +173,7 @@ $(function() {
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    std::string xdg_config_home = xdgConfigHome();</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (xdg_config_home.empty()) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cli.error(<span class="stringliteral">&quot;XDG_CONFIG_HOME is set to invalid (empty) location&quot;</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cli.error(<span class="stringliteral">&quot;XDG_CONFIG_HOME is set to invalid (empty) location&quot;</span>);</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
@@ -193,10 +193,10 @@ $(function() {
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">auto</span> argc = lua_gettop(L);</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">if</span> (argc &gt; 2) {</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().cli.error(<span class="stringliteral">&quot;wrong number of arguments&quot;</span>);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().cli.error(<span class="stringliteral">&quot;wrong number of arguments&quot;</span>);</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().options.set(lua_tostring(L,1), lua_tostring(L,2));</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().options.set(lua_tostring(L,1), lua_tostring(L,2));</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
@@ -235,8 +235,8 @@ $(function() {
 <div class="ttc" id="aparser_8hpp_html_a2afce0a47a93eee73a314d53e4890153a8493617dd77e400daa81294925a52201"><div class="ttname"><a href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a8493617dd77e400daa81294925a52201">Command::REDRAW</a></div><div class="ttdeci">@ REDRAW</div></div>
 <div class="ttc" id="aparser_8hpp_html_a2afce0a47a93eee73a314d53e4890153ad61484f1331c7f66061e43b859556409"><div class="ttname"><a href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153ad61484f1331c7f66061e43b859556409">Command::ECHO</a></div><div class="ttdeci">@ ECHO</div></div>
 <div class="ttc" id="anamespacesxe_html_a970e96ea075a0d12291e4c12bd98e66a"><div class="ttname"><a href="namespacesxe.html#a970e96ea075a0d12291e4c12bd98e66a">sxe::set</a></div><div class="ttdeci">int set(lua_State *L)</div><div class="ttdef"><b>Definition:</b> <a href="parser_8cpp_source.html#l00118">parser.cpp:118</a></div></div>
+<div class="ttc" id="aeditor_8hpp_html_ae8bdb78d54e239834bf1d433d2abf10c"><div class="ttname"><a href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a></div><div class="ttdeci">#define Editor()</div><div class="ttdef"><b>Definition:</b> <a href="editor_8hpp_source.html#l00056">editor.hpp:56</a></div></div>
 <div class="ttc" id="aparser_8hpp_html_a2afce0a47a93eee73a314d53e4890153a6f128b61fe4df670a4fcfd6d7486cb5e"><div class="ttname"><a href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a6f128b61fe4df670a4fcfd6d7486cb5e">Command::NEWWIN</a></div><div class="ttdeci">@ NEWWIN</div></div>
-<div class="ttc" id="atest__editor_8cpp_html_a18e1b99db47cbe7f2bf2c4a45829acd9"><div class="ttname"><a href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a></div><div class="ttdeci">Editor().loop()</div></div>
 <div class="ttc" id="aparser_8hpp_html_a2afce0a47a93eee73a314d53e4890153adedbe56a3a779cfcfe004ed6912fa9ec"><div class="ttname"><a href="parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153adedbe56a3a779cfcfe004ed6912fa9ec">Command::SETLOCAL</a></div><div class="ttdeci">@ SETLOCAL</div></div>
 <div class="ttc" id="aclassParser_html_a369e068aa1f51fa5ef6b26757465e462"><div class="ttname"><a href="classParser.html#a369e068aa1f51fa5ef6b26757465e462">Parser::operator()</a></div><div class="ttdeci">bool operator()(std::string)</div><div class="ttdoc">Parse string.</div><div class="ttdef"><b>Definition:</b> <a href="parser_8cpp_source.html#l00028">parser.cpp:28</a></div></div>
 <div class="ttc" id="aclassParser_html_afdddf8eeefbcb33f2864bb1fcf4a5fab"><div class="ttname"><a href="classParser.html#afdddf8eeefbcb33f2864bb1fcf4a5fab">Parser::config</a></div><div class="ttdeci">void config()</div><div class="ttdoc">Read config file.</div><div class="ttdef"><b>Definition:</b> <a href="parser_8cpp_source.html#l00098">parser.cpp:98</a></div></div>

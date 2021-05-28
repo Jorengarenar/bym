@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['b_210',['b',['../structF2.html#a892d21859aaec422d00034d079e09d34',1,'F2']]],
-  ['blank_211',['blank',['../structWindow_1_1Opts.html#a3146863f9b3e1fe3812d4e7f7727982d',1,'Window::Opts']]],
-  ['boost_5fauto_5ftest_5fcase_212',['BOOST_AUTO_TEST_CASE',['../test__buffer_8cpp.html#a8cd2d305ff695cc7c85f12e72f5765b9',1,'BOOST_AUTO_TEST_CASE(size):&#160;test_buffer.cpp'],['../test__buffer_8cpp.html#a2f96265464dc087ceabfd7abbffdfd45',1,'BOOST_AUTO_TEST_CASE(empty):&#160;test_buffer.cpp'],['../test__buffer_8cpp.html#aff4ed70bd834467fd518fe283dc0eb04',1,'BOOST_AUTO_TEST_CASE(cols):&#160;test_buffer.cpp'],['../test__editor_8cpp.html#a33e4ec96d5a5d9adea1b246e4b0b72f4',1,'BOOST_AUTO_TEST_CASE(test1):&#160;test_editor.cpp'],['../test__editor_8cpp.html#ae61bf576259a6d9f53efc28c352311b4',1,'BOOST_AUTO_TEST_CASE(test2):&#160;test_editor.cpp'],['../test__editor_8cpp.html#a3ddee01a42bc17911bb76f627c14773a',1,'BOOST_AUTO_TEST_CASE(test3):&#160;test_editor.cpp'],['../test__editor_8cpp.html#a87fe1fc0a898672ee1f8fc727ca9ec82',1,'BOOST_AUTO_TEST_CASE(test4):&#160;test_editor.cpp'],['../test__editor_8cpp.html#a9a1e1192a8ecbc007a4b7b2be4764b5a',1,'BOOST_AUTO_TEST_CASE(test5):&#160;test_editor.cpp'],['../test__window_8cpp.html#a33e4ec96d5a5d9adea1b246e4b0b72f4',1,'BOOST_AUTO_TEST_CASE(test1):&#160;test_window.cpp'],['../test__window_8cpp.html#ae61bf576259a6d9f53efc28c352311b4',1,'BOOST_AUTO_TEST_CASE(test2):&#160;test_window.cpp'],['../test__window_8cpp.html#a3ddee01a42bc17911bb76f627c14773a',1,'BOOST_AUTO_TEST_CASE(test3):&#160;test_window.cpp']]],
-  ['buf_213',['buf',['../classWindow.html#ac098fc6f9173b86405c4b2ee28947edc',1,'Window']]],
-  ['buffer_214',['Buffer',['../classBuffer.html#ae7ef2cd201190fde551dcb902627112b',1,'Buffer::Buffer()'],['../classBuffer.html#a50acf5cb74634bab5aeb461f0b8988f8',1,'Buffer::Buffer(const char *path)']]]
+  ['blank_184',['blank',['../structWindow_1_1Opts.html#a3146863f9b3e1fe3812d4e7f7727982d',1,'Window::Opts']]],
+  ['buf_185',['buf',['../classWindow.html#ac098fc6f9173b86405c4b2ee28947edc',1,'Window']]],
+  ['buffer_186',['Buffer',['../classBuffer.html#ae7ef2cd201190fde551dcb902627112b',1,'Buffer::Buffer()'],['../classBuffer.html#a50acf5cb74634bab5aeb461f0b8988f8',1,'Buffer::Buffer(const char *path)']]]
 ];

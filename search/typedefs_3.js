@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['returntype_313',['returnType',['../classMappings.html#a986c13c3cb525419a2491617e0cb76c8',1,'Mappings']]]
+  ['vec_275',['vec',['../classTrie.html#ad20a6852a5e9558e4ee9dce7af4f6a84',1,'Trie']]]
 ];

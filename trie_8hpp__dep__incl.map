@@ -1,8 +1,8 @@
 <map id="include/trie.hpp" name="include/trie.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="731,5,853,32"/>
-<area shape="rect" id="node2" href="$mapping_8hpp.html" title=" " alt="" coords="713,80,871,107"/>
-<area shape="rect" id="node3" href="$editor_8hpp.html" title=" " alt="" coords="669,155,808,181"/>
-<area shape="rect" id="node9" href="$mapping_8cpp.html" title=" " alt="" coords="1323,229,1453,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="599,5,721,32"/>
+<area shape="rect" id="node2" href="$mapping_8hpp.html" title=" " alt="" coords="581,80,739,107"/>
+<area shape="rect" id="node3" href="$editor_8hpp.html" title=" " alt="" coords="537,155,676,181"/>
+<area shape="rect" id="node9" href="$mapping_8cpp.html" title=" " alt="" coords="965,229,1094,256"/>
 <area shape="rect" id="node4" href="$buffer_8cpp.html" title=" " alt="" coords="5,229,115,256"/>
 <area shape="rect" id="node5" href="$cli_8cpp.html" title=" " alt="" coords="139,229,226,256"/>
 <area shape="rect" id="node6" href="$editor_8cpp.html" title=" " alt="" coords="251,229,360,256"/>
@@ -10,6 +10,4 @@
 <area shape="rect" id="node8" href="$main_8cpp.html" title=" " alt="" coords="554,229,659,256"/>
 <area shape="rect" id="node10" href="$parser_8cpp.html" title=" " alt="" coords="683,229,795,256"/>
 <area shape="rect" id="node11" href="$window_8cpp.html" title=" " alt="" coords="819,229,941,256"/>
-<area shape="rect" id="node12" href="$test__buffer_8cpp.html" title=" " alt="" coords="965,229,1120,256"/>
-<area shape="rect" id="node13" href="$test__editor_8cpp.html" title=" " alt="" coords="1144,229,1299,256"/>
 </map>

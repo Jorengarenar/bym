@@ -106,7 +106,7 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> std::string&amp; prefix = <a class="code" href="util_8hpp.html#a813956c4fda9d45cea2fcca55b88dae1">getLastWord</a>(buf);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">auto</span>&amp; keys = <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().parser.commandsKeys; <span class="comment">/* TODO: change it, so it will</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">auto</span>&amp; keys = <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().parser.commandsKeys; <span class="comment">/* TODO: change it, so it will</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">                                                complete also command arguments */</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">auto</span> it = keys.lower_bound(prefix);</div>
@@ -221,7 +221,7 @@ $(function() {
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a>().parser(buf);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a>().parser(buf);</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;}</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
 <div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classCli.html#a5c6dbd2c25a2988d6f17111352a5fe71">  153</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classCli.html#a5c6dbd2c25a2988d6f17111352a5fe71">Cli::error</a>(std::string msg)</div>
@@ -254,7 +254,7 @@ $(function() {
 <div class="ttc" id="astructEnableCursor_html"><div class="ttname"><a href="structEnableCursor.html">EnableCursor</a></div><div class="ttdoc">Enables terminal cursor.</div><div class="ttdef"><b>Definition:</b> <a href="util_8hpp_source.html#l00012">util.hpp:12</a></div></div>
 <div class="ttc" id="aclassCli_html_aba9ff4490f499438d17aa86472c04f20"><div class="ttname"><a href="classCli.html#aba9ff4490f499438d17aa86472c04f20">Cli::complete</a></div><div class="ttdeci">bool complete(std::string &amp;, int &amp;, int &amp;)</div><div class="ttdoc">Complete commands.</div><div class="ttdef"><b>Definition:</b> <a href="cli_8cpp_source.html#l00029">cli.cpp:29</a></div></div>
 <div class="ttc" id="aclassCli_html_a0dc17fb95739fcf395a9c66332618719"><div class="ttname"><a href="classCli.html#a0dc17fb95739fcf395a9c66332618719">Cli::~Cli</a></div><div class="ttdeci">~Cli()</div><div class="ttdef"><b>Definition:</b> <a href="cli_8cpp_source.html#l00017">cli.cpp:17</a></div></div>
-<div class="ttc" id="atest__editor_8cpp_html_a18e1b99db47cbe7f2bf2c4a45829acd9"><div class="ttname"><a href="test__editor_8cpp.html#a18e1b99db47cbe7f2bf2c4a45829acd9">Editor</a></div><div class="ttdeci">Editor().loop()</div></div>
+<div class="ttc" id="aeditor_8hpp_html_ae8bdb78d54e239834bf1d433d2abf10c"><div class="ttname"><a href="editor_8hpp.html#ae8bdb78d54e239834bf1d433d2abf10c">Editor</a></div><div class="ttdeci">#define Editor()</div><div class="ttdef"><b>Definition:</b> <a href="editor_8hpp_source.html#l00056">editor.hpp:56</a></div></div>
 <div class="ttc" id="aclassCli_html_a6e3e556ea039edbf988d82a7f485ff35"><div class="ttname"><a href="classCli.html#a6e3e556ea039edbf988d82a7f485ff35">Cli::operator()</a></div><div class="ttdeci">bool operator()()</div><div class="ttdoc">Get command (input()) and pass it to parser.</div><div class="ttdef"><b>Definition:</b> <a href="cli_8cpp_source.html#l00136">cli.cpp:136</a></div></div>
 <div class="ttc" id="autil_8hpp_html"><div class="ttname"><a href="util_8hpp.html">util.hpp</a></div></div>
 <!-- start footer part -->

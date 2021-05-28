@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mappings_171',['Mappings',['../classMappings.html',1,'']]]
+  ['node_150',['Node',['../structTrie_1_1Node.html',1,'Trie']]]
 ];
