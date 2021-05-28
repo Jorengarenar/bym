@@ -126,12 +126,6 @@ BOOST_AUTO_TEST_CASE(test2)
     BOOST_CHECK(b() == 16);
 }
 
-BOOST_AUTO_TEST_CASE(test3)
-{
-    do_editor("G\n");
-    BOOST_CHECK(b() == 255);
-}
-
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE_END()
