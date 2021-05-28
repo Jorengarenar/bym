@@ -25,7 +25,7 @@ public:
     Options options;
     std::string getOption(std::string);
 
-    unsigned char operator [](std::size_t n) const;
+    unsigned char  operator [](std::size_t n) const;
     unsigned char& operator [](std::size_t n);
 
 private:

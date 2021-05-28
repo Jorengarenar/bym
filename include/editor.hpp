@@ -18,6 +18,7 @@ public:
     Editor(const Editor&)         = delete;
     void operator=(const Editor&) = delete;
 
+    // singleton, bc I ain't gonna throw handles all around
     static Editor& getInstance()
     {
         static Editor instance;

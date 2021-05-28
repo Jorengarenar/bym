@@ -31,6 +31,6 @@ public:
     Parser();
     ~Parser();
 
-    bool operator () (std::string); ///< Parse
+    bool operator () (std::string); ///< Parse string
     void config(); ///< Read config file
 };

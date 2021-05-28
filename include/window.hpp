@@ -16,10 +16,10 @@ public:
     Window(int, int, Buffer&);
     ~Window();
 
-    unsigned short height; ///< Height of window
-    unsigned short width;  ///< Width of window
-    std::size_t currentByte;    ///< Byte cursor is currently over
-    std::size_t prevByte; ///< Byte cursor was previously over
+    unsigned short height;   ///< Height of window
+    unsigned short width;    ///< Width of window
+    std::size_t currentByte; ///< Byte cursor is currently over
+    std::size_t prevByte;    ///< Byte cursor was previously over
 
     std::size_t startline; ///< "Line" of buffer from which to start printing
 
@@ -54,7 +54,7 @@ private:
 
     bool inputByte(char*); ///< Get byte value
 
-    void print(); ///< print buffer content in subWindows
+    void print(); ///< print content of current buffer in subWindows
 
     void placeCursor(); ///< Place cursor on current x,y coordinates
 
@@ -63,7 +63,7 @@ private:
         Window& w;
 
         unsigned short cols() const;  ///< Maximal number of columns of bytes
-        char blank() const;
+        char blank() const;           ///< Character used for unprintable chars
     };
     friend struct Opts;
 
