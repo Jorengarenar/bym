@@ -10,6 +10,10 @@ addons:
 
 install:
   - sudo apt-get install -yq libncurses5-dev libboost-all-dev liblua5.3-dev
+  - curl -LO https://github.com/Jorengarenar/libXDGdirs/archive/refs/tags/v1.0.4.tar.gz
+  - tar -xzf v1.0.4.tar.gz && cd libXDGdirs-1.0.4
+  - cmake -B build/ -DCMAKE_BUILD_TYPE=Debug && cmake --build build/ && sudo cmake --install build/
+  - cd .. && rm -rf libXDGdirs-1.0.4 v1.0.4.tar.gz
 
 before_script:
   - cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Debug
