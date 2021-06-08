@@ -58,7 +58,7 @@ public:
 
     using nodePtr = const Node*;
 
-    void add(const vec s, Node* temp = nullptr)
+    void add(const vec& s, Node* temp = nullptr)
     {
         if (!temp) {
             temp = &data;
@@ -79,7 +79,7 @@ public:
     }
 
     template<typename std::enable_if<std::is_same<T, char>::value>* = nullptr>
-    void add(const std::string s, Node* temp = nullptr)
+    void add(const std::string& s, Node* temp = nullptr)
     {
         if (!temp) {
             temp = &data;
@@ -89,7 +89,7 @@ public:
         }
     }
 
-    const Node* getEndings(const vec prefix, const Node* temp = nullptr) const
+    const Node* getEndings(const vec& prefix, const Node* temp = nullptr) const
     {
         if (!temp) {
             temp = &data;
