@@ -104,7 +104,7 @@ void Window::print()
                 wprintw(subWindows.numbers, "%08X:\n", i);
             }
 
-            wprintw(subWindows.hex, "%02X ", b[i]);
+            wprintw(subWindows.hex, opts.hexFmt(" ").c_str(), b[i]);
 
             str += toPrintable(b[i], opts.blank());
 
@@ -199,7 +199,7 @@ void Window::placeCursor()
     if (prevByte != currentByte) {
         // Clear previous cursor background highlight
         mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(b[prevByte], opts.blank()));
-        mvwprintw(subWindows.hex, y_prev, x_prev*3, "%02X", b[prevByte]);
+        mvwprintw(subWindows.hex, y_prev, x_prev*3, opts.hexFmt().c_str(), b[prevByte]);
     }
 
     auto curLine = currentByte / C;
@@ -230,7 +230,7 @@ void Window::placeCursor()
                            wrefresh(w);
                        };
 
-    printCursor(subWindows.hex, x*3, buffer->empty() ? "  " : "%02X", c);
+    printCursor(subWindows.hex, x*3, buffer->empty() ? "  " : opts.hexFmt().c_str(), c);
     printCursor(subWindows.text, x, "%c", toPrintable(c, opts.blank()));
 
     updateStatusLine();
@@ -320,4 +320,10 @@ unsigned short Window::Opts::cols() const
 char Window::Opts::blank() const
 {
     return w.buffer->getOption("blank").at(0);
+}
+
+std::string Window::Opts::hexFmt(std::string suffix) const
+{
+    std::string fmt = w.buffer->options.get("upper") == "1" ? "%02X" : "%02x";
+    return fmt + suffix;
 }

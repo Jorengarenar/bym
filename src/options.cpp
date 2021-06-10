@@ -4,6 +4,7 @@ Options::Options() :
     opts{
          { "cols",  "0" },
          { "blank", "." },
+         { "upper", "1" },
         }
 {}
 

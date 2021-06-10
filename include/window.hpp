@@ -55,6 +55,7 @@ private:
     bool inputByte(char*); ///< Get byte value
 
     void print(); ///< print content of current buffer in subWindows
+    void printHexNum(const unsigned char) const;
 
     void placeCursor(); ///< Place cursor on current x,y coordinates
 
@@ -64,6 +65,7 @@ private:
 
         unsigned short cols() const;  ///< Maximal number of columns of bytes
         char blank() const;           ///< Character used for unprintable chars
+        std::string hexFmt(std::string = "") const;
     };
     friend struct Opts;
 
