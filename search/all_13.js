@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['val_128',['val',['../structTrie_1_1Node.html#ab438f3451794f3100aa738d2a95e7868',1,'Trie::Node']]],
-  ['vec_129',['vec',['../classTrie.html#ad20a6852a5e9558e4ee9dce7af4f6a84',1,'Trie']]]
+  ['val_130',['val',['../structTrie_1_1Node.html#ab438f3451794f3100aa738d2a95e7868',1,'Trie::Node']]],
+  ['vec_131',['vec',['../classTrie.html#ad20a6852a5e9558e4ee9dce7af4f6a84',1,'Trie']]]
 ];
