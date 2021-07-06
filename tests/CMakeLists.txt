@@ -1,6 +1,7 @@
 include(BoostTestHelper)
 if(BOOST_FOUND)
   add_definitions(-DBOOST_TEST_DYN_LINK)
+  include_directories(${CMAKE_SOURCE_DIR}/src/)
 
   set(objs "util;buffer;window;cli;editor;editor_loop;parser;options;mapping")
 

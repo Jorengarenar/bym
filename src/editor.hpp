@@ -26,7 +26,6 @@ public:
     }
 
 private:
-
     /// Initializes curses
     struct InitCurses {
         InitCurses();

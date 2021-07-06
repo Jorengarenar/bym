@@ -40,8 +40,6 @@ if(NOT ONLY_DOCS)
   include_directories(${LUA_INCLUDE_DIR})
   add_definitions(-DLUA)
 
-  include_directories(include/)
-
   add_subdirectory(src/)
 
   include(AddExecutable)

@@ -221,13 +221,11 @@ void Window::placeCursor()
 bool Window::inputByte(char* buf)
 {
     mvwprintw(subWindows.hex, y, x*3, "  ");
-
     EnableCursor cur;
 
-    int b;
     for (int i = 0; i < 2; ) { // TODO: value 2 is temporary, it will be mutable
         wmove(subWindows.hex, y, x*3 + i);
-        b = wgetch(subWindows.hex);
+        int b = wgetch(subWindows.hex);
 
         switch (b) {
             case ::ESC:

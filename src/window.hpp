@@ -71,7 +71,5 @@ private:
     friend struct Opts;
 
 public:
-
     Opts opts;
-
 };
