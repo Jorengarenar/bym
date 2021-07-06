@@ -45,8 +45,8 @@ public:
     } subWindows;
 
     Buffer* buffer;
-    int y; ///< Current line on screen
-    int x; ///< Current column (current byte in column) on screen
+    std::size_t y; ///< Current line on screen
+    std::size_t x; ///< Current column (current byte in column) on screen
 
 private:
     void genSubWindows(); ///< Generate subwindows
@@ -54,6 +54,7 @@ private:
 
     bool inputByte(char*); ///< Get byte value
 
+    void printByte(const unsigned char b, std::size_t x, std::size_t y, int attr = A_NORMAL);
     void print(); ///< print content of current buffer in subWindows
     void printHexNum(const unsigned char) const;
 
@@ -65,7 +66,7 @@ private:
 
         unsigned short cols() const;  ///< Maximal number of columns of bytes
         char blank() const;           ///< Character used for unprintable chars
-        std::string hexFmt(std::string = "") const;
+        const char* hexFmt() const;
     };
     friend struct Opts;
 

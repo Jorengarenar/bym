@@ -84,53 +84,57 @@ void Window::applyToSubWindows(std::function<void (WINDOW*)> f)
     if (subWindows.statusline) { f(subWindows.statusline); }
 }
 
+void Window::printByte(const unsigned char b, std::size_t x, std::size_t y, int attr)
+{
+    auto p = [&](WINDOW* w, int X, const char* fmt, unsigned char C) {
+             wattron(w, attr);
+             mvwprintw(w, y, X, fmt, C);
+             wattroff(w, attr);
+             wrefresh(w);
+         };
+
+    mvwprintw(subWindows.hex, y, x*3+2, " ");
+    p(subWindows.hex, x*3, opts.hexFmt(), b);
+    p(subWindows.text, x, "%c", isprint(b) ? b : opts.blank());
+}
+
 void Window::print()
 {
-    auto c = opts.cols();
+    const auto cols = opts.cols();
 
-    std::string str = ""; // representation of bytes in line
-    std::size_t y = startline; // current line
-    std::size_t x = 0; // current column of bytes
+    unsigned short c = 0; // current column of bytes
+    unsigned short l = 0; // current line
 
-    auto maxY = height - 1 + startline;
+    auto maxL = height - 1 + startline;
 
     applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
     auto& b = *buffer;
 
-    if (buffer->size()) {
-        for (std::size_t i = y*c; i < b.size() && y < maxY; ++i) {
-            if (x == 0) {
-                wprintw(subWindows.numbers, "%08X:\n", i);
-            }
-
-            wprintw(subWindows.hex, opts.hexFmt(" ").c_str(), b[i]);
-
-            str += toPrintable(b[i], opts.blank());
-
-            ++x;
-            if (x == c) {
-                x = 0;
-                wprintw(subWindows.text, "%s\n", str.c_str());
-                str = "";
-                ++y;
-            }
+    for (std::size_t i = startline*cols; i < b.size() && l < maxL; ++i) {
+        if (c == 0) {
+            wprintw(subWindows.numbers, "%08X:\n", i);
         }
-    }
-    else {
-        wprintw(subWindows.numbers, "%08X: ", 0);
-    }
 
-    // Print any remaining bytes if main loop ended because of end of buffer
-    if (y < maxY) {
-        while (x < c) {
-            wprintw(subWindows.hex, "   ");
-            ++x;
+        printByte(buffer->bytes[i], c, l);
+
+        ++c;
+        if (c == cols) {
+            c = 0;
+            ++l;
         }
-        wprintw(subWindows.text, "%s\n", str.c_str());
     }
 
     applyToSubWindows(wrefresh);
+}
+
+void Window::gotoByte(std::size_t b)
+{
+    if (b < buffer->size()) {
+        prevByte = currentByte;
+        currentByte = b;
+        placeCursor();
+    }
 }
 
 void Window::mvCursor(Direction d)
@@ -157,15 +161,6 @@ void Window::mvCursor(Direction d)
     placeCursor();
 }
 
-void Window::gotoByte(std::size_t b)
-{
-    if (b < buffer->size()) {
-        prevByte = currentByte;
-        currentByte = b;
-        placeCursor();
-    }
-}
-
 void Window::mvCursor(std::size_t X, std::size_t Y)
 {
     auto c = opts.cols();
@@ -189,17 +184,13 @@ void Window::mvCursor(std::size_t X, std::size_t Y)
 
 void Window::placeCursor()
 {
+    auto& b = *buffer;
     auto C = opts.cols();
 
-    auto x_prev = prevByte % C;
-    auto y_prev = prevByte / C - startline;
-
-    auto& b = *buffer;
-
-    if (prevByte != currentByte) {
-        // Clear previous cursor background highlight
-        mvwprintw(subWindows.text, y_prev, x_prev, "%c", toPrintable(b[prevByte], opts.blank()));
-        mvwprintw(subWindows.hex, y_prev, x_prev*3, opts.hexFmt().c_str(), b[prevByte]);
+    if (prevByte != currentByte) { // Clear previous cursor background highlight
+        auto x_prev = prevByte % C;
+        auto y_prev = prevByte / C - startline;
+        printByte(b[prevByte], x_prev, y_prev);
     }
 
     auto curLine = currentByte / C;
@@ -222,16 +213,7 @@ void Window::placeCursor()
         c = b[currentByte];
     }
 
-    auto printCursor = [&](WINDOW* w, int X, const char* fmt, unsigned char C) {
-                           wattron(w, A_REVERSE);
-                           mvwprintw(w, y, X, fmt, C);
-                           wattroff(w, A_REVERSE);
-
-                           wrefresh(w);
-                       };
-
-    printCursor(subWindows.hex, x*3, buffer->empty() ? "  " : opts.hexFmt().c_str(), c);
-    printCursor(subWindows.text, x, "%c", toPrintable(c, opts.blank()));
+    printByte(c, x, y, A_REVERSE);
 
     updateStatusLine();
 }
@@ -284,8 +266,7 @@ int Window::replaceByte()
     if (inputByte(buf)) {
         unsigned char b = std::stoi(buf, 0, 16);
         (*buffer)[currentByte] = b;
-        mvwprintw(subWindows.text, y, x, "%c", toPrintable(b, '.'));
-    } // No `else`, bc `placeCursor()` already handles printing correct byte
+    } // No `else`, bc `placeCursor()` already handles reprinting correct byte
 
     placeCursor();
 
@@ -322,8 +303,7 @@ char Window::Opts::blank() const
     return w.buffer->getOption("blank").at(0);
 }
 
-std::string Window::Opts::hexFmt(std::string suffix) const
+const char* Window::Opts::hexFmt() const
 {
-    std::string fmt = w.buffer->options.get("upper") == "1" ? "%02X" : "%02x";
-    return fmt + suffix;
+    return w.buffer->options.get("upper") == "1" ? "%02X" : "%02x";
 }

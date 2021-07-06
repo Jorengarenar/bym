@@ -15,16 +15,6 @@ EnableCursor::~EnableCursor()
     curs_set(FALSE);
 }
 
-char toPrintable(int x, char blank)
-{
-    if (isprint(x)) {
-        return x;
-    }
-    else {
-        return blank;
-    }
-}
-
 std::string getLastWord(const std::string& s)
 {
     return s.substr(s.find_last_of(' ') + 1);

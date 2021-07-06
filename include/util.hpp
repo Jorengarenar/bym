@@ -14,9 +14,6 @@ struct EnableCursor {
     ~EnableCursor();
 };
 
-/// Checks if integer value is printable character
-char toPrintable(int, char);
-
 std::string getLastWord(const std::string&);
 
 /// Checks if string is prefix to another string
