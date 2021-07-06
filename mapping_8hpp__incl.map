@@ -1,5 +1,5 @@
-<map id="include/mapping.hpp" name="include/mapping.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="127,5,286,32"/>
+<map id="src/mapping.hpp" name="src/mapping.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="141,5,272,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,155,56,181"/>
 <area shape="rect" id="node3" title=" " alt="" coords="214,155,277,181"/>
 <area shape="rect" id="node4" title=" " alt="" coords="165,80,249,107"/>

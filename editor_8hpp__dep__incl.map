@@ -1,5 +1,5 @@
-<map id="include/editor.hpp" name="include/editor.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="463,5,601,32"/>
+<map id="src/editor.hpp" name="src/editor.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="477,5,587,32"/>
 <area shape="rect" id="node2" href="$buffer_8cpp.html" title=" " alt="" coords="5,80,115,107"/>
 <area shape="rect" id="node3" href="$cli_8cpp.html" title=" " alt="" coords="139,80,226,107"/>
 <area shape="rect" id="node4" href="$editor_8cpp.html" title=" " alt="" coords="251,80,360,107"/>

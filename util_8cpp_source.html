@@ -89,12 +89,12 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    curs_set(FALSE);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="util_8cpp.html#a6814ceab40a12afe64e376dbde6b69e6">   18</a></span>&#160;std::string <a class="code" href="util_8cpp.html#a6814ceab40a12afe64e376dbde6b69e6">getLastWord</a>(<span class="keyword">const</span> std::string&amp; s)</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="util_8hpp.html#a813956c4fda9d45cea2fcca55b88dae1">   18</a></span>&#160;std::string <a class="code" href="util_8cpp.html#a6814ceab40a12afe64e376dbde6b69e6">getLastWord</a>(<span class="keyword">const</span> std::string&amp; s)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> s.substr(s.find_last_of(<span class="charliteral">&#39; &#39;</span>) + 1);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="util_8cpp.html#a6c091935a96b6ba45e4b58ec8de5929d">   23</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="util_8cpp.html#a6c091935a96b6ba45e4b58ec8de5929d">isPrefix</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keyword">const</span> std::string&amp; data)</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="util_8hpp.html#a6c091935a96b6ba45e4b58ec8de5929d">   23</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="util_8cpp.html#a6c091935a96b6ba45e4b58ec8de5929d">isPrefix</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keyword">const</span> std::string&amp; data)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span> (prefix.length() &gt; data.length()) {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -107,7 +107,7 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> mismatch == prefix.end();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="util_8cpp.html#a2640c43e7519bdc6e84b5ae77f44ab5b">   36</a></span>&#160;std::string <a class="code" href="util_8cpp.html#a2640c43e7519bdc6e84b5ae77f44ab5b">getEnvVar</a>(<span class="keyword">const</span> std::string&amp; var)</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="util_8hpp.html#a2640c43e7519bdc6e84b5ae77f44ab5b">   36</a></span>&#160;std::string <a class="code" href="util_8cpp.html#a2640c43e7519bdc6e84b5ae77f44ab5b">getEnvVar</a>(<span class="keyword">const</span> std::string&amp; var)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">char</span>* val = getenv(var.c_str());</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> val == NULL ? <span class="stringliteral">&quot;&quot;</span> : val;</div>
