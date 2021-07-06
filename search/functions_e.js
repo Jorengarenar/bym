@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['toprintable_232',['toPrintable',['../util_8hpp.html#a745de5c98d583834469ed1831ffd577f',1,'toPrintable(int, char):&#160;util.cpp'],['../util_8cpp.html#ade70b2cef6723580bcef728518852b50',1,'toPrintable(int x, char blank):&#160;util.cpp']]]
+  ['updatestatusline_233',['updateStatusLine',['../classWindow.html#ad728a0062641ae544157cf78c9f2c5a0',1,'Window']]],
+  ['usage_234',['usage',['../main_8cpp.html#a2ef30c42cbc289d899a8be5d2d8f77d0',1,'main.cpp']]]
 ];

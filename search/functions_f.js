@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['updatestatusline_233',['updateStatusLine',['../classWindow.html#ad728a0062641ae544157cf78c9f2c5a0',1,'Window']]],
-  ['usage_234',['usage',['../main_8cpp.html#a2ef30c42cbc289d899a8be5d2d8f77d0',1,'main.cpp']]]
+  ['window_235',['Window',['../classWindow.html#a89438f2c1eecc49e3da369e57e3537b9',1,'Window']]]
 ];
