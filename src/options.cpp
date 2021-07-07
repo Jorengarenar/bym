@@ -14,7 +14,7 @@ void Options::set(std::string opt)
     set(o, opt.substr(opt.find("=") + 1, opt.length()));
 }
 
-void Options::set(std::string o, std::string val)
+void Options::set(const std::string& o, const std::string& val)
 {
     auto opt = opts.find(o);
     if (opt != opts.end()) {

@@ -9,7 +9,7 @@ class Options {
 public:
     Options();
     void set(std::string); //< for CLI commands in form of `set opt=...`
-    void set(std::string, std::string);
+    void set(const std::string&, const std::string&);
     std::string get(std::string);
 
     friend class Parser;

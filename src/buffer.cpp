@@ -1,5 +1,6 @@
 #include "buffer.hpp"
 
+#include <algorithm>
 #include <fstream>
 #include <iterator>
 
@@ -9,7 +10,8 @@
 #include "util.hpp"
 #include "editor.hpp"
 
-Buffer::Buffer() : options(Editor().options), path("") {}
+Buffer::Buffer() : options(Editor().options), path("")
+{}
 
 Buffer::Buffer(const char* p) : options(Editor().options), path(p)
 {
@@ -46,12 +48,25 @@ std::string Buffer::getOption(std::string o)
     return options.get(o);
 }
 
-unsigned char Buffer::operator [](std::size_t n) const
+Buffer::byteType Buffer::operator [](std::size_t n) const
 {
     return bytes[n];
 }
 
-unsigned char& Buffer::operator [](std::size_t n)
+Buffer::byteType& Buffer::operator [](std::size_t n)
 {
     return bytes[n];
+}
+
+std::size_t Buffer::findByte(std::size_t startOffset, std::size_t endOffset,
+                             std::size_t fallback,
+                             std::function<bool(byteType)> cmp) const
+{
+    const auto&& begin = bytes.begin() + startOffset;
+    const auto&& end   = bytes.end()   - endOffset;
+    auto it = std::find_if(begin, end, cmp);
+    if (it != end) {
+        return std::distance(bytes.begin(), it);
+    }
+    return fallback;
 }

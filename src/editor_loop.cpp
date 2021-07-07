@@ -42,6 +42,14 @@ int Editor::loop()
                     cw->gotoByte(cw->buffer->size() - 1);
                     break;
 
+                case Action::NEXTFILLED:
+                    cw->gotoByte(cw->buffer->findByte(
+                                     cw->currentByte+1, 0, cw->currentByte,
+                                     [&](unsigned char val) {
+                                         return val > 0;
+                                     }));
+                    break;
+
                 case Action::CMD:
                     if (!cli()) {
                         return 0;

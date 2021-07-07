@@ -14,6 +14,7 @@ Mappings::Mappings() :
         { { ' ' }, { Action::NEXTBYTE } },
         { { '$' }, { Action::LASTCOL } },
         { { 'G' }, { Action::LASTBYTE } },
+        { { 'w' }, { Action::NEXTFILLED } },
         { { '\n' }, { Action::DOWN, Action::FIRSTCOL } },
         { { 'g', '0' }, { Action::FIRSTCOL } },
         { { 'g', 'g' }, { Action::FIRSTBYTE } },
