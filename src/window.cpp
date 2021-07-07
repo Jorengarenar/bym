@@ -124,6 +124,8 @@ void Window::print()
             ++l;
         }
     }
+    wclrtoeol(subWindows.hex);
+    wclrtoeol(subWindows.text);
 
     applyToSubWindows(wrefresh);
 }
