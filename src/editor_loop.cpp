@@ -42,12 +42,37 @@ int Editor::loop()
                     cw->gotoByte(cw->buffer->size() - 1);
                     break;
 
+                case Action::NEXTPRINTABLE:
+                    cw->gotoByte(
+                        cw->buffer->findByte(
+                            [&](Buffer::byteType x) { return isprint(x); },
+                            cw->currentByte
+                        )
+                    );
+                    break;
+                case Action::NEXTPRINTABLEBLOCK:
+                    cw->gotoByte(
+                        cw->buffer->findBlock(
+                            [&](Buffer::byteType x) { return isprint(x); },
+                            cw->currentByte
+                        )
+                    );
+                    break;
                 case Action::NEXTFILLED:
-                    cw->gotoByte(cw->buffer->findByte(
-                                     cw->currentByte+1, 0, cw->currentByte,
-                                     [&](unsigned char val) {
-                                         return val > 0;
-                                     }));
+                    cw->gotoByte(
+                        cw->buffer->findByte(
+                            [&](Buffer::byteType x) { return x > 0; },
+                            cw->currentByte
+                        )
+                    );
+                    break;
+                case Action::NEXTFILLEDBLOCK:
+                    cw->gotoByte(
+                        cw->buffer->findBlock(
+                            [&](Buffer::byteType x) { return x > 0; },
+                            cw->currentByte
+                        )
+                    );
                     break;
 
                 case Action::CMD:

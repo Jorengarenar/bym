@@ -29,7 +29,10 @@ enum class Action {
     LASTBYTE,
     INCREMENT,
     DECREMENT,
+    NEXTPRINTABLE,
+    NEXTPRINTABLEBLOCK,
     NEXTFILLED,
+    NEXTFILLEDBLOCK,
 };
 
 class Mappings {

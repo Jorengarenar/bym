@@ -15,9 +15,10 @@ class Window;
 /// A buffer is a file loaded into memory for editing
 class Buffer {
     friend class Window;
-    using byteType = unsigned char;
 
 public:
+    using byteType = unsigned char;
+
     Buffer();
     Buffer(const char* path); ///< Constructor with path to file
 
@@ -27,12 +28,18 @@ public:
     Options options;
     std::string getOption(std::string);
 
-    byteType  operator [](std::size_t n) const;
+    byteType operator  [](std::size_t n) const;
     byteType& operator [](std::size_t n);
 
-    std::size_t findByte(std::size_t startOffset, std::size_t endOffset,
-                         std::size_t fallback,
-                         std::function<bool(byteType)> cmp) const;
+    std::size_t findByte(
+        std::function<bool(byteType)> predicate,
+        std::size_t start = 0, std::size_t endOffset = 0
+    ) const;
+
+    std::size_t findBlock(
+        std::function<bool(byteType)> predicate,
+        std::size_t start = 0, std::size_t endOffset = 0
+    ) const;
 
 private:
     std::string path; ///< Path to opened file

@@ -58,15 +58,25 @@ Buffer::byteType& Buffer::operator [](std::size_t n)
     return bytes[n];
 }
 
-std::size_t Buffer::findByte(std::size_t startOffset, std::size_t endOffset,
-                             std::size_t fallback,
-                             std::function<bool(byteType)> cmp) const
+std::size_t Buffer::findByte(
+    std::function<bool(byteType)> predicate,
+    std::size_t start, std::size_t endOffset
+) const
 {
-    const auto&& begin = bytes.begin() + startOffset;
+    const auto&& begin = bytes.begin() + start + 1;
     const auto&& end   = bytes.end()   - endOffset;
-    auto it = std::find_if(begin, end, cmp);
+    auto it = std::find_if(begin, end, predicate);
     if (it != end) {
         return std::distance(bytes.begin(), it);
     }
-    return fallback;
+    return start;
+}
+
+std::size_t Buffer::findBlock(
+    std::function<bool(byteType)> predicate,
+    std::size_t start, std::size_t endOffset
+) const
+{
+    while (predicate(bytes[start])) { ++start; }
+    return findByte(predicate, start, endOffset);
 }
