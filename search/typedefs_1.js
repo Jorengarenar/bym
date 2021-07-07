@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nodeptr_277',['nodePtr',['../classTrie.html#a103421533256ac654a7310020230f85d',1,'Trie']]]
+  ['foo_281',['foo',['../classMappings.html#a47c38769dc8492f8094b79fddf86d29f',1,'Mappings']]]
 ];

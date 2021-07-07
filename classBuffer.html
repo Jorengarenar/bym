@@ -67,6 +67,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
@@ -82,7 +83,7 @@ Collaboration diagram for Buffer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classBuffer__coll__graph.png" border="0" usemap="#Buffer_coll__map" alt="Collaboration graph"/></div>
 <map name="Buffer_coll__map" id="Buffer_coll__map">
-<area shape="rect" title=" " alt="" coords="5,189,117,384"/>
+<area shape="rect" title=" " alt="" coords="5,189,117,399"/>
 <area shape="rect" href="classOptions.html" title=" " alt="" coords="13,5,110,127"/>
 </map>
 </div>
@@ -102,15 +103,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4261c1a06920df9c964e4e1ef03353eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68a8987a3bcae5c6541f48e996300045"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#a68a8987a3bcae5c6541f48e996300045">getOption</a> (std::string)</td></tr>
 <tr class="separator:a68a8987a3bcae5c6541f48e996300045"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac01e5673eccd570db14193852226e043"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#ac01e5673eccd570db14193852226e043">operator[]</a> (std::size_t n) const</td></tr>
-<tr class="separator:ac01e5673eccd570db14193852226e043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa681270e45e73a162fa4c29763f0a83a"><td class="memItemLeft" align="right" valign="top">unsigned char &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#aa681270e45e73a162fa4c29763f0a83a">operator[]</a> (std::size_t n)</td></tr>
-<tr class="separator:aa681270e45e73a162fa4c29763f0a83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b3a15fa8273524b4d6c7b7e952014c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">byteType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#aa2b3a15fa8273524b4d6c7b7e952014c">operator[]</a> (std::size_t n) const</td></tr>
+<tr class="separator:aa2b3a15fa8273524b4d6c7b7e952014c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af14f32c70b7361c379d09f8f31f3d973"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">byteType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#af14f32c70b7361c379d09f8f31f3d973">operator[]</a> (std::size_t n)</td></tr>
+<tr class="separator:af14f32c70b7361c379d09f8f31f3d973"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334a7c63bd685424c9c674b0e6e8919e"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#a334a7c63bd685424c9c674b0e6e8919e">findByte</a> (std::size_t startOffset, std::size_t endOffset, std::size_t fallback, std::function&lt; bool(<a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">byteType</a>)&gt; cmp) const</td></tr>
+<tr class="separator:a334a7c63bd685424c9c674b0e6e8919e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a0e90e2d09d93ab22c2ced37239c54b5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classOptions.html">Options</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#a0e90e2d09d93ab22c2ced37239c54b5f">options</a></td></tr>
 <tr class="separator:a0e90e2d09d93ab22c2ced37239c54b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a7b79f2b38ecdd55f319b60cf52eaaa11"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">byteType</a> = unsigned char</td></tr>
+<tr class="separator:a7b79f2b38ecdd55f319b60cf52eaaa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -123,9 +131,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a8044ab05028dc49af987662e7094c536"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#a8044ab05028dc49af987662e7094c536">path</a></td></tr>
 <tr class="memdesc:a8044ab05028dc49af987662e7094c536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Path to opened file.  <a href="classBuffer.html#a8044ab05028dc49af987662e7094c536">More...</a><br /></td></tr>
 <tr class="separator:a8044ab05028dc49af987662e7094c536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c71f68fc9410e14b46c75f0ce9b87f0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; unsigned char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#a1c71f68fc9410e14b46c75f0ce9b87f0">bytes</a></td></tr>
-<tr class="memdesc:a1c71f68fc9410e14b46c75f0ce9b87f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains bytes.  <a href="classBuffer.html#a1c71f68fc9410e14b46c75f0ce9b87f0">More...</a><br /></td></tr>
-<tr class="separator:a1c71f68fc9410e14b46c75f0ce9b87f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f777f8aac9911db32c15c2e395888d4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">byteType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBuffer.html#a9f777f8aac9911db32c15c2e395888d4">bytes</a></td></tr>
+<tr class="memdesc:a9f777f8aac9911db32c15c2e395888d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains bytes.  <a href="classBuffer.html#a9f777f8aac9911db32c15c2e395888d4">More...</a><br /></td></tr>
+<tr class="separator:a9f777f8aac9911db32c15c2e395888d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -136,8 +144,33 @@ Friends</h2></td></tr>
 <div class="textblock"><p><a class="el" href="classBuffer.html">Buffer</a></p>
 <p>A buffer is a file loaded into memory for editing </p>
 
-<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00015">15</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00016">16</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a7b79f2b38ecdd55f319b60cf52eaaa11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b79f2b38ecdd55f319b60cf52eaaa11">&#9670;&nbsp;</a></span>byteType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">Buffer::byteType</a> =  unsigned char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00018">18</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae7ef2cd201190fde551dcb902627112b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7ef2cd201190fde551dcb902627112b">&#9670;&nbsp;</a></span>Buffer() <span class="overload">[1/2]</span></h2>
 
@@ -153,7 +186,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00012">12</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00013">13</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -173,7 +206,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00014">14</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00016">16</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -193,7 +226,49 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00029">29</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00031">31</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a334a7c63bd685424c9c674b0e6e8919e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334a7c63bd685424c9c674b0e6e8919e">&#9670;&nbsp;</a></span>findByte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Buffer::findByte </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>startOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>endOffset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>fallback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; bool(<a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">byteType</a>)&gt;&#160;</td>
+          <td class="paramname"><em>cmp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00061">61</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -213,18 +288,18 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00044">44</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00046">46</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aa681270e45e73a162fa4c29763f0a83a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa681270e45e73a162fa4c29763f0a83a">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+<a id="af14f32c70b7361c379d09f8f31f3d973"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af14f32c70b7361c379d09f8f31f3d973">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char &amp; Buffer::operator[] </td>
+          <td class="memname"><a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">Buffer::byteType</a> &amp; Buffer::operator[] </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -233,18 +308,18 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00054">54</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00056">56</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="ac01e5673eccd570db14193852226e043"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac01e5673eccd570db14193852226e043">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+<a id="aa2b3a15fa8273524b4d6c7b7e952014c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b3a15fa8273524b4d6c7b7e952014c">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned char Buffer::operator[] </td>
+          <td class="memname"><a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">Buffer::byteType</a> Buffer::operator[] </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -253,7 +328,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00049">49</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00051">51</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -281,7 +356,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00034">34</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00036">36</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -300,7 +375,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00024">24</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8cpp_source.html#l00026">26</a> of file <a class="el" href="buffer_8cpp_source.html">buffer.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,13 +400,13 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00016">16</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00017">17</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1c71f68fc9410e14b46c75f0ce9b87f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c71f68fc9410e14b46c75f0ce9b87f0">&#9670;&nbsp;</a></span>bytes</h2>
+<a id="a9f777f8aac9911db32c15c2e395888d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f777f8aac9911db32c15c2e395888d4">&#9670;&nbsp;</a></span>bytes</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +415,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;unsigned char&gt; Buffer::bytes</td>
+          <td class="memname">std::vector&lt;<a class="el" href="classBuffer.html#a7b79f2b38ecdd55f319b60cf52eaaa11">byteType</a>&gt; Buffer::bytes</td>
         </tr>
       </table>
   </td>
@@ -350,7 +425,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00033">33</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00039">39</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
 
 </div>
 </div>
@@ -366,7 +441,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00025">25</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00027">27</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
 
 </div>
 </div>
@@ -390,7 +465,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00032">32</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="buffer_8hpp_source.html#l00038">38</a> of file <a class="el" href="buffer_8hpp_source.html">buffer.hpp</a>.</p>
 
 </div>
 </div>

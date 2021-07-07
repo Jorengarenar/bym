@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['returntype_278',['returnType',['../classMappings.html#a986c13c3cb525419a2491617e0cb76c8',1,'Mappings']]]
+  ['nodeptr_282',['nodePtr',['../classTrie.html#a103421533256ac654a7310020230f85d',1,'Trie']]]
 ];
