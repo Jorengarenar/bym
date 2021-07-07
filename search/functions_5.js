@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['findbyte_202',['findByte',['../classBuffer.html#a334a7c63bd685424c9c674b0e6e8919e',1,'Buffer']]]
+  ['findblock_206',['findBlock',['../classBuffer.html#a7f8401af87f9e4206d6e142806c4a4a8',1,'Buffer']]],
+  ['findbyte_207',['findByte',['../classBuffer.html#afffb7fbe5271405754bf6bf7207dd696',1,'Buffer']]]
 ];
