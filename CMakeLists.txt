@@ -26,6 +26,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra -pedantic")
 
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+set(CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fsanitize=address")
+
 set(ONLY_DOCS NO CACHE BOOL "Whether to build only docs")
 
 set(DEPS_DIR ${CMAKE_BINARY_DIR}/extern) # where to install dependencies
