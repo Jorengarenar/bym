@@ -41,8 +41,8 @@ public:
         std::size_t start = 0, std::size_t endOffset = 0
     ) const;
 
-private:
     std::string path; ///< Path to opened file
+private:
     std::vector<byteType> bytes; ///< Contains bytes
     void save(std::string = ""); ///< Saves edits to file
 };

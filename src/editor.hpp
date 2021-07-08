@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <memory>
 
 #include <ncurses.h>
 
@@ -35,12 +36,12 @@ private:
     } initCurses;
 
     std::vector<Buffer> buffers; ///< List of opened buffers
-    std::vector<Window> windows; ///< List of existing windows
+    std::vector<std::shared_ptr<Window>> windows; ///< List of existing windows
 
     void replaceByte(); ///< Wrapper over cw->replaceByte()
 
 public:
-    Window* cw;       ///< Current window
+    std::shared_ptr<Window> cw;       ///< Current window
     Cli cli;          ///< Command line
     Parser parser;    ///< Parses configs and commands
     Options options;
@@ -53,8 +54,15 @@ public:
     int loop();  ///< Interprets keystrokes into actions
     void setOption(std::string);
 
-    WINDOW* statusline = newwin(1, COLS, LINES-2, 0);
-    void updateStatusLine();
+    WINDOW* statusline;
+    WINDOW* tabline;
+
+    void updateStatusline();
+    void updateTabline();
+
+    std::size_t winNr();
+    void newWin();
+    void switchWin(int);
 };
 
 #define Editor() Editor::getInstance()

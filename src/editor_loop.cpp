@@ -75,6 +75,15 @@ int Editor::loop()
                     );
                     break;
 
+                case Action::NEXTTAB:
+                    if (auto i = winNr(); i < windows.size()-1) {
+                        switchWin(i+1);
+                    }
+                    else {
+                        switchWin(0);
+                    }
+                    break;
+
                 case Action::CMD:
                     if (!cli()) {
                         return 0;

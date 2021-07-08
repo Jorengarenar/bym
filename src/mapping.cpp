@@ -19,6 +19,7 @@ Mappings::Mappings() :
         { { '\n' }, { Action::DOWN, Action::FIRSTCOL } },
         { { 'g', '0' }, { Action::FIRSTCOL } },
         { { 'g', 'g' }, { Action::FIRSTBYTE } },
+        { { 'g', 't' }, { Action::NEXTTAB } },
         { { 'Z', 'Z' }, { Action::SAVEQUIT } },
         { { CTRL('a') }, { Action::INCREMENT } },
         { { CTRL('x') }, { Action::DECREMENT } },

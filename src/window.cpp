@@ -20,7 +20,7 @@ Window::Window(Buffer& buffer_) :
 
 Window::~Window()
 {
-    applyToSubWindows(delwin);
+    delSubWindows();
 }
 
 inline short Window::height() const
@@ -35,7 +35,7 @@ inline short Window::width() const
 
 void Window::genSubWindows()
 {
-    applyToSubWindows(delwin);
+    delSubWindows();
     unsigned short c = opts.cols();
     auto h = height();
     subWindows = { // be wary of order in declaration of Window class!
@@ -44,6 +44,12 @@ void Window::genSubWindows()
         newwin(h, c+5, 1, c*3 + 10)  // text
     };
     refresh();
+}
+
+inline void Window::delSubWindows()
+{
+    applyToSubWindows(delwin);
+    subWindows = { nullptr, nullptr, nullptr };
 }
 
 void Window::buf(Buffer& b)
@@ -198,7 +204,7 @@ void Window::placeCursor()
 
     printByte(c, x, y, A_REVERSE);
 
-    Editor().updateStatusLine();
+    Editor().updateStatusline();
 }
 
 bool Window::inputByte(char* buf)

@@ -65,6 +65,10 @@ bool Parser::operator ()(std::string line) // TODO: use Lua
             case Command::MAP:
                 break;
 
+            case Command::NEW:
+                Editor().newWin();
+                break;
+
             case Command::ECHO:
             case Command::SET:
             case Command::SETLOCAL: {

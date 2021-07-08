@@ -33,6 +33,7 @@ enum class Action {
     NEXTPRINTABLEBLOCK,
     NEXTFILLED,
     NEXTFILLEDBLOCK,
+    NEXTTAB,
 };
 
 class Mappings {

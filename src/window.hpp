@@ -25,6 +25,7 @@ public:
     void buf(Buffer&);         ///< Change buffer in window
     void redraw();             ///< Redraws window
     void applyToSubWindows(std::function<void (WINDOW*)>);  ///< Apply function to subwindows
+    void delSubWindows();
     void save();                                            ///< Save currently loaded buffer
 
     int replaceByte(); ///< Replaces value of byte
@@ -50,7 +51,6 @@ private:
     inline short width()  const;
 
     void genSubWindows(); ///< Generate subwindows
-    void delSubWindows(); ///< Delete subwindows
 
     bool inputByte(char*); ///< Get byte value
 
