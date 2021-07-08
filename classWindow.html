@@ -109,6 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a95b384e0a44236cf924421dc034e6eb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a95b384e0a44236cf924421dc034e6eb0">applyToSubWindows</a> (std::function&lt; void(WINDOW *)&gt;)</td></tr>
 <tr class="memdesc:a95b384e0a44236cf924421dc034e6eb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply function to subwindows.  <a href="classWindow.html#a95b384e0a44236cf924421dc034e6eb0">More...</a><br /></td></tr>
 <tr class="separator:a95b384e0a44236cf924421dc034e6eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2afa01a2bc7b452eb5d24787140af022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a2afa01a2bc7b452eb5d24787140af022">delSubWindows</a> ()</td></tr>
+<tr class="separator:a2afa01a2bc7b452eb5d24787140af022"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5939b226a8a1e29f929af8226838b333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a5939b226a8a1e29f929af8226838b333">save</a> ()</td></tr>
 <tr class="memdesc:a5939b226a8a1e29f929af8226838b333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save currently loaded buffer.  <a href="classWindow.html#a5939b226a8a1e29f929af8226838b333">More...</a><br /></td></tr>
 <tr class="separator:a5939b226a8a1e29f929af8226838b333"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,9 +170,6 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:af8fbe6454893333cc8ea60a64d255a7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#af8fbe6454893333cc8ea60a64d255a7d">genSubWindows</a> ()</td></tr>
 <tr class="memdesc:af8fbe6454893333cc8ea60a64d255a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate subwindows.  <a href="classWindow.html#af8fbe6454893333cc8ea60a64d255a7d">More...</a><br /></td></tr>
 <tr class="separator:af8fbe6454893333cc8ea60a64d255a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2afa01a2bc7b452eb5d24787140af022"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#a2afa01a2bc7b452eb5d24787140af022">delSubWindows</a> ()</td></tr>
-<tr class="memdesc:a2afa01a2bc7b452eb5d24787140af022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete subwindows.  <a href="classWindow.html#a2afa01a2bc7b452eb5d24787140af022">More...</a><br /></td></tr>
-<tr class="separator:a2afa01a2bc7b452eb5d24787140af022"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWindow.html#ab91494d1a97e1b1722b71cb4f03e7ee5">inputByte</a> (char *)</td></tr>
 <tr class="memdesc:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get byte value.  <a href="classWindow.html#ab91494d1a97e1b1722b71cb4f03e7ee5">More...</a><br /></td></tr>
 <tr class="separator:ab91494d1a97e1b1722b71cb4f03e7ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -252,7 +251,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00257">257</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00263">263</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -272,7 +271,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00068">68</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00074">74</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -292,7 +291,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00049">49</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00055">55</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -314,10 +313,12 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00049">49</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +365,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00114">114</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00120">120</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -419,7 +420,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00204">204</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00210">210</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -439,7 +440,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00123">123</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00129">129</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -469,7 +470,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00147">147</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00153">153</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -496,7 +497,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00168">168</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00174">174</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -523,7 +524,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00088">88</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00094">94</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -573,7 +574,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00075">75</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00081">81</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -618,7 +619,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00057">57</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00063">63</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -637,7 +638,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00239">239</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00245">245</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -656,7 +657,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00263">263</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8cpp_source.html#l00269">269</a> of file <a class="el" href="window_8cpp_source.html">window.cpp</a>.</p>
 
 </div>
 </div>
@@ -725,7 +726,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00044">44</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00045">45</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
 
 </div>
 </div>
@@ -757,7 +758,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00040">40</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00041">41</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
 
 </div>
 </div>
@@ -773,7 +774,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00039">39</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00040">40</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
 
 </div>
 </div>
@@ -851,7 +852,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00041">41</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00042">42</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
 
 </div>
 </div>
@@ -867,7 +868,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00046">46</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00047">47</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
 
 </div>
 </div>
@@ -883,7 +884,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00045">45</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="window_8hpp_source.html#l00046">46</a> of file <a class="el" href="window_8hpp_source.html">window.hpp</a>.</p>
 
 </div>
 </div>

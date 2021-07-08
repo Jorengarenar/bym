@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['parser_232',['Parser',['../classParser.html#a12234f6cd36b61af4b50c94a179422c1',1,'Parser']]],
-  ['placecursor_233',['placeCursor',['../classWindow.html#aa2fb12f8ae1402af287acc9085a3d285',1,'Window']]],
-  ['print_234',['print',['../classTrie.html#a54665a06822c9e920cd4a08478ccdd72',1,'Trie::print(const Node *temp, const T x, std::string endings, bool foo)'],['../classTrie.html#a2bfc5007768b51b5794d354b39801b21',1,'Trie::print(const Node *temp)'],['../classWindow.html#a8847d89f7b7741db70926a49219eb7f9',1,'Window::print()']]],
-  ['printbyte_235',['printByte',['../classWindow.html#a314a49dca4457ab426d9764eeda03eb8',1,'Window']]],
-  ['printhexnum_236',['printHexNum',['../classWindow.html#adf394a21f67c80f84995efb7ace77bb8',1,'Window']]]
+  ['operator_28_29_234',['operator()',['../classCli.html#a6e3e556ea039edbf988d82a7f485ff35',1,'Cli::operator()()'],['../classMappings.html#a9b1a744cc0a28ed48c793be2e4633631',1,'Mappings::operator()()'],['../classParser.html#a369e068aa1f51fa5ef6b26757465e462',1,'Parser::operator()()']]],
+  ['operator_3d_235',['operator=',['../classEditor.html#a218df8fb48a7687c4a58c8b36ebe5806',1,'Editor']]],
+  ['operator_5b_5d_236',['operator[]',['../classBuffer.html#aa2b3a15fa8273524b4d6c7b7e952014c',1,'Buffer::operator[](std::size_t n) const'],['../classBuffer.html#af14f32c70b7361c379d09f8f31f3d973',1,'Buffer::operator[](std::size_t n)']]],
+  ['options_237',['Options',['../classOptions.html#ab72fb640172a6109e34c8a5366563753',1,'Options']]],
+  ['opts_238',['Opts',['../structWindow_1_1Opts.html#a5141c36f32d92ff8f0d0b5dda72ce45d',1,'Window::Opts']]]
 ];

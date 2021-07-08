@@ -12,5 +12,5 @@ var searchData=
   ['config_23',['config',['../classParser.html#afdddf8eeefbcb33f2864bb1fcf4a5fab',1,'Parser']]],
   ['ctrl_24',['CTRL',['../util_8hpp.html#ace6fa4719be9aafa2968680c5ef75ac5',1,'util.hpp']]],
   ['currentbyte_25',['currentByte',['../classWindow.html#ac5dec97770f8c0086039a71c045dd272',1,'Window']]],
-  ['cw_26',['cw',['../classEditor.html#a2c52e4276b4134e123c46f1082ed25ac',1,'Editor']]]
+  ['cw_26',['cw',['../classEditor.html#a51559e30279d161044b23d3e72dbb01b',1,'Editor']]]
 ];

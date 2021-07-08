@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['redraw_237',['redraw',['../classCli.html#a56d1734f3a335c36aff199cc27128f98',1,'Cli::redraw()'],['../classWindow.html#aee286236fac43cc8aed0482f68bc0192',1,'Window::redraw()']]],
-  ['replacebyte_238',['replaceByte',['../classEditor.html#a6bb9b1fe02bff2b8cd92af5a603c80c0',1,'Editor::replaceByte()'],['../classWindow.html#acfdd1791307bfd5fa229ba502ba50780',1,'Window::replaceByte()']]]
+  ['parser_239',['Parser',['../classParser.html#a12234f6cd36b61af4b50c94a179422c1',1,'Parser']]],
+  ['placecursor_240',['placeCursor',['../classWindow.html#aa2fb12f8ae1402af287acc9085a3d285',1,'Window']]],
+  ['print_241',['print',['../classTrie.html#a54665a06822c9e920cd4a08478ccdd72',1,'Trie::print(const Node *temp, const T x, std::string endings, bool foo)'],['../classTrie.html#a2bfc5007768b51b5794d354b39801b21',1,'Trie::print(const Node *temp)'],['../classWindow.html#a8847d89f7b7741db70926a49219eb7f9',1,'Window::print()']]],
+  ['printbyte_242',['printByte',['../classWindow.html#a314a49dca4457ab426d9764eeda03eb8',1,'Window']]],
+  ['printhexnum_243',['printHexNum',['../classWindow.html#adf394a21f67c80f84995efb7ace77bb8',1,'Window']]]
 ];
