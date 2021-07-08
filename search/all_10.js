@@ -11,7 +11,7 @@ var searchData=
   ['setoption_122',['setOption',['../classEditor.html#a2c10d05e7e5fc9a39eddee44cdd0e391',1,'Editor']]],
   ['size_123',['size',['../classBuffer.html#ae37eef5147fd1c987c880bb6b62387f5',1,'Buffer']]],
   ['startline_124',['startline',['../classWindow.html#aa7e0c034ca42d4710cdf68b275837249',1,'Window']]],
-  ['statusline_125',['statusline',['../classWindow.html#ac46813a93b8890d9846218ecd5c427e4',1,'Window']]],
+  ['statusline_125',['statusline',['../classEditor.html#af58b37afdc8532708408b92fd7d93b8a',1,'Editor']]],
   ['subwindows_126',['subWindows',['../classWindow.html#ae562ca93e3a37af3b2b881beb3a94468',1,'Window']]],
   ['sxe_127',['sxe',['../namespacesxe.html',1,'']]]
 ];

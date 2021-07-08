@@ -83,18 +83,18 @@ Collaboration diagram for Editor:</div>
 <div class="dyncontent">
 <div class="center"><img src="classEditor__coll__graph.png" border="0" usemap="#Editor_coll__map" alt="Collaboration graph"/></div>
 <map name="Editor_coll__map" id="Editor_coll__map">
-<area shape="rect" title=" " alt="" coords="369,1255,491,1479"/>
-<area shape="rect" href="structEditor_1_1InitCurses.html" title="Initializes curses." alt="" coords="170,895,303,987"/>
+<area shape="rect" title=" " alt="" coords="350,1225,510,1479"/>
+<area shape="rect" href="structEditor_1_1InitCurses.html" title="Initializes curses." alt="" coords="170,880,303,972"/>
 <area shape="rect" href="classOptions.html" title=" " alt="" coords="440,182,537,303"/>
 <area shape="rect" href="classBuffer.html" title=" " alt="" coords="670,403,782,627"/>
-<area shape="rect" href="classCli.html" title=" " alt="" coords="327,851,439,1031"/>
-<area shape="rect" href="classParser.html" title=" " alt="" coords="5,873,145,1009"/>
-<area shape="rect" href="classMappings.html" title=" " alt="" coords="514,895,626,987"/>
+<area shape="rect" href="classCli.html" title=" " alt="" coords="327,836,439,1016"/>
+<area shape="rect" href="classParser.html" title=" " alt="" coords="5,858,145,994"/>
+<area shape="rect" href="classMappings.html" title=" " alt="" coords="514,880,626,972"/>
 <area shape="rect" href="classTrie.html" title=" " alt="" coords="515,417,633,612"/>
 <area shape="rect" href="structTrie_1_1Node.html" title=" " alt="" coords="621,5,746,83"/>
 <area shape="rect" href="classTrie.html" title=" " alt="" coords="567,145,685,340"/>
-<area shape="rect" href="classWindow.html" title=" " alt="" coords="651,689,831,1192"/>
-<area shape="rect" href="structWindow_1_1Opts.html" title=" " alt="" coords="707,1306,817,1427"/>
+<area shape="rect" href="classWindow.html" title=" " alt="" coords="651,689,831,1163"/>
+<area shape="rect" href="structWindow_1_1Opts.html" title=" " alt="" coords="707,1291,817,1413"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad4527e348e87af8d6d6eae0c9c310064"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c10d05e7e5fc9a39eddee44cdd0e391"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a2c10d05e7e5fc9a39eddee44cdd0e391">setOption</a> (std::string)</td></tr>
 <tr class="separator:a2c10d05e7e5fc9a39eddee44cdd0e391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14860363400871bf65f6eb3322b128c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#a14860363400871bf65f6eb3322b128c9">updateStatusLine</a> ()</td></tr>
+<tr class="separator:a14860363400871bf65f6eb3322b128c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -143,6 +145,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a19e248f28e4c303ad8111f20dc9682a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad89ff2f3b03c2d44c656678c137c3e2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMappings.html">Mappings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#ad89ff2f3b03c2d44c656678c137c3e2e">mappings</a></td></tr>
 <tr class="separator:ad89ff2f3b03c2d44c656678c137c3e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af58b37afdc8532708408b92fd7d93b8a"><td class="memItemLeft" align="right" valign="top">WINDOW *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEditor.html#af58b37afdc8532708408b92fd7d93b8a">statusline</a> = newwin(1, COLS, LINES-2, 0)</td></tr>
+<tr class="separator:af58b37afdc8532708408b92fd7d93b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -167,7 +171,7 @@ Private Attributes</h2></td></tr>
 <div class="textblock"><p><a class="el" href="classEditor.html">Editor</a></p>
 <p>Contains main functionalities of program </p>
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00015">15</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00017">17</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae208b788b6212af03488814462ae40d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae208b788b6212af03488814462ae40d6">&#9670;&nbsp;</a></span>Editor() <span class="overload">[1/2]</span></h2>
@@ -192,7 +196,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00016">16</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00018">18</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +275,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00022">22</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00024">24</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -326,7 +330,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8cpp_source.html#l00049">49</a> of file <a class="el" href="editor_8cpp_source.html">editor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8cpp_source.html#l00052">52</a> of file <a class="el" href="editor_8cpp_source.html">editor.cpp</a>.</p>
 
 </div>
 </div>
@@ -398,7 +402,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8cpp_source.html#l00040">40</a> of file <a class="el" href="editor_8cpp_source.html">editor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8cpp_source.html#l00043">43</a> of file <a class="el" href="editor_8cpp_source.html">editor.cpp</a>.</p>
 
 </div>
 </div>
@@ -418,7 +422,26 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8cpp_source.html#l00055">55</a> of file <a class="el" href="editor_8cpp_source.html">editor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8cpp_source.html#l00058">58</a> of file <a class="el" href="editor_8cpp_source.html">editor.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a14860363400871bf65f6eb3322b128c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14860363400871bf65f6eb3322b128c9">&#9670;&nbsp;</a></span>updateStatusLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Editor::updateStatusLine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="editor_8cpp_source.html#l00066">66</a> of file <a class="el" href="editor_8cpp_source.html">editor.cpp</a>.</p>
 
 </div>
 </div>
@@ -443,7 +466,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00035">35</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00037">37</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +482,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00042">42</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00044">44</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -475,7 +498,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00041">41</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00043">43</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -513,7 +536,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00045">45</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00047">47</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -529,7 +552,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00044">44</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00046">46</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -545,7 +568,23 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00043">43</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00045">45</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af58b37afdc8532708408b92fd7d93b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af58b37afdc8532708408b92fd7d93b8a">&#9670;&nbsp;</a></span>statusline</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WINDOW* Editor::statusline = newwin(1, COLS, LINES-2, 0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00056">56</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>
@@ -569,7 +608,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00036">36</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="editor_8hpp_source.html#l00038">38</a> of file <a class="el" href="editor_8hpp_source.html">editor.hpp</a>.</p>
 
 </div>
 </div>

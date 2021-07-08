@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['bar_251',['bar',['../classMappings.html#a305824663e887f8622b7191f913a2099',1,'Mappings']]],
-  ['buffer_252',['buffer',['../classWindow.html#aba8f47da0ace15437608fc211e4a999d',1,'Window']]],
-  ['buffers_253',['buffers',['../classEditor.html#ab5da60c9e6729446f71535ea2f21eaec',1,'Editor']]],
-  ['bytes_254',['bytes',['../classBuffer.html#a9f777f8aac9911db32c15c2e395888d4',1,'Buffer']]]
+  ['bar_253',['bar',['../classMappings.html#a305824663e887f8622b7191f913a2099',1,'Mappings']]],
+  ['buffer_254',['buffer',['../classWindow.html#aba8f47da0ace15437608fc211e4a999d',1,'Window']]],
+  ['buffers_255',['buffers',['../classEditor.html#ab5da60c9e6729446f71535ea2f21eaec',1,'Editor']]],
+  ['bytes_256',['bytes',['../classBuffer.html#a9f777f8aac9911db32c15c2e395888d4',1,'Buffer']]]
 ];
