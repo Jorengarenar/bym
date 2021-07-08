@@ -6,10 +6,8 @@
 #include "editor.hpp"
 #include "util.hpp"
 
-Window::Window(int height_, int width_, Buffer& buffer_) :
-    height(height_), width(width_),
-    currentByte(0),
-    prevByte(0),
+Window::Window(Buffer& buffer_) :
+    currentByte(0), prevByte(0),
     startline(0),
     buffer(&buffer_),
     y(0), x(0),
@@ -17,7 +15,6 @@ Window::Window(int height_, int width_, Buffer& buffer_) :
 {
     genSubWindows();
     print();
-    updateStatusLine();
     placeCursor();
 }
 
@@ -26,30 +23,27 @@ Window::~Window()
     applyToSubWindows(delwin);
 }
 
+inline short Window::height() const
+{
+    return LINES - 3; // <lines> - <cli> - <tabline> - <statusline>
+}
+
+inline short Window::width() const
+{
+    return COLS;
+}
+
 void Window::genSubWindows()
 {
     applyToSubWindows(delwin);
     unsigned short c = opts.cols();
-    refresh();
+    auto h = height();
     subWindows = { // be wary of order in declaration of Window class!
-        newwin(height, 10, 0, 0),         // numbers
-        newwin(height, c*3, 0, 10),       // hex
-        newwin(height, c+5, 0, c*3 + 10), // text
-        nullptr                           // statusline
+        newwin(h, 10,  1, 0),        // numbers
+        newwin(h, c*3, 1, 10),       // hex
+        newwin(h, c+5, 1, c*3 + 10)  // text
     };
-    updateStatusLine();
     refresh();
-}
-
-void Window::updateStatusLine()
-{
-    if (subWindows.statusline) {
-        delwin(subWindows.statusline);
-    }
-    subWindows.statusline = newwin(1, width, height-1, 0);
-    wprintw(subWindows.statusline, "%s %zu", buffer->path.c_str(), buffer->size()); // TODO
-
-    wrefresh(subWindows.statusline);
 }
 
 void Window::buf(Buffer& b)
@@ -60,28 +54,22 @@ void Window::buf(Buffer& b)
     print();
 }
 
-void Window::redraw(short height_, short width_)
+void Window::redraw()
 {
     applyToSubWindows(wclear);
-    applyToSubWindows(wrefresh);
 
     if (COLS > 13) {  // on less than that, won't fit on screen
-        height = height_;
-        width  = width_;
-
         genSubWindows();
         print();
-
         placeCursor();
     }
 }
 
 void Window::applyToSubWindows(std::function<void (WINDOW*)> f)
 {
-    if (subWindows.hex)        { f(subWindows.hex);        }
-    if (subWindows.text)       { f(subWindows.text);       }
-    if (subWindows.numbers)    { f(subWindows.numbers);    }
-    if (subWindows.statusline) { f(subWindows.statusline); }
+    if (subWindows.hex)     { f(subWindows.hex);     }
+    if (subWindows.text)    { f(subWindows.text);    }
+    if (subWindows.numbers) { f(subWindows.numbers); }
 }
 
 void Window::printByte(const unsigned char b, std::size_t x, std::size_t y, int attr)
@@ -93,7 +81,6 @@ void Window::printByte(const unsigned char b, std::size_t x, std::size_t y, int 
              wrefresh(w);
          };
 
-    mvwprintw(subWindows.hex, y, x*3+2, " ");
     p(subWindows.hex, x*3, opts.hexFmt(), b);
     p(subWindows.text, x, "%c", isprint(b) ? b : opts.blank());
 }
@@ -102,16 +89,11 @@ void Window::print()
 {
     const auto cols = opts.cols();
 
-    unsigned short c = 0; // current column of bytes
-    unsigned short l = 0; // current line
-
-    auto maxL = height - 1 + startline;
-
     applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
-    auto& b = *buffer;
-
-    for (std::size_t i = startline*cols; i < b.size() && l < maxL; ++i) {
+    unsigned short c = 0; // current column of bytes
+    unsigned short l = 0; // current line
+    for (std::size_t i = startline*cols; l < height() && i < buffer->size(); ++i) {
         if (c == 0) {
             wprintw(subWindows.numbers, "%08X:\n", i);
         }
@@ -124,9 +106,8 @@ void Window::print()
             ++l;
         }
     }
-    wclrtoeol(subWindows.hex);
-    wclrtoeol(subWindows.text);
 
+    applyToSubWindows(wclrtoeol);
     applyToSubWindows(wrefresh);
 }
 
@@ -198,8 +179,8 @@ void Window::placeCursor()
     auto curLine = currentByte / C;
 
     // Scrolling
-    if (curLine >= startline + height - 1) { // scrolling down
-        startline = curLine - height + 2;
+    if (curLine >= startline + height()) { // scrolling down
+        startline = curLine - height() + 1;
         print();
     }
     else if (curLine < startline) { // scrolling up
@@ -217,7 +198,7 @@ void Window::placeCursor()
 
     printByte(c, x, y, A_REVERSE);
 
-    updateStatusLine();
+    Editor().updateStatusLine();
 }
 
 bool Window::inputByte(char* buf)
@@ -291,7 +272,7 @@ Window::Opts::Opts(Window& w_) : w(w_) {}
 unsigned short Window::Opts::cols() const
 {
     auto c = std::stoi(w.buffer->getOption("cols"));
-    auto C = (w.width-10)/4;
+    auto C = (w.width()-10)/4;
     if (c > 0 && c <= C) {
         return c;
     }

@@ -10,7 +10,7 @@
 enum class Command {
     ECHO,
     MAP,
-    NEWWIN,
+    NEW,
     QUIT,
     REDRAW,
     SAVE,

@@ -13,7 +13,7 @@
 const std::map<std::string, Command> commands{
     { "echo",     Command::ECHO         },
     { "map",      Command::MAP          },
-    { "newwin",   Command::NEWWIN       },
+    { "new",      Command::NEW          },
     { "q",        Command::QUIT         },
     { "quit",     Command::QUIT         },
     { "redraw",   Command::REDRAW       },

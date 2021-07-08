@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include <memory>
 
 #include <ncurses.h>
 
@@ -13,19 +14,16 @@ enum class Direction { DOWN, UP, RIGHT, LEFT };
 /// Edits and displays buffers
 class Window {
 public:
-    Window(int, int, Buffer&);
+    Window(Buffer&);
     ~Window();
 
-    unsigned short height;   ///< Height of window
-    unsigned short width;    ///< Width of window
     std::size_t currentByte; ///< Byte cursor is currently over
     std::size_t prevByte;    ///< Byte cursor was previously over
 
     std::size_t startline; ///< "Line" of buffer from which to start printing
 
-    void buf(Buffer&);                                      ///< Change buffer in window
-    void updateStatusLine();                                ///< Updates status line
-    void redraw(short = LINES-1, short = COLS);             ///< Redraws window
+    void buf(Buffer&);         ///< Change buffer in window
+    void redraw();             ///< Redraws window
     void applyToSubWindows(std::function<void (WINDOW*)>);  ///< Apply function to subwindows
     void save();                                            ///< Save currently loaded buffer
 
@@ -41,7 +39,6 @@ public:
         WINDOW* numbers;
         WINDOW* hex;
         WINDOW* text;
-        WINDOW* statusline;
     } subWindows;
 
     Buffer* buffer;
@@ -49,6 +46,9 @@ public:
     std::size_t x; ///< Current column (current byte in column) on screen
 
 private:
+    inline short height() const;
+    inline short width()  const;
+
     void genSubWindows(); ///< Generate subwindows
     void delSubWindows(); ///< Delete subwindows
 

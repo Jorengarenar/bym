@@ -33,8 +33,11 @@ void Editor::init(int argc, char* argv[], int optind)
         buffers.emplace_back();
     }
 
-    windows.emplace_back(LINES-1, COLS, buffers[0]);
+    windows.emplace_back(buffers[0]);
     cw = &windows.front();
+
+    statusline = newwin(1, COLS, LINES-2, 0);
+    updateStatusLine();
 }
 
 void Editor::replaceByte()
@@ -58,4 +61,12 @@ void Editor::setOption(std::string opt)
     for (auto& b: buffers) {
         b.options.set(opt);
     }
+}
+
+void Editor::updateStatusLine()
+{
+    if (!cw) { return; }
+    mvwprintw(statusline, 0, 0, "%zu", cw->buffer->size()); // TODO
+    wclrtoeol(statusline);
+    wrefresh(statusline);
 }

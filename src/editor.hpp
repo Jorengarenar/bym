@@ -2,6 +2,8 @@
 
 #include <vector>
 
+#include <ncurses.h>
+
 #include "buffer.hpp"
 #include "cli.hpp"
 #include "mapping.hpp"
@@ -50,6 +52,9 @@ public:
     int input(); ///< Gets keystrokes
     int loop();  ///< Interprets keystrokes into actions
     void setOption(std::string);
+
+    WINDOW* statusline = newwin(1, COLS, LINES-2, 0);
+    void updateStatusLine();
 };
 
 #define Editor() Editor::getInstance()
