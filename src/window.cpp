@@ -46,7 +46,7 @@ void Window::genSubWindows()
     refresh();
 }
 
-inline void Window::delSubWindows()
+void Window::delSubWindows()
 {
     applyToSubWindows(delwin);
     subWindows = { nullptr, nullptr, nullptr };
@@ -183,14 +183,23 @@ void Window::placeCursor()
     }
 
     auto curLine = currentByte / C;
+    auto maxLine = b.size() / C;
+
+    auto off = opts.scrolloff();
 
     // Scrolling
-    if (curLine >= startline + height()) { // scrolling down
-        startline = curLine - height() + 1;
+    if (curLine >= startline + height() - off) { // scrolling down
+        startline = curLine - height() + off + 1;
+        if (curLine >= maxLine - off) {
+            startline -= (off - (maxLine - curLine));
+        }
         print();
     }
-    else if (curLine < startline) { // scrolling up
-        startline = curLine;
+    else if (curLine < startline + off) { // scrolling up
+        startline = curLine - off;
+        if (curLine <= off) {
+            startline += (off - curLine);
+        }
         print();
     }
 
@@ -293,4 +302,9 @@ char Window::Opts::blank() const
 const char* Window::Opts::hexFmt() const
 {
     return w.buffer->options.get("upper") == "1" ? "%02X" : "%02x";
+}
+
+unsigned short Window::Opts::scrolloff() const
+{
+    return std::stoi(w.buffer->getOption("scrolloff"));
 }

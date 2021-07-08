@@ -67,6 +67,7 @@ private:
         unsigned short cols() const;  ///< Maximal number of columns of bytes
         char blank() const;           ///< Character used for unprintable chars
         const char* hexFmt() const;
+        unsigned short scrolloff() const;
     };
     friend struct Opts;
 

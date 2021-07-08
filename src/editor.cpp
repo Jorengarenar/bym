@@ -71,7 +71,9 @@ void Editor::updateStatusline()
 {
     if (!cw) { return; }
     auto& b = *(cw->buffer);
-    mvwprintw(statusline, 0, 0, "Size: %zu B", b.size()); // TODO
+    mvwprintw(statusline, 0, 0,
+              "Size: %zu B  |  Byte: 0x%02X",
+              b.size(), b[cw->currentByte]); // TODO
     wclrtoeol(statusline);
     wrefresh(statusline);
 }
