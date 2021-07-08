@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['editor_161',['Editor',['../classEditor.html',1,'']]],
-  ['enablecursor_162',['EnableCursor',['../structEnableCursor.html',1,'']]]
+  ['editor_162',['Editor',['../classEditor.html',1,'']]],
+  ['enablecursor_163',['EnableCursor',['../structEnableCursor.html',1,'']]]
 ];

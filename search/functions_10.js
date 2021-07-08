@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['updatestatusline_251',['updateStatusline',['../classEditor.html#aaeb1efa0b2215adabb66b578ec314e1b',1,'Editor']]],
-  ['updatetabline_252',['updateTabline',['../classEditor.html#a09ba16070a5c2f2d6d45097d66e4e454',1,'Editor']]],
-  ['usage_253',['usage',['../main_8cpp.html#a2ef30c42cbc289d899a8be5d2d8f77d0',1,'main.cpp']]]
+  ['updatestatusline_253',['updateStatusline',['../classEditor.html#aaeb1efa0b2215adabb66b578ec314e1b',1,'Editor']]],
+  ['updatetabline_254',['updateTabline',['../classEditor.html#a09ba16070a5c2f2d6d45097d66e4e454',1,'Editor']]],
+  ['usage_255',['usage',['../main_8cpp.html#a2ef30c42cbc289d899a8be5d2d8f77d0',1,'main.cpp']]]
 ];
