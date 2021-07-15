@@ -176,12 +176,6 @@ void Window::placeCursor()
     auto& b = *buffer;
     auto C = opts.cols();
 
-    if (prevByte != currentByte) { // Clear previous cursor background highlight
-        auto x_prev = prevByte % C;
-        auto y_prev = prevByte / C - startline;
-        printByte(b[prevByte], x_prev, y_prev);
-    }
-
     auto curLine = currentByte / C;
     auto maxLine = b.size() / C;
 
@@ -212,6 +206,12 @@ void Window::placeCursor()
     }
 
     printByte(c, x, y, A_REVERSE);
+
+    if (prevByte != currentByte) { // Clear previous cursor background highlight
+        auto x_prev = prevByte % C;
+        auto y_prev = prevByte / C - startline;
+        printByte(b[prevByte], x_prev, y_prev);
+    }
 
     Editor().updateStatusline();
 }

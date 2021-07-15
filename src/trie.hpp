@@ -1,5 +1,5 @@
-#ifndef JOREN_TRIE_HPP_
-#define JOREN_TRIE_HPP_
+#ifndef TRIE_HPP_
+#define TRIE_HPP_
 
 #include <iostream>
 #include <map>
@@ -118,6 +118,6 @@ public:
 
 };
 
-#endif // JOREN_TRIE_HPP_
+#endif // TRIE_HPP_
 
 // vim: fdl=1
