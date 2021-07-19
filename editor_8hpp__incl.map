@@ -1,21 +1,22 @@
 <map id="src/editor.hpp" name="src/editor.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="433,5,544,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="415,5,525,32"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,304,68,331"/>
-<area shape="rect" id="node3" title=" " alt="" coords="627,155,705,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="527,229,611,256"/>
-<area shape="rect" id="node5" href="$buffer_8hpp.html" title=" " alt="" coords="364,155,451,181"/>
+<area shape="rect" id="node3" title=" " alt="" coords="694,155,771,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="525,229,609,256"/>
+<area shape="rect" id="node5" href="$buffer_8hpp.html" title=" " alt="" coords="345,155,432,181"/>
 <area shape="rect" id="node8" href="$options_8hpp.html" title=" " alt="" coords="257,229,355,256"/>
-<area shape="rect" id="node10" href="$cli_8hpp.html" title=" " alt="" coords="729,155,795,181"/>
-<area shape="rect" id="node11" href="$mapping_8hpp.html" title=" " alt="" coords="174,155,281,181"/>
-<area shape="rect" id="node16" href="$parser_8hpp.html" title=" " alt="" coords="797,229,887,256"/>
-<area shape="rect" id="node19" href="$window_8hpp.html" title=" " alt="" coords="526,80,625,107"/>
-<area shape="rect" id="node6" title=" " alt="" coords="459,304,518,331"/>
-<area shape="rect" id="node7" title=" " alt="" coords="635,229,721,256"/>
+<area shape="rect" id="node10" href="$cli_8hpp.html" title=" " alt="" coords="796,155,861,181"/>
+<area shape="rect" id="node11" href="$mapping_8hpp.html" title=" " alt="" coords="163,155,270,181"/>
+<area shape="rect" id="node16" href="$parser_8hpp.html" title=" " alt="" coords="795,229,886,256"/>
+<area shape="rect" id="node19" href="$window_8hpp.html" title=" " alt="" coords="515,80,614,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="437,304,495,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="633,229,720,256"/>
 <area shape="rect" id="node9" title=" " alt="" coords="246,304,297,331"/>
-<area shape="rect" id="node12" href="$util_8hpp.html" title=" " alt="" coords="380,229,451,256"/>
+<area shape="rect" id="node12" href="$util_8hpp.html" title=" " alt="" coords="431,229,501,256"/>
 <area shape="rect" id="node14" href="$trie_8hpp.html" title=" " alt="" coords="110,229,182,256"/>
-<area shape="rect" id="node13" title=" " alt="" coords="619,304,705,331"/>
+<area shape="rect" id="node13" title=" " alt="" coords="614,304,699,331"/>
 <area shape="rect" id="node15" title=" " alt="" coords="106,304,186,331"/>
-<area shape="rect" id="node17" title=" " alt="" coords="861,304,903,331"/>
-<area shape="rect" id="node18" title=" " alt="" coords="765,304,836,331"/>
+<area shape="rect" id="node17" title=" " alt="" coords="778,304,821,331"/>
+<area shape="rect" id="node18" title=" " alt="" coords="845,304,916,331"/>
+<area shape="rect" id="node20" title=" " alt="" coords="609,155,669,181"/>
 </map>

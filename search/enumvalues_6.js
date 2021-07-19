@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['map_316',['MAP',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153a5af1a3a285c2bdee4192223e31e1f833',1,'parser.hpp']]]
+  ['lastbyte_323',['LASTBYTE',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a25c754923fa242236802ea09440dae36',1,'mapping.hpp']]],
+  ['lastcol_324',['LASTCOL',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a5c43cb9d3bb05c1574ec23f017809758',1,'mapping.hpp']]],
+  ['left_325',['LEFT',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498a684d325a7303f52e64011467ff5c5758',1,'LEFT():&#160;mapping.hpp'],['../window_8hpp.html#a224b9163917ac32fc95a60d8c1eec3aaa684d325a7303f52e64011467ff5c5758',1,'LEFT():&#160;window.hpp']]]
 ];

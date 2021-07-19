@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['firstbyte_310',['FIRSTBYTE',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498aa404b3eb770a9adbca3d447ec3399a22',1,'mapping.hpp']]],
-  ['firstcol_311',['FIRSTCOL',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498aebf2eea4ed991fc1641ccaca89548dc8',1,'mapping.hpp']]]
+  ['echo_317',['ECHO',['../parser_8hpp.html#a2afce0a47a93eee73a314d53e4890153ad61484f1331c7f66061e43b859556409',1,'parser.hpp']]],
+  ['erase_318',['ERASE',['../mapping_8hpp.html#a8bb1ef53467e4f61410d12822d922498ab6e3cc3e31aee770c3fb88b25fc68b6e',1,'mapping.hpp']]]
 ];
