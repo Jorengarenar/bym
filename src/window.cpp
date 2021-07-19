@@ -154,6 +154,7 @@ void Window::mvCursor(std::size_t X, std::size_t Y)
 {
     auto c = opts.cols();
     auto maxY = buffer->size() / c;
+    Y += startline;
     if (Y >= maxY) {
         Y = maxY;
         auto maxX = buffer->size() % c;
@@ -182,9 +183,9 @@ void Window::placeCursor()
     auto off = opts.scrolloff();
 
     // Scrolling
-    if (curLine >= startline + height() - off) { // scrolling down
+    if (curLine >= startline + height() - off - 1) { // scrolling down
         startline = curLine - height() + off + 1;
-        if (curLine >= maxLine - off) {
+        if (curLine >= maxLine - off - 1) {
             startline -= (off - (maxLine - curLine));
         }
         print();
