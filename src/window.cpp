@@ -10,7 +10,6 @@ Window::Window(Buffer& buffer_) :
     currentByte(0), prevByte(0),
     startline(0),
     buffer(&buffer_),
-    y(0), x(0),
     opts(*this)
 {
     genSubWindows();
@@ -54,7 +53,7 @@ void Window::delSubWindows()
 
 void Window::buf(Buffer& b)
 {
-    startline = y = x = 0;
+    startline = 0;
     currentByte = 0;
     buffer = &b;
     print();
@@ -113,7 +112,7 @@ void Window::print()
         }
     }
 
-    applyToSubWindows(wclrtoeol);
+    applyToSubWindows(wclrtobot);
     applyToSubWindows(wrefresh);
 }
 
@@ -172,13 +171,18 @@ void Window::mvCursor(std::size_t X, std::size_t Y)
     placeCursor();
 }
 
+void Window::mvCursorToColumn(std::size_t X)
+{
+    mvCursor(X, onScreenXY(currentByte).second);
+}
+
 void Window::placeCursor()
 {
     auto& b = *buffer;
     auto C = opts.cols();
 
     auto curLine = currentByte / C;
-    auto maxLine = b.size() / C;
+    auto maxLine = b.size() / C + (b.size() % C != 0);
 
     auto off = opts.scrolloff();
 
@@ -186,7 +190,7 @@ void Window::placeCursor()
     if (curLine >= startline + height() - off - 1) { // scrolling down
         startline = curLine - height() + off + 1;
         if (curLine >= maxLine - off - 1) {
-            startline -= (off - (maxLine - curLine));
+            startline -= (off + 1 - (maxLine - curLine));
         }
         print();
     }
@@ -198,27 +202,33 @@ void Window::placeCursor()
         print();
     }
 
-    x = currentByte % C;
-    y = curLine - startline;
-
     unsigned char c = 0;
     if (!buffer->empty()) {
         c = b[currentByte];
     }
 
+    auto [ x, y ] = onScreenXY(currentByte);
     printByte(c, x, y, A_REVERSE);
 
     if (prevByte != currentByte) { // Clear previous cursor background highlight
-        auto x_prev = prevByte % C;
-        auto y_prev = prevByte / C - startline;
+        auto [ x_prev, y_prev ] = onScreenXY(prevByte);
         printByte(b[prevByte], x_prev, y_prev);
     }
 
     Editor().updateStatusline();
 }
 
+std::pair<std::size_t, std::size_t> Window::onScreenXY(std::size_t byte) const
+{
+    auto C = opts.cols();
+    auto x = byte % C;
+    auto y = byte / C - startline;
+    return { x, y };
+}
+
 bool Window::inputByte(char* buf)
 {
+    auto [ x, y ] = onScreenXY(currentByte);
     mvwprintw(subWindows.hex, y, x*3, "  ");
     EnableCursor cur;
 
@@ -268,6 +278,39 @@ int Window::replaceByte()
     placeCursor();
 
     return 0;
+}
+
+int Window::insertByte()
+{
+    buffer->bytes.insert(buffer->bytes.begin() + currentByte, 0);
+    print();
+    placeCursor();
+
+    char buf[3] = "00";
+
+    if (inputByte(buf)) {
+        unsigned char b = std::stoi(buf, 0, 16);
+        (*buffer)[currentByte] = b;
+        placeCursor();
+    }
+    else {
+        eraseByte();
+    }
+
+    return 0;
+}
+
+void Window::eraseByte()
+{
+    buffer->eraseByte(currentByte);
+    if (currentByte == 0) {
+        currentByte = 1;
+    }
+    else if (currentByte == buffer->size()) {
+        --currentByte;
+    }
+    print();
+    placeCursor();
 }
 
 void Window::addToByte(unsigned char x)

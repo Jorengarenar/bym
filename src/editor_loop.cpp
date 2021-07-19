@@ -30,10 +30,10 @@ int Editor::loop()
                     break;
 
                 case Action::FIRSTCOL:
-                    cw->mvCursor(0, cw->y);
+                    cw->mvCursorToColumn(0);
                     break;
                 case Action::LASTCOL:
-                    cw->mvCursor(cw->opts.cols() - 1, cw->y);
+                    cw->mvCursorToColumn(cw->opts.cols() - 1);
                     break;
                 case Action::FIRSTBYTE:
                     cw->gotoByte(0);
@@ -94,6 +94,16 @@ int Editor::loop()
 
                 case Action::REPLACE:
                     replaceByte();
+                    break;
+                case Action::INSERT:
+                    cw->insertByte();
+                    break;
+                case Action::APPEND:
+                    cw->currentByte += 1;
+                    cw->insertByte();
+                    break;
+                case Action::ERASE:
+                    cw->eraseByte();
                     break;
                 case Action::INCREMENT:
                     cw->addToByte(1);

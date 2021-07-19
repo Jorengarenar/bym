@@ -31,6 +31,8 @@ public:
     byteType operator  [](std::size_t n) const;
     byteType& operator [](std::size_t n);
 
+    void eraseByte(std::size_t);
+
     std::size_t findByte(
         std::function<bool(byteType)> predicate,
         std::size_t start = 0, std::size_t endOffset = 0

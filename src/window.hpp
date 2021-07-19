@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <memory>
+#include <utility>
 
 #include <ncurses.h>
 
@@ -29,9 +30,12 @@ public:
     void save();                                            ///< Save currently loaded buffer
 
     int replaceByte(); ///< Replaces value of byte
+    int insertByte();
+    void eraseByte();
     void addToByte(unsigned char); ///< Adds value to current byte
 
     void mvCursor(Direction); ///< Movement
+    void mvCursorToColumn(std::size_t X);
     void mvCursor(std::size_t, std::size_t); ///< Movement
 
     void gotoByte(std::size_t); ///< Move directly to byte of given number
@@ -43,8 +47,7 @@ public:
     } subWindows;
 
     Buffer* buffer;
-    std::size_t y; ///< Current line on screen
-    std::size_t x; ///< Current column (current byte in column) on screen
+    std::pair<std::size_t, std::size_t> onScreenXY(std::size_t byte) const;
 
 private:
     inline short height() const;

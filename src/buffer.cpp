@@ -10,8 +10,7 @@
 #include "util.hpp"
 #include "editor.hpp"
 
-Buffer::Buffer() : options(Editor().options), path("")
-{}
+Buffer::Buffer() : options(Editor().options), path("") {}
 
 Buffer::Buffer(const char* p) : options(Editor().options), path(p)
 {
@@ -56,6 +55,11 @@ Buffer::byteType Buffer::operator [](std::size_t n) const
 Buffer::byteType& Buffer::operator [](std::size_t n)
 {
     return bytes[n];
+}
+
+void Buffer::eraseByte(std::size_t i)
+{
+    bytes.erase(bytes.begin() + i);
 }
 
 std::size_t Buffer::findByte(
