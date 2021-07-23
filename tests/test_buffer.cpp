@@ -40,5 +40,5 @@ BOOST_AUTO_TEST_CASE(cols)
 {
     Buffer f;
     auto c = f.getOption("cols");
-    BOOST_CHECK_EQUAL(std::stoi(c), 0);
+    BOOST_CHECK_EQUAL(std::stoi(c), 32);
 }
