@@ -96,6 +96,10 @@ void Window::print()
 
     applyToSubWindows([](WINDOW* w) { wmove(w, 0, 0); });
 
+    if (buffer->empty()) {
+        wprintw(subWindows.numbers, "%08X:\n", 0);
+    }
+
     unsigned short c = 0; // current column of bytes
     unsigned short l = 0; // current line
     for (std::size_t i = startline*cols; l < height() && i < buffer->size(); ++i) {
@@ -202,15 +206,12 @@ void Window::placeCursor()
         print();
     }
 
-    unsigned char c = 0;
-    if (!buffer->empty()) {
-        c = b[currentByte];
-    }
+    Buffer::byteType c = b.empty() ? 0 : b[currentByte];
 
     auto [ x, y ] = onScreenXY(currentByte);
     printByte(c, x, y, A_REVERSE);
 
-    if (prevByte != currentByte) { // Clear previous cursor background highlight
+    if (prevByte != currentByte && prevByte < b.size()) { // Clear previous cursor background highlight
         auto [ x_prev, y_prev ] = onScreenXY(prevByte);
         printByte(b[prevByte], x_prev, y_prev);
     }
@@ -282,6 +283,9 @@ int Window::replaceByte()
 
 int Window::insertByte()
 {
+    if (buffer->empty()) {
+        currentByte = 0;
+    }
     buffer->bytes.insert(buffer->bytes.begin() + currentByte, 0);
     print();
     placeCursor();
@@ -303,10 +307,7 @@ int Window::insertByte()
 void Window::eraseByte()
 {
     buffer->eraseByte(currentByte);
-    if (currentByte == 0) {
-        currentByte = 1;
-    }
-    else if (currentByte == buffer->size()) {
+    if (currentByte == buffer->size() && currentByte > 0) {
         --currentByte;
     }
     print();
@@ -315,6 +316,10 @@ void Window::eraseByte()
 
 void Window::addToByte(unsigned char x)
 {
+    if (buffer->empty()) {
+        Editor().cli.error("Buffer empty");
+        return;
+    }
     (*buffer)[currentByte] += x;
     placeCursor();
 }

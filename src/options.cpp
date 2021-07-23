@@ -2,10 +2,10 @@
 
 Options::Options() :
     opts{
-         { "cols",      "0" },
-         { "blank",     "." },
-         { "upper",     "1" },
-         { "scrolloff", "5" },
+         { "cols",      "32" },
+         { "blank",     "."  },
+         { "upper",     "1"  },
+         { "scrolloff", "5"  },
         }
 {}
 

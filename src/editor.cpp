@@ -67,13 +67,18 @@ void Editor::setOption(std::string opt)
     }
 }
 
-void Editor::updateStatusline()
+void Editor::updateStatusline() // TODO
 {
     if (!cw) { return; }
     auto& b = *(cw->buffer);
-    mvwprintw(statusline, 0, 0,
-              "Size: %zu B  |  Byte: 0x%02X",
-              b.size(), b[cw->currentByte]); // TODO
+    mvwprintw(statusline, 0, 0, "Size: %zu B  ", b.size());
+    if (!b.empty()) {
+        wprintw(statusline, "|  Byte: 0x%02X", b[cw->currentByte]);
+    }
+    else {
+        wprintw(statusline, "|  Byte: --");
+    }
+
     wclrtoeol(statusline);
     wrefresh(statusline);
 }

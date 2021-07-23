@@ -15,11 +15,14 @@ Buffer::Buffer() : options(Editor().options), path("") {}
 Buffer::Buffer(const char* p) : options(Editor().options), path(p)
 {
     std::ifstream file(p, std::ios::binary | std::ios::ate);
+    if (!file) { return; }
+
     std::size_t size = file.tellg(); // Determine the file length
+    if (!size) { return; }
+
     file.seekg(0, std::ios::beg);
     bytes.resize(size);
     file.read(reinterpret_cast<char*>(bytes.data()), size);
-    file.close();
 }
 
 size_t Buffer::size()
@@ -59,7 +62,9 @@ Buffer::byteType& Buffer::operator [](std::size_t n)
 
 void Buffer::eraseByte(std::size_t i)
 {
-    bytes.erase(bytes.begin() + i);
+    if (!empty()) {
+        bytes.erase(bytes.begin() + i);
+    }
 }
 
 std::size_t Buffer::findByte(
